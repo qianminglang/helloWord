@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂方法</title>
+</head>
+<script>
+	//这个是工厂方式：
+	//缺点：对象的方法不能共享，每个对象都要存储函数一份，浪费内存
+    function createCat(name,age) {
+		var o=new Object();
+		o.name=name;
+		o.age=age;
+		o.run=function () {
+			console.log("")
+        }
+        return 0;
+    }
+    var c1=createCat();
+    var c2=createCat();
+
+
+    //这个是构造函数创建对象方式
+	//当使用new来调用构造函数的时候
+	//1.创建一个空对象
+	//2.把空对象赋值给this
+	//3.执行构造函数里面的代码，并给this的属性做赋值初始化
+	//4.把新创建的对象返回（如果有返回值，返回值是简单类型直接忽略，还是返回this
+	// ，如果是返回引用类型，则直接返回引用对象）
+	function Dog(name,age) {
+		this.name=name;
+		this.age=age;
+		this.run=function () {
+			console.log('')
+        }
+    }
+	var d1=new Dog("小黄",2);
+	var d2=new Dog("小黑",2);
+
+	//原型构建对象
+	//优点：
+	//    所以原型上的属性和方法在所有的新对象中可以进行共享
+	//缺点：
+	//    如果新对象需要有自己特有的属性值，不与其他对象共享，则必须与构造函数模式进行配合
+</script>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的调用模式</title>
+</head>
+<body>
+	<script>
+		function test(a,b) {
+		    this.a=a;
+		    this.b=b;
+			console.log(this)
+        }
+
+//        //当把它当成构造函数的时候，this指向新创建的对象
+//		var result=new test(1,2);
+//
+//		//当把它当成普通函数的时候，this输出为window
+//		test(1,2);//输出window
+//
+//		var t={
+//		    name:"langlang"
+//		}
+//
+//        //本来直接调用test方法时，this指向的是window，使用
+//		//call方法其实就是改变了this的指向对象，除了第一个参数外
+//		//其他的参数都是传给了test，如果参数个数超过了test方法的形参
+//		//那么参数都是传给了argumeng了，apply方法其实和call方法是一样的
+//		//只不过apply将所有的参数都放入一个数组中了
+//		test.call(t,2,3);
+
+
+//		//把类数组转成真正的数组
+//		//如下是类数组
+//		var t={};//类数组，跟数组类似，但不是数组
+//		t[0]=1;
+//		t[1]=true;
+//		t[2]='langlang';
+//		t.length=3
+//		//即这个地方将上面的类数组转成如下的对象
+//		//t=[1,true,'lang']
+
+
+//		function digui(num) {
+//		    if(num==1){
+//		        return num;
+//			}
+////			return digui(num-1)+num;
+//			return arguments.callee(num-1)+num;
+//        }
+//
+//		console.log(digui(100));
+
+		//我们知道Array.prototype.sort方法可以对数组中的元素进行排序，
+		//排序的算法是根据字符串比较大小的算法进行排序的
+		//不适合于数字的排序
+		var t=[48,2,33,4,55,9,8]
+		console.log(t);//[48,2,33,4,55,9,8]
+		console.log(t.sort());//[2,33,4,48,55,8,9]
+
+		//那么如何对数组进行数字的排序呢？如下：可以使用函数式编程
+		t.sort(function (a,b) {
+			return a-b;
+        })
+		console.log(t);//[2,4,8,9,33,48,55]
+
+        var t=[48,2,33,4,55,9,8]
+		t.map(function (item, index, array) {
+			//item：就是当前的选项，及数组中每个遍历出来的值
+			//index：当前遍历到数组元素的索引
+			//array：就是指当前的整个数组
+			//return就是每个数组元素处理完之后返回的结果
+			//及这个地方最后形成的数组是每个return遍历之后组成的数组
+			//并且原数组是不变的，只是形成了一个新数组
+			return item*2
+		})
+		//上面这个函数式编程的意思是形成一个新数组，切这个新数组的每个元素是原数组每个元素的两倍
+
+	</script>
+</body>
+</html>

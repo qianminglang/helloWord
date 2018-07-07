@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包的应用</title>
+</head>
+<body>
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+<script>
+	var lis=document.querySelectorAll('li');
+	console.log(lis);
+	//循环注册事件的典型错误
+    //事件的方法执行是：当时间触发的时候执行
+	//当事件执行的时候i都已经变成5了，所以每次执行都是打印5
+//	for(var i=0;i<lis.length;i++){
+//	    lis[i].onclick=function (e) {
+//			console.log(i);
+//        }
+//	}
+//	//i=5
+
+
+	//用闭包的自执行函数去改造
+	for(var i=0;i<lis.length;i++){
+		(function (a) {
+		    lis[a].onclick=function (e) {
+                console.log(a);
+            }
+        })(i)
+	}
+
+
+</script>
+</body>
+</html>
