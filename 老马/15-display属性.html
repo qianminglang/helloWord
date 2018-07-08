@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>display属性</title>
+  <style> 
+  .par {
+    /* 当前标签，从文档流中移除掉。 */
+    display: none;
+  }
+  .block-span {
+    display: block;
+  }
+
+  #imgText {
+    width: 200px;
+    height: 180px;
+  }
+  #bt {
+    background-color: green;
+    height: 400px;
+    width: 400px;
+    display: inline-block;
+  }
+  </style>
+</head>
+<body>
+  <div class="par">
+    获得一组广汽本田全新雅阁路试谍照，新车前脸采用单横幅进气格栅，并与两侧羽翼式全LED大灯相连接，整体提升豪华感。动力方面，新车有望换搭全新1.5T或2.0T涡轮增压发动机。此外，全新一代雅阁有望年内正式发布。
+  </div>
+
+  <span class="block-span">我是span1</span>
+  <p>
+    <span id="bt">我是span2</span>
+    <img id="imgText" src="./img/1.jpg" title="美丽的风景" alt="风景图">
+    <span>我是span3</span>
+  </p>
+</body>
+</html>

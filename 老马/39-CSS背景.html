@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>背景</title>
+  <style>
+    div {
+      height: 400px;
+      width: 400px;
+      border: 1px solid saddlebrown;
+    }
+    .bg {
+      /* 设置背景图片,优先级要高于背景色 */
+      background-image: url(./img/1.jpg);
+
+      /* 设置背景色 */
+      background-color: #cda;
+    }
+
+    .bg2 {
+      background-image: url(./img/ybc_hint.png);
+      /* background-repeat: repeat-x; */
+      /* background-repeat: repeat-y; */
+      /* 默认就是横向和纵向都进行平铺图片 */
+      /* background-repeat: repeat; */
+
+      background-repeat: no-repeat;
+      padding-left: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="bg2">新闻标题</div>
+</body>
+</html>

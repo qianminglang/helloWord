@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭合浮动</title>
+  <style>
+    body, div {
+      padding: 0;margin: 0;
+    }
+
+    div {
+      border: 1px solid red;
+    }
+
+    .fl {
+      float: right;
+      height: 100px;
+      width: 100px;
+      background-color: #cda;
+    }
+    .clearfix::after, .clearfix::before {
+      content: " "; /* opera 浏览bug*/
+      display: table;
+    }
+
+    .clearfix::after {
+      clear: both;
+    }
+
+    .clearfix {
+      *zoom: 1;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="clearfix">
+    <div class="fl">浮动的div</div>
+    是段落方式两地分居拉司法局楼上的房间老司机的方老司机水力发电距离
+  </div>
+</body>
+</html>

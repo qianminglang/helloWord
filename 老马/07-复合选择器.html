@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>复合选择器</title>
+  <style>
+  /* 1. 请把li中的class等于current的标签的背景设置为高亮（颜色为蓝色)
+     2. 请把class为news的ul标签下面的所有的li标签中的文字设置为 黑色（#333)
+     3. 请把体育新闻和财经新闻的文字设置为银灰色
+  */
+
+    /* 标签指定式选择器 */
+    li.current {
+      background-color: lightblue;
+    }
+
+    li#home {
+      font-weight: bold;  /*字体加粗*/
+    }
+
+    /* 后代选择器***** */
+    .news a {
+      /* color: #333; */
+      color: green;
+    }
+
+    .othernews a {
+      color: red;
+    }
+
+    /* 并集选择器****** */
+    .f-news a, .s-news a {
+      /* color: silver; */
+    }
+
+   html, body, div, dt, dl, dd, ul, p {
+     padding: 0;   /*内边距*/
+     margin: 0;    /*外边距*/
+   }
+
+  </style>
+</head>
+<body>
+  <ul>
+    <li id="home"><a href="#">首页</a></li>
+    <li><a href="#">产品</a></li>
+    <li class="current"><a href="#">新闻</a></li>
+    <li><a href="#">售后</a></li>
+    <li><a href="#">关于</a></li>
+  </ul>
+
+  <ul class="news">
+    <li><a href="#">印度欲就中印洞朗对峙寻求俄罗斯支持 中方回应</a></li>
+    <li><a href="#">最高检：坚决查处兴风作浪的“金融大鳄”</a></li>
+    <li><a href="#">韩官方称每天吃两个半毒蛋无害 医生:有副作用</a></li>
+    <li><a href="#">军报：对“敌人没胆入侵”盲目自信 或未战先败</a></li>
+  </ul>
+  
+  <dl class="f-news othernews">
+    <dt><a href="#">财经新闻</a></dt>
+    <dd><a href="#"> 媒体：多城限购松动说法不准确 限购仍持续</a></dd>
+    <dd><a href="#">五险一金退休你能拿回多少？养老保险五年就能拿回来</a></dd>
+    <dd><a href="#">京沪高铁复兴号今日开票：最快4小时28分 票价不变</a></dd>
+  </dl>
+
+  <dl class="s-news othernews">
+    <dt><a href="#">体育新闻</a></dt>
+    <dd><a href="#"> 亚冠-武磊两球上港4-0大胜恒大</a></dd>
+    <dd><a href="#">翻身仗!未来霸主雏形 硬仗看武磊</a></dd>
+    <dd><a href="#">恒大队史最惨1败 四冠王最大困难</a></dd>
+  </dl>
+
+</body>
+</html>

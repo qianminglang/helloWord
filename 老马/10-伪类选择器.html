@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>伪类的选择器</title>
+  <style>
+    a:link {
+      color: red;
+    }
+
+    /* 当链接被访问过了之后，就会添加伪类visited */
+    a:visited {
+      color: lawngreen;
+    }
+
+    /* 当鼠标悬停于元素上面的时候，会自动添加伪类：hover */
+    a:hover {
+      color: #fff;
+      background-color: darkmagenta;
+    }
+
+    /* 当链接被点击，但是鼠标不要放开的时候，会自动给链接天津active为例 */
+    a:active {
+      color: gold;
+    }
+
+    /*LoVe HAte   LVHA*/
+
+    /* 获取到焦点的时候，默认给标签添加focus伪类 */
+    input:focus {
+      color: red;
+    }
+    p::first-letter {
+      color: red;
+      font-size: 50px;
+    }
+    p::first-line {
+      color:aqua;
+    }
+
+    a:first-child {
+      background-color: #398;
+    }
+  </style>
+</head>
+<body>
+  <div>
+
+    <a href="#">首页</a>
+    <a href="#">产品</a>
+    <a href="#">新闻</a>
+    <a href="/">新闻</a>
+  </div>
+
+  <input type="text">
+
+  <p>
+      　海外网8月22日电 外交部发言人华春莹22日主持例行记者会，就近期热点进行回应。相关内容如下：
+      
+      　　问：据《印度时报》报道，21日，印度不具名官员称，近期，印度就中印洞朗对峙问题与俄罗斯进行了讨论，重申印方关于中国修路单方面改变现状并对印安全带来严重影响的立场，希望寻求俄方支持。中方对此有何评论？
+      
+      　　答：洞朗地区是毫无争议的中国领土。印方以所谓关切中方修路为借口非法越界，理由荒谬、性质恶劣、事实清楚。解决此事的唯一前提和基础是印方立即无条件撤回所有非法越界的人员和设备。
+      
+      　　大家可以试想，如果姑息和纵容印方的这一荒谬逻辑，那么如果谁看不惯邻居家里的活动，都可以随意闯进邻居家里赖着不走吗？如果循着印方的这一逻辑，是不是中方觉得印度在边境地区大兴土木、大搞基建，威胁了中方的安全，我们就可以堂堂正正地派兵越界到印度境内出手阻止呢？这样岂不是天下大乱，还有什么国际关系准则可言？中方迄今保持着高度克制。我们可以做到仁至义尽，但希望印方能够拿出一个大国应有的负责任、守法律、讲道理的态度，做出理性和明智的判断和决策。
+  </p>
+</body>
+</html>

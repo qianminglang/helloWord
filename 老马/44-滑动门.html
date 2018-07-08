@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>菜单滑动门</title>
+  <style>
+    body, ul, li ,div {
+      margin: 0;padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    .menu {
+      width: 700px;
+      margin: 0 auto;
+    }
+
+    .menu li {
+      float: left;
+      padding-left: 6px;
+      background: url(./img/l.png) no-repeat;
+      margin: 0 -3px;
+    }
+    .menu li a {
+      float: left;
+      height: 35px;
+      line-height: 35px;
+      text-decoration: none;
+      color: #333;
+      padding: 0 30px 0 10px;
+      /* border: 1px solid red; */
+      background: url(./img/r.png) no-repeat right top;
+    }
+    .menu li a:hover {
+      color: green;
+    }
+
+
+  </style>
+</head>
+<body>
+  <ul class="menu">
+    <li><a href="#">菜单1</a></li>
+    <li><a href="#">菜单03</a></li>
+    <li><a href="#">关于我们</a></li>
+    <li><a href="#">超级财大是劳</a></li>
+    <li><a href="#">菜单</a></li>
+  </ul>
+</body>
+</html>

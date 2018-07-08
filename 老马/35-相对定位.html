@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>相对定位</title>
+  <style>
+    body, div {
+      padding: 0;
+      margin: 0;
+    }
+
+    div {
+      border: 1px solid royalblue;
+    }
+
+    .rl {
+      width: 200px;
+      height: 200px;
+      
+      /* 设置了相对定位之后，标签的css就可以设置left、right、top、bottom的css属性*/
+      position: relative;
+      /* 相对于元素原来的位置，左移动10像素 */
+      /* left: 10px; */
+
+      /* 相对于元素正常文档流的 位置的 顶部20像素 */
+      /* top: 20px; */
+
+      right: 10px; 
+       bottom: 20px;
+
+
+      /* 绝对定位 */
+    }
+
+    .ab {
+      position: absolute;
+      left: 100px;
+      top: 20px;
+
+      height: 100px;
+      width:  200px;
+      background-color: #cda;
+    }
+
+    .parent {
+      height: 400px;
+      width: 500px;
+      background-color: #ca0;
+
+      /* 如果父容器设置了relative后，那么它子元素如果设置了absolute定位，那么
+      它的子u元素就按照父容器进行绝对定位
+      子绝对定位，（要根据谁进行绝对定位，那就把谁设置为relatvie定位)
+      子绝父相
+      */
+      position: relative;
+    }
+
+    .f {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      height: 100px;
+      width: 100px;
+      background-color: #09c;
+    }
+  </style>
+</head>
+<body>
+  <div class="rl">
+    我是div
+  </div>
+
+  <div class="parent">
+    父容器
+    <div class="ab">
+      绝对定位
+    </div>
+  </div>
+
+  
+  <div class="parent">
+      父容器
+      <div class="ab">
+        绝对定位
+      </div>
+    </div>
+
+
+    
+  <div class="parent">
+      父容器
+      <div class="ab">
+        绝对定位
+      </div>
+    </div>
+
+  <div class="f">
+    绝对定位
+  </div>
+</body>
+</html>

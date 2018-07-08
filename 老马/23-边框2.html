@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>边框</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+
+      /* 推荐大家使用这种：合写的方式。效率高，简洁，维护也方便 */
+      border: 20px solid purple;
+
+      /* 当边框确实有不相同的情况的时候，可以使用 */
+      /* border-style: dotted;
+      border-color: brown;
+      border-width: 30px; */
+
+      /* 不建议：控制到具体的边框，效率低，另外兼容稍差 */
+      /* border-top-color: gold;
+      border-bottom-width: 50px;
+      border-right-style: dashed; */
+
+      /* 设置一个参数的时候：所有的边框都享受这个设置 */
+      /* border-color: red; */
+
+      /* 第一个参数：上下， 第二个是左右*/
+      /* border-color: blue green; */
+
+      /* 上黄， 左右黑  下绿*/
+      /* border-color: yellow black green; */
+
+      /* 四个参数：上  右  下  左 */
+      /* border-color: red green yellow purple; */
+    }
+
+    table {
+      border: 2px solid pink;
+      /* 让边框折叠 */
+      border-collapse: collapse;
+      
+    }
+
+    input {
+      outline-style: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div> 
+    我是呢哦让
+  </div> -->
+
+  <input type="text">
+
+  <table border="2">
+    <tr>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>方法</td>
+    </tr>
+  </table>
+</body>
+</html>

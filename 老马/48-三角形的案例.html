@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三角形的案例</title>
+  <style>
+    body, div {
+      padding: 0;
+      margin: 0;
+    }
+    .main {
+      width: 600px;
+      margin: 100px auto;
+    }
+    .btn1, .btn2 {
+      position: relative;
+      width: 100px;
+      height: 36px;
+      line-height: 36px;
+      color: #eee;
+      text-align: center;
+      background-color: #90c;
+      border: 1px solid #a3f;
+      border-radius: 3px;
+    }
+
+    .btn1::before {
+      /* 伪元素必须要加content属性 */
+      content: "";
+      position: absolute;
+      left: 45%;
+      top: -12px;
+      display: block;
+      width: 0px;
+      height: 0px;
+      border: 6px solid #90c;
+      border-color: transparent transparent #90c;
+      border-style: dashed dashed solid;
+    }
+
+    .btn2::before {
+      content: "";
+      height: 0;
+      width: 0;
+      display: block;
+      position: absolute;
+      left: -12px;
+      top: 30%;
+      border: 6px solid #90c;
+      border-color: transparent #90c transparent transparent;
+      border-style: dashed solid dashed dashed;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="btn1">
+      气泡按钮
+    </div>
+    <hr>
+
+    <div class="btn2">左侧的气泡按钮</div>
+  </div>
+</body>
+</html>

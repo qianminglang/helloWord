@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>高度塌陷</title>
+  <style>
+    div {
+      border: 1px solid purple;
+    }
+    .child {
+      background-color: #cda;
+      width: 100px;
+      height: 100px;
+
+      float: left;
+    }
+
+    .parent {
+      /* 解决高度塌陷的问题 */
+      overflow: hidden;
+    }
+
+    .d3 {
+      height: 300px;
+    }
+    p {
+      border: 1px solid saddlebrown;
+      width: 150px;
+      height: 150px;
+
+      /* overflow: hidden; */
+      /* overflow: visible; */
+      /* overflow: auto; */
+      overflow: scroll;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child">1</div>
+    <div class="child">2</div>
+    <div class="child d3">3</div>
+  </div>
+
+  <p>老师来到房间了撒娇法律手段解技术等级分类</p>
+</body>
+</html>

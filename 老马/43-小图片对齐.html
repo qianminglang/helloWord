@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小图片对齐三种方式</title>
+  <style>
+    body, ul, li {
+      padding: 0;
+      margin: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    .news li {
+      line-height: 30px;
+      height: 30px;
+    }
+
+    .bg {
+      background: url('./img/ybc_hint.png') no-repeat 0 3px;
+      padding-left: 29px;
+    }
+    .ico {
+      background: url('./img/ybc_hint.png') no-repeat 0 0;
+      width: 21px;
+      height: 21px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .fl .bg-img {
+      background: url('./img/ybc_hint.png') no-repeat 0 0;
+      float: left;
+      height: 30px;
+      width: 21px;
+      margin-top: 4px;
+      margin-right: 8px;
+    }
+    .fl a {
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <ul class="news">
+    <!-- 背景对齐的方式 -->
+   <li class="bg"><a href="#">新闻内容</a></li>
+   
+   <!-- 使用display-inline-block进行对齐 -->
+   <li class="i-tag"><i class="ico"></i> <a href="#">新闻内容</a></li>
+
+   <!-- 最后一种浮动 -->
+   <li class="fl"> <i class="bg-img"></i><a href="#">新闻内容</a></li>
+  </ul>
+</body>
+</html>

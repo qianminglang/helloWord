@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>新浪背景图片案例</title>
+  <style>
+    a {
+      display: inline-block;
+      width: 200px;
+      height: 24px;
+      line-height: 24px;
+      background-image: url('./img/coin_sina_logo.png');
+      background-repeat: no-repeat;
+      padding-left: 26px;
+    }
+    a:hover {
+      background-position: left bottom;
+    }
+    .bg {
+      background-image: url(./img/1.jpg);
+      width: 400px;
+      height: 400px;
+      /* background-position: center center; */
+      /* background-position: 50% 80%; */
+      /* 通过坐标进行控制 */
+      background-position: -500px -600px;
+    }
+  </style>
+</head>
+<body>
+  <a href="#">
+    新浪微博
+  </a>
+  <div>
+    <img src="./img/1.jpg" alt="">
+  </div>
+  <div class="bg">
+
+  </div>
+</body>
+</html>

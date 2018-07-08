@@ -1,0 +1,22 @@
+/*
+* 创建时间： 2017年8月21日20:03:34
+* 创建人： 马伦
+* 用于首页的样式控制
+*/
+p {
+  /* 设置字体的大小为：50像素 */
+  font-size: 50px;
+
+  /* 设置p标签的背景色为银灰色 */
+  background-color: silver;
+}
+
+span {
+  font-size: 28px;
+}
+/*  
+    ===> 这是多行注释
+    ===> sdjflsjl
+    lsjfsld
+    sjdflsj 
+*/
