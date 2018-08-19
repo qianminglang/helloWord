@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数的执行上下文</title>
+</head>
+<body>
+  <script>
+    // 代码执行之前的时候，就会立即创建一个全局的执行上下文Global Excution Context
+    // 创建完了全局的执行上下文之后，把全局执行上下文压入  执行环境栈中。
+    function f1() {
+      console.log('f1');
+    }
+
+    function f2() {
+      console.log('f2');
+      f3();
+    }
+
+    function f3() {
+      console.log('f3');
+      f4();
+    }
+    function f4() {
+      console.log('f4');
+    }
+
+    f1(); // 代码进入执行f1函数，函数内的代码在执行之前，js执行引擎立即创建一个f1的执行环节 f1 Excution Context，立即把这个执行环境压入到 执行环境栈中ecs。
+
+    // f1()函数执行完成之后，从执行环境栈中弹出 f1的执行上下文。
+
+    // f2()函数执行之前，创建f2的执行上下文。亚栈到 执行环境栈中（ecs）
+    f2(); // f2() →f3()→f4();
+    // 因为f2调用了f3函数。f3函数执行之前也创建了一个f3的执行上下文，并压栈到 执行环境栈中。
+    // f3函数调用了f4函数，创建f4的ec。  并把f4的ec 压入到ecs中。
+
+    // f4执行完成，f4的ec出栈。
+    // f3执行完成，f3的ec出栈
+    // f2执行完成，f2的ec出栈
+  </script>
+</body>
+</html>

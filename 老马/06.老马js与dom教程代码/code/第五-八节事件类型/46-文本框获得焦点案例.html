@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文本框获得焦点案例</title>
+  <script src="../js/documentReady.js"></script>
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="box">
+      <input type="text" id="txt1">
+      <input type="text" id="txt2">
+      <input type="text" id="txt3">
+    </div>
+    <input type="button" value="提交" id="btn">
+  </div>
+  <script>
+    (function () {
+      document.myReady(function () {
+        // 页面加载完成后执行的。
+        // 首先获取所有的input标签，绑定 keyup 事件？
+        var box = document.getElementById('box');
+        var inputList = box.getElementsByTagName('input');
+        for (var i = 0; i < inputList.length; i++) {
+          (function (j) {
+            inputList[j].onkeyup = function (e) {
+              // 检测文本框的输入的文本是否达到了3个长度，到了就让下一个文本框获得焦点。
+              if (this.value.length >= 3) {
+                // 让下一个文本框获得焦点。
+                if (j <= 1) {
+                  inputList[j + 1].focus();
+                } else {
+                  // document.getElementById('wrap').getElementsByTagName('input')[j+1].focus();
+                  document.getElementById('btn').focus();
+                }
+              }
+            };
+          })(i);
+        } // end for
+      }); // end for ready
+    })();
+  </script>
+</body>
+
+</html>

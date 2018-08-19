@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>48-事件高级封装</title>
+  <script src="../js/documentReady.js"></script>
+  <script src="../js/EventUtil.js"></script>
+</head>
+
+<body>
+  <input type="button" value="点击" id="btn">
+  <script>
+    (function () {
+      document.myReady(function () {
+        // 拿到按钮
+        var btn = document.getElementById('btn');
+        EventUtil.addEvent(btn, 'click', function (e) {
+          console.log(e);
+          console.log(this == btn);
+          alert('ok');
+        }); // addEvent
+
+      }); // myReady
+    })();
+
+
+var script = document.createElement('script');
+script.type = 'text/javascript';
+var text = document.createTextNode("alert('Lee')"); // 设置script标签内容;IE会报错;
+script.appendChild(text);
+document.getElementsByTagName('head')[0].appendChild(script);
+
+// PS:IE浏览器认为script是特殊元素,不能再访问子节点;
+// 为了兼容,可以使用text属性来代替;
+function loadScriptString(code) {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  try {
+    // IE浏览器认为script是特殊元素,不能再访问子节点;报错;
+    script.appendChild(document.createTextNode(code));　　 // W3C方式;
+  } catch (ex) {
+    script.text = code;　　　　　　　　　　　　　　　　　　　　 // IE方式;
+  }
+  document.body.appendChild(script);
+}
+// 调用;
+loadScriptString("function sayHi(){alert('hi')}");
+  </script>
+</body>
+
+</html>

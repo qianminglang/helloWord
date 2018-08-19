@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>19-函数的递归案例.html</title>
+</head>
+<body>
+  <script>
+    // 19-函数的递归案例.html
+    // var f = function() {
+    //   console.log('sss');
+    // };
+
+    // f(); // 调用函数表达式执行。
+
+    // // 函数命名表达式。fun相当于在函数内部添加一变量fun，fun指向函数自身
+    // // fun === arguments.callee
+    // // fun的作用域在 函数内部。不会影响函数外面的声明的参数或者函数。
+    // var m = function fun() {
+    //   console.log('fun');
+    //   // fun();
+    // };
+
+    // m();
+
+    // 求num的阶乘，用递归实现。
+    // function factorial(num) {
+    //   // 定义一个出口。
+    //   if(num == 1) {
+    //     return 1;
+    //   }
+
+    //   return num * factorial(num -1);
+    // }
+
+    // console.log(factorial(4));
+
+
+    // 求f(n)的斐波那契数列的值。 f(n) = f(n-1) + f(n-2);  n>=3
+    // f(0) = 0, f(1) = 1  f(2) = 1, f(3) = 2....f(4)= 3 f(5) = 5 f(6）= 8)
+    function fibonacci(n) {
+      if(n == 1) {
+        return 1;
+      }
+      if(n == 0) {
+        return 0;
+      }
+
+      return fibonacci(n-1) + fibonacci(n-2);
+    }
+
+   console.log(fibonacci(6));
+  </script>
+</body>
+</html>

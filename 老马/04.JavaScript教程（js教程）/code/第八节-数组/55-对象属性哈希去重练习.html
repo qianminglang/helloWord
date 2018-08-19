@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>55-对象属性哈希去重练习</title>
+</head>
+<body>
+  <script>
+    // 55-对象属性哈希去重练习
+     // 给定一个数组，请去掉数组中的重复数据
+    var t = [90, 8, 34, 8,  2,  39, 90, 87, 34, 22, 10];
+    console.log(t);
+
+    var h = {};  
+    for(var k in t) {
+      var str  = t[k].toString(); // 把数组红的元素赋值给str
+      h[str] = t[k];   // 把数组中的元素值设置给对象的属性，并给属性值赋值为数组的水元素
+      // 我们利用了：对象的属性不能重复，如果重复定义后面的会覆盖前面的定义。
+      // h[8] = 8;
+    }
+
+    var arr = [];
+    for(var m in h) {
+      arr.push(h[m]);
+    }
+
+    console.log(arr);
+  </script>
+</body>
+</html>

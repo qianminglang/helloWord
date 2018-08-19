@@ -1,0 +1,316 @@
+@charset "UTF-8";
+
+body{
+    font-size: 12px;
+    color: #666666;
+}
+a{
+    color: #666666;
+}
+
+.header{}
+
+.header .top-nav{
+    margin: 0 auto;
+    width: 1190px;
+    height: 74px;
+    padding-top: 24px;
+}
+
+.header .top-nav .logo{
+    float: left;
+}
+
+.header .top-nav .logo h1{
+    position: absolute;
+    text-indent: -999999px;
+}
+
+.header .top-nav .user-nav{
+    float: right;
+}
+
+.header .top-nav .search{
+    margin: 0 265px 0 357px;
+    padding-top: 10px;
+    position: absolute;
+}
+
+.header .top-nav .search  .cursor-search{
+    position: relative;
+    display: inline-block;
+    width: 66px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #e9e9e9;
+}
+
+.header .top-nav .search  .cursor-search:hover .course-menu{
+    display: block;
+}
+.header .top-nav .search input{
+    display: inline-block;
+    width: 400px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #e9e9e9;
+    padding-left: 1em;
+}
+
+ .search .cursor-search, .search input{
+    float: left;
+}
+
+.search .course-menu{
+    position: absolute;
+    top:30px;
+    left: -1px;
+    display: none;
+}
+.search .course-menu li{
+    border: 1px solid #e0e0e0;
+    width: 66px;
+}
+
+.search .course-menu li:hover{
+    background-color: #ccc;
+}
+
+.header .top-nav .search .ico-search{
+    display: inline-block;
+    position: relative;
+    top:4px;
+    left: -31px;
+    width: 30px;
+    height: 30px;
+    background: url("../img/search.png") no-repeat;
+}
+
+.header .top-nav .search .icon-triangle{
+    float: right;
+    margin: 13px 8px;
+}
+
+.header .user-nav>ul>li{
+    float: left;
+    line-height: 42px;
+    margin: 0 20px 0 14px;
+}
+.header .user-nav .icon {
+    display: inline;
+    float: right;
+    margin: 21px 0 14px;
+
+}
+
+.user-nav .awatar{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.user-nav .msg-wrap{
+
+    background: url("../img/sprit.png") no-repeat left 11px;
+    width: 34px;
+    height: 40px;
+}
+.user-nav .msg-wrap .msg-num{
+    display: inline-block;
+    background: url("../img/sprit.png") no-repeat 13px -37px;
+    width: 40px;
+    height: 40px;
+}
+.user-nav .msg-wrap .msg-num2{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    color: white;
+    top:-63px;
+    left: 17px;
+}
+
+.user-nav .msg-wrap .user-name .name{
+    display: inline-block;
+    float: left;
+}
+
+
+.user-name .user-cover{
+    position: absolute;
+    display:none;
+
+}
+
+.user-name .name {
+    display: inline-block;
+    position: relative;
+}
+
+.user-name .name:hover .user-cover{
+    display:block;
+    top: 51px;
+    left: -47px;
+}
+
+.user-name .user-cover li{
+    position: relative;
+    display: block;
+    border: 1px solid #f1f1f1;
+    width: 123px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    z-index: 1000;
+}
+
+.user-name .user-cover li:hover{
+    background-color: #f1f1f1;
+}
+
+/*主导航区域开始*/
+
+/*通栏*/
+.site-nav{
+    background-color: #3598db;
+}
+/*版心*/
+.header .site-nav-wrap{
+    margin: 0 auto;
+    width: 1190px;
+    height: 62px;
+    line-height: 62px;
+}
+
+.site-nav{
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.site-nav .site-nav-wrap .main-nav{
+    float: left;
+}.site-nav .site-nav-wrap .nav-aside{
+    float: right;
+     background-color: #e7594d;
+}
+
+.site-nav .main-nav .menu-item{
+    float: left;
+    margin-right: 10px;
+}
+
+.site-nav .main-nav .menu-item a{
+    display: inline-block;
+    height: 32px;
+    padding: 0 22px;
+    line-height: 32px;
+    border-radius: 3px;
+}
+
+.site-nav .main-nav .cur a,.site-nav .main-nav a:hover{
+    background-color: #2db0f9;
+}
+
+.nav-aside{
+    padding-left: 20px;
+}
+
+.nav-aside .menu-item{
+    float: right;
+    height: 62px;
+    margin-left:24px;
+}
+
+.site-nav .redclass-wrap{
+    position: relative;
+    margin-left: 1190px;
+}
+
+.site-nav .redclass-wrap .redclasshei{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color:#e7594d;
+    height: 62px;
+    width: 50%;
+}
+
+/*解决弹出层背景透明，其实只是将弹出层的背景变成白色*/
+.cover {
+    background-color: #fff;
+}
+
+
+.banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-radio{
+    position: absolute;
+    width: 90px;
+    height: 12px;
+    background-color: red;
+    left: 50%;
+    margin-left: -45px;
+    top: 373px;
+}
+
+
+
+/*圆点*/
+.circle{
+    width:12px;
+    height:12px;
+    background-color:#fff;
+    border-radius:6px; /* 图形的半径 */
+}
+
+.banner-radio .one {
+    float: left;
+    background-color: #0000ee;
+}
+.banner-radio .two{
+    margin: 0 auto;
+    background-color: yellow;
+}
+.banner-radio .tree{
+    float: right;
+    background-color: black;
+}
+
+.main .course-list{
+    margin: 0 auto;
+    width: 1190px;
+    padding-top: 25px;
+}
+
+.main .course-list .course-title{
+    display: inline-block;
+    border-left: 7px solid #2db0f9;
+    padding-left: 16px;
+}
+
+.main .course-list .course-header{
+    line-height: 22px;
+    font-size: 24px;
+    height: 22px;
+}
+
+.main .course-list .course-more{
+     float: right;
+}
+
+.course-body .course-item{
+    float: left;
+    padding-top: 30px;
+    margin-left: 14px;
+}
+.course-body .course-item .p-name{
+    float: left;
+    line-height: 28px;
+    font-size: 14px;
+    width: 217px;
+}

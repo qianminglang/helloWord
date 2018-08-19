@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>浏览器时钟</title>
+</head>
+<body>
+  <script>
+    // window.setInterval()
+    // 可以传两个参数：
+    // 1、要执行的代码段（可以是一个函数，也可以是一段代码字符串
+    // 2、要间隔执行代码段的毫秒数。
+    var t = setInterval(function(){
+      // console.log(1);
+      console.log(new Date());
+    }, 1000);
+
+    // 不推荐使用，代码字符串的方式。
+    // setInterval(" console.log(new Date());", 2000);
+
+
+    // setTimeOut(func, delay); // 延迟delay毫秒之后，执行代码段（函数）但只执行一次。
+    setTimeout(function(){
+      // console.log('hi laoma')
+      // 停止上面的时钟。
+      console.log(t);
+      clearInterval(t);  // 停止间断循环执行的 setInterval时钟。
+    }, 5000)
+
+  </script>
+</body>
+</html>

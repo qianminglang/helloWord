@@ -1,0 +1,42 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>do-while语句</title>
+  </head>
+  <body>
+    <script>
+      var i = 0;  // 循环的索引
+      do {
+        console.log(Math.random() * 100);
+        i++;      // 让索引加1
+        console.log(i);
+      } while( i < 10 );
+
+      console.log('循环执行完成');
+
+      // 循环的特点：
+      // 1. 都有一个索引变量，。  要么0，要么1。 i，k,j一般都用这些变量名做索引变量。
+      // 2. 在循环体内或者每次循环的时候都要对循环的索引+1
+      // 3. 都有一个判断表达式进行退出的出口。
+
+
+      // for( 索引的赋值表达式; 判断表达式; 索引后续处理表达式 ) {
+      //   // for 循环的语句块
+      // }
+      // 第一：先执行（索引赋值表达式），而且只执行一次。
+      // 第二：执行判断表达式，如果是真值，那么执行语句块。否则结束当前for循环语句。
+      // 第三：执行完语句块后，执行索引后续处理表达式。
+      // 第四：继续重复 第二和第三步骤。
+
+      // 赋值表达式：执行一次。 var i = 1;
+      // 判断表达式是每次循环的开始，  然后执行语句块， 最后执行 索引后续处理表达式+1.
+      for(var i = 1; i <= 10; i++) {
+        // 循环体：每次循环都会执行一次。
+        console.log(Math.random() * 100);
+      }
+    </script>
+  </body>
+  </html>

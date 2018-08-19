@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>演示js的三种用法</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <!-- js第一种形式：行内的js脚本 -->
+  <h1 onclick="alert('123')">标题标签</h1>
+
+  <script type="text/javascript">
+    // 嵌入的js脚本，一般会写在body之前。
+    alert('demo-alert')
+  </script>
+
+  <!-- 外部的js脚本 -->
+  <script src="./js/01.js" defer></script>
+
+</body>
+</html>

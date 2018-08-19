@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>if-练习</title>
+</head>
+<body>
+  <script>
+  // 2、给定一个数值变量（1-7之间）如果是6、7则输出周末，否则输出工作日.
+  var a = 7;  
+  // if( a == 6 ) {
+  //   console.log('周末');  //  a== 6 和 a == 7 的if的代码段，一致
+  // } else if( a == 7 ) {
+  //   console.log('周末');
+  // } else {
+  //   console.log('工作日');
+  // }
+
+  // 判断合并
+  if( a==6 || a==7 ) {
+    console.log('周末');
+  } else {
+    console.log('工作日');
+  }
+
+
+  //3、判断用户名是否为空
+  // var userName = undefined;  // undefined  ''   'malun' null
+  // var userName = "";  // undefined  ''   'malun' null
+  var userName = "ssss";  // undefined  ''   'malun' null
+
+  // null == undefined  => true
+  // if( userName == null || userName == undefined ) { // userName == null || userName == undefined
+  // }
+  if( userName == null || userName.length == 0 ) {
+    console.log('空！')
+  }
+
+  // 4、 判断一个变量是不是字符串，如果是字符串请将字符串转为数值类型并返回结果。否则，直接把变量转成boolean类型输出结果。
+  var t = '1243';
+  if( typeof(t) === "string" ) {
+    console.log(Number(t));
+  } else {
+    // console.log(Boolean(t));
+    console.log(!!t);
+  }
+  </script>
+</body>
+</html>

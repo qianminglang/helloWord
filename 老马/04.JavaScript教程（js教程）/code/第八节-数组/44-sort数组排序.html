@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组排序</title>
+</head>
+<body>
+  <script>
+    // 对数组进行排序
+    var t = ['c', 'b', 'd', 'e', 'a'];
+    console.log(t);
+    t.sort(); // 对数组中的元素进行排序
+    console.log(t);
+
+
+    // 如果是数字进行排序
+    var arr = [33, 10,  1, 22, 12, 222, 30];
+    console.log(arr);
+    // sort方法是按照字符串进行比较大小规则计算排序的。
+    // 如果数组中的元素不是字符串类型会转成字符串后进行比较。
+    arr.sort();
+    console.log(arr);
+  </script>
+</body>
+</html>

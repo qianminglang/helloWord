@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>关闭消息框</title>
+  <style>
+    #msgBox {
+      border: 1px solid #aaa;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+    }
+    #msgCloseBtn {
+      width: 50px;
+      height: 18px;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      background: url(../img/close2.png) no-repeat;
+      cursor: pointer;
+    }
+  </style>
+  
+  <script src="../js/documentReady.js"></script>
+  <script src="../js/EventUtil.js"></script>
+</head>
+<body>
+  <div id="msgBox">
+    <div id="msgCloseBtn"></div>
+    是的房间里司法局了事件辅导老师加法
+  </div>
+
+  <script>
+    (function(){
+      document.myReady(function(){
+        var msgCloseBtn = document.getElementById('msgCloseBtn');
+        EventUtil.addEvent(msgCloseBtn,'click', function(e) {
+          // this == msgCloseBtn
+          this.parentNode.style.display = 'none';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

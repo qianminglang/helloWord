@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原型链</title>
+</head>
+
+<body>
+  <script>
+    function Dog() { // 构造函数声明
+      this.age = 20;
+    }
+
+    // 构造函数原型对象上添加属性 weight
+    Dog.prototype.weight = 20;
+
+    // 创建对象实例
+    var m = new Dog();
+    
+  </script>
+</body>
+
+</html>

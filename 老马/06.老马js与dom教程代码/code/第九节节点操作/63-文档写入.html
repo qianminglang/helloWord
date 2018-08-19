@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文档写入</title>
+</head>
+<body>
+  <h1>的十分了解</h1>
+  <script>
+    // 文档加载过程中，写入文档，会随着页面一块输出。
+    document.write("<h2>document.write</h2>");
+  </script>
+  <h3>这是最后的标签</h3>
+  <input type="button" value="打印">
+  <script>
+    window.onload = function() {
+      // 文档加载完成后再写入，会把之前的冲掉。
+      // document.open();
+      // document.write('<h1>你好</h1>')
+      // document.close();
+    }
+  </script>
+</body>
+</html>

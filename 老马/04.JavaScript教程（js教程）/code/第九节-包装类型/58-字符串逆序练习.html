@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>字符串逆序</title>
+</head>
+<body>
+  <script>
+    // 请编写代码实现字符串逆序。至少2种方法。
+    var t = "123456";
+    // 第一种方法：使用数字的reverse方法可以对数组进逆序。然后实现字符串逆序。
+
+    // 将字符串直接转换成了字符数组。
+    // var arr = t.split(''); // arr => ['1','2','3'....]
+    // console.log(arr instanceof Array);
+    // console.log(arr);
+
+    // // 将字符数组进行逆序
+    // arr = arr.reverse();
+
+    // // 将数组进行连接字符串。
+    // // arr.toString();// 将数组链接成以逗号分隔的字符串。
+    // var result = arr.join("");// join也是将数组链接成字符串，可以指定链接符号。
+    // console.log(result);
+
+    // // 方法链
+    // var m = t.split('').reverse().join("");
+    // console.log(m);
+
+
+    // 第二种逆序的方法：从后往前遍历每个字符，然后用空字符串去累加。
+    var res = "";
+    for(var k = t.length -1; k >= 0; k--) {
+      res += t[k];
+    }
+    console.log(res);
+
+  </script>
+</body>
+</html>

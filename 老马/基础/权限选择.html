@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>权限选择</title>
+	<script type="text/javascript">
+        //====================多选操作====================================
+        function selMultiple(selectSrc, selectDes) {
+            for (var i = selectSrc.childNodes.length - 1; i >= 0; i--) {
+                var option = selectSrc.childNodes[i];
+                if (option.selected == true) {
+                    selectSrc.removeChild(option);
+                    option.selected = false;
+                    selectDes.appendChild(option);
+                }
+            }
+        }
+        function selectToRight() {
+            var selectSrc = document.getElementById("select1");
+            var selectDes = document.getElementById("select2");
+            selMultiple(selectSrc, selectDes);
+        }
+        function selectToLeft() {
+            var selectSrc = document.getElementById("select2");
+            var selectDes = document.getElementById("select1");
+            selMultiple(selectSrc, selectDes);
+        }
+        //====================全选操作====================================
+        function selAll(selectSrc, selectDes) {
+//      这种写法有问题,发现selectSrc.childNodes.length居然等于10,实际上只有5个元素
+//      for (var i = 0; i < selectSrc.childNodes.length; i++) {
+//        var option = selectSrc.childNodes[0];
+//        selectSrc.removeChild(option);
+//        selectDes.appendChild(option);
+//      }
+            var options = selectSrc.getElementsByTagName("option");
+            var optLength = options.length;
+            /*
+			注意:for循环中不能直接使用options.length,因为selectDes.appendChild执行后
+			会导致options.length减一,所以先把options.length存放到一个变量中备用
+			*/
+            for (var i = 0; i < optLength; i++) {
+                var option = options[0]; //这里使用的始终是第0个元素
+                selectDes.appendChild(option);
+            }
+            selectSrc.options.length = 0;
+        }
+        function selectToRightAll() {
+            var selectSrc = document.getElementById("select1");
+            var selectDes = document.getElementById("select2");
+            selAll(selectSrc, selectDes);
+        }
+        function selectToLeftAll() {
+            var selectSrc = document.getElementById("select2");
+            var selectDes = document.getElementById("select1");
+            selAll(selectSrc, selectDes);
+        }
+	</script>
+</head>
+<body>
+<select id="select1" multiple="multiple" style="float:left;width:100px;height:200px;">
+	<option>添加</option>
+	<option>删除</option>
+	<option>修改</option>
+	<option>保存</option>
+	<option>查询</option>
+</select>
+<div style="float:left;width:50px;">
+	<input type="button" style="float:left;width:100%;" value=">" onclick="selectToRight()" />
+	<input type="button" style="float:left;width:100%;" value="<" onclick="selectToLeft()" />
+	<input type="button" style="float:left;width:100%;" value=">>" onclick="selectToRightAll()" />
+	<input type="button" style="float:left;width:100%;" value="<<" onclick="selectToLeftAll()" />
+</div>
+<select id="select2" multiple="multiple" style="float:left;width:100px;height:200px"></select>
+</body>
+</html>

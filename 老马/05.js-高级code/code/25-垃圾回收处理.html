@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>25-垃圾回收处理</title>
+</head>
+<body>
+  <script>
+    // 25-垃圾回收处理
+    
+    // 数组的清零。
+    var a = [1, 9, 20, 333, 4, 43];
+
+    a.forEach(function(item) {
+      console.log(item);
+    });
+
+    // 数组清零，让gc尽快的回收a数组的内存的空间。
+    // a = null; // 首先，把a转成null的类型。 
+    // a = []; // 确实让a变量成一个空数组。但是在堆上重新申请了一个空数组对象。
+
+    a.length = 0; // 可以直接让数字清空，而且数组类型不变。
+
+
+
+    // 对象复用
+    var t = {};// 每次循环都会创建一个新对象。
+    for(var i = 0; i < 10; i++) {
+      // var t = {};// 每次循环都会创建一个新对象。
+      t.age = 19;
+      t.name = '123';
+      t.index = i;
+      console.log(t);
+    }
+
+    t = null; //对象如果已经不用了，那就立即设置为null；等待垃圾回收。
+
+
+    // 在循环中最好也别使用函数表达式。
+    // for(var k = 0; k < 10; k ++) {
+    //   var t = function(a) {  // 创建了10次  函数对象。
+    //     console.log(a);
+    //   };
+
+    //   t(k);
+    // }
+
+    // 推荐用法
+    // function t(a) {
+    //   console.log(a);
+    // }
+    // for(var k = 0; k < 10; k ++) {
+    //   t(k);
+    // }
+    // t = null;
+  </script>
+</body>
+</html>

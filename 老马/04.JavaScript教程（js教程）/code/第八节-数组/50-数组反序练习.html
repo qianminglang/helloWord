@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组反序练习</title>
+</head>
+<body>
+  <script>
+    // 数组反序练习
+    var t = [90, 8, 34,  2,  39, 87, 22, 10];
+
+    console.log(t);
+
+    // 第一种方法：
+    // JavaScript 的arrary数组自带的反序方法；
+    // t.reverse();
+    // console.log(t);
+
+    // 不用reverse方法，自己使用循环实现逆序
+    // 第二种方法：创建一个新数组，逆序之间存放原数组的数据内容
+    // var arr = new Array(t.length);
+    // // for(var i = t.length-1, k =0; i >= 0; i--,k++) {
+    // //   arr[k] = t[i];
+    // // }
+
+    // for(var i=0; i<t.length; i++) {
+    //   arr[t.length-i-1] =t[i];  // 直接把原数组中的数据赋值给 新数组对应位置的元素
+    // }
+    // console.log(arr);
+
+    // 第三种方法：不增加数组的情况下，之间修改；
+    for(var i = 0; i < t.length / 2; i++) {
+      // t[i]   t[t.length-1-i]
+      var temp = t[i];
+      t[i] = t[t.length - 1 - i];
+      t[t.length - 1 - i] = temp;
+    }
+
+    console.log(t);
+  </script>
+  
+</body>
+</html>

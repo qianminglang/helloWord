@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>阻止事件捕获</title>
+  <style>
+    div {
+      border: 1px solid magenta;
+      width: 200px;
+      height: 200px;
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="pDiv">
+    <input type="button" value="按钮" id="btn">
+  </div>
+  <script>
+    var pDiv = document.getElementById('pDiv');
+    var btn = document.getElementById('btn');
+
+    pDiv.addEventListener('click', function(e){
+      alert('父div');
+      e.stopPropagation(); // 阻止事件冒泡或者事件捕获。
+    }, true);
+
+    btn.addEventListener('click', function(e){
+      alert('子btn');
+    }, true);
+
+  </script>
+</body>
+</html>

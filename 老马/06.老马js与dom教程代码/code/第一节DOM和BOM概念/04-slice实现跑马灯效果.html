@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>1234567</title>
+</head>
+<body>
+  <script>
+    // 实现跑马灯效果
+    var intervalID = setInterval(function(){
+      // 拿到当前的页面的title
+      var oldTitle = document.title;
+
+      // 拿到当前页面title的最后一个字符
+      // slice方法，可以接受两个参数。
+      // 第一个参数： 截取字符串起始位置。第二个参数是结束为止。
+      // slice方法不影响原始的字符串，截取到结束位置的前一个元素。
+      var lastChar = oldTitle.slice(oldTitle.length - 1);
+
+      var beforeStr = oldTitle.slice(0, oldTitle.length - 1);
+      document.title = lastChar + beforeStr;
+    }, 500);
+
+    // 5秒钟之后，执行清除时钟的代码
+    setTimeout(function(){
+      clearInterval(intervalID);
+    }, 5000);
+  </script>
+</body>
+</html>

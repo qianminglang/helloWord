@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件对象</title>
+</head>
+<body>
+  <input type="button" value="按钮" id="btn">
+  <script>
+    var btn = document.getElementById("btn");
+    // dom0级绑定事件的方式，兼容性最好。
+    btn.onclick = function(e) {
+      // 标准浏览器中，e就是事件对象。
+      // ie浏览器中是通过window.event属性获取当前的事件对象。
+      e = e ? e : window.event;  // 兼容ie和标准浏览器的获取事件对象。
+      console.dir(e);
+
+      // e.target;// 事件源，
+      // e.serElement;// ie
+      if(e.target === this) {
+        // 判断事件是自己触发的还是冒泡来的。
+      }
+    };
+  </script>
+</body>
+</html>

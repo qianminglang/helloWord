@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>getElementById案例</title>
+</head>
+<body>
+  <p id="p1">段落1</p>
+  <p id="p2">段落2</p>
+  <p id="p3">段落3</p>
+
+  <div class="" id="d1">div</div>
+  <!-- p#pss${段落$}*3 -->
+
+  <!-- 获得段落2的标签对象 -->
+  <script>
+    // 根据标签的id的值在文档中搜索标签。
+    var elementP = document.getElementById('p2');
+    console.log(elementP);
+    // elementP → HTMLParagraphElement（段落标签的原型） → HTMLElement（所有HTML标签的基类接口）  → Element  → Node → EventTarget → Object → null
+    // 接口：有自己规定的方法、属性。但必须有子类给他实现。Elemnet、Node
+    // 类型：可以直接创建实例。比如： Number类型
+
+    var d1 = document.getElementById('d1');
+    // d1 => HTMLDivElement 
+
+    var d2 = document.getElementById('sssldjfsld');
+    // d2  =>  null  一般情况如果函数的没有具体的值，一般都会返回null。
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>循环语句</title>
+</head>
+<body>
+  <script>
+    // 计算1 到100的和。
+    var t = 0; 
+    // t += 1;
+    // t += 2;
+    // t += 3;
+
+    var i = 1;  // 循环的索引。
+    // 当 满足这个判断表达式为真值的时候，不断进行循环执行语句块。
+    while(i <= 100) {
+      // 循环体语句块。
+      t += i;  // t =>1+2=>3 => 6
+      i++; // i =>2 , i => 3 => 4
+    }
+    console.log(t);
+    // 第一步： 判断  判断表达式是否为 真值（1，true、非空字符串等)
+    // 第二步： 如果是真值 那么执行while的语句块，否则结束while语句的循环，继续执行后面的语句。
+    // 继续重复第一步和第二步。
+  </script>
+</body>
+</html>

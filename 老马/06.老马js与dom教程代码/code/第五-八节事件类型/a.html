@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html, body, ul, li, h1, div {
+      padding: 0;
+      margin: 0;
+    }
+
+    .tipBox {
+      position: absolute;
+      border: 1px solid magenta;
+      list-style: none;
+      /* width: 300px; */
+      display: none;
+    }
+
+    .tipBox li {
+      border: 1px solid maroon;
+      background-color: cadetblue;
+      cursor: pointer;
+    }
+    .tipBox li:hover{
+      background-color:aliceblue;
+    }
+  </style>
+</head>
+<body>
+  谦太祥和
+  言兼大一神羊禾嘴
+  <h1 id="t">右键点击老马</h1>
+  <ul class="tipBox" id="tipBox">
+    <li>老马Q：515154084</li>
+    <li>老马手机：18911865673</li>
+    <li>老马学校：https://chuanke.baidu.com/s5508922.html</li>
+  </ul>
+  <script>
+    window.onload = function() {
+      var t = document.getElementById('t')
+      var tipBox = document.getElementById('tipBox');
+      document.oncontextmenu = function(e) {
+        e = e || window.event;
+        if(e.preventDefault) {
+          e.preventDefault();
+        } else {
+          e.returnValue = false;
+        }
+        return false;
+      }
+
+      t.onmousedown = function(e) {
+        e = e || window.event;
+        if(e.button ==2 || e.button == 6) {
+          tipBox.style.display = "block";
+          tipBox.style.left = (e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft)) + 'px';
+          tipBox.style.top = (e.clientY + (document.documentElement.scrollTop || document.body.scrollTop)) + 'px';
+        }
+      }
+
+      document.onclick = function() {
+        tipBox.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

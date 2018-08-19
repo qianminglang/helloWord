@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>求数组的最小值及索引</title>
+</head>
+<body>
+  <script>
+    // 求数组的最小值及索引
+    var t = [90, 8, 34,  2,  39, 87, 22, 10];
+
+    var min,minIndex;
+    min = t[0];  // 初始化默认最小值为第一个值
+    minIndex = 0;
+
+    // 循环数组中的每个值跟默认的最小值进行比较
+    for(var i = 1; i < t.length; i++) {
+      if(t[i] < min) {
+        min = t[i];
+        minIndex = i;
+      }
+    }
+
+    console.log(min);   // => 2
+    console.log(minIndex); // =>3
+
+  </script>
+</body>
+</html>

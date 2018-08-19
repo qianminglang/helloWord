@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>34-组合模式创建对象.html</title>
+</head>
+<body>
+  <script>
+    // 34-组合模式创建对象.html
+    function Cat(age, name) {  // 一般构造函数的首字母大写，我也称是Cat类。
+      this.age = age;   // 每个对象都有自己私有的属性值的属性，放到构造函数中。
+      this.name = name;
+    }
+
+    // 一般类型的方法，都放在原型上，让所有的对象都共享方法的内存。
+    Cat.prototype.run = function() {
+      console.log(this.name + ' running....');
+    }
+    var c1 = new Cat(19, 'jimi');
+    var c2 = new Cat(19, 'Dimk');
+
+    // c1.run === c2.run  // => true
+    c1.age = 20; // c2.age = 19
+
+  </script>
+</body>
+</html>

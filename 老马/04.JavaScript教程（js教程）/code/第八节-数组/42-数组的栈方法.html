@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组的栈方法</title>
+</head>
+<body>
+  <script>
+
+      // 数组可以通过 push 和pop两个方法形成栈数据结构。
+      var t = ['a', 'b', 'c', 'd', 'e', 'f'];
+      console.log(t.length)
+      console.log(t);
+      t.pop();
+      console.log(t);
+      // 从数组的末尾弹出一个元素。并返回弹出的数组元素。数组的长度-1
+      t.pop();
+      console.log(t);
+
+      // 压入一个元素。
+      var r = t.push(3);
+      console.log(r);
+      console.log(t);
+      
+  </script>
+</body>
+</html>

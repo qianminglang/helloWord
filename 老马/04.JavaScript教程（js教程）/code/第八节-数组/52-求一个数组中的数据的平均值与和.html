@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>求一个数组中的数据的平均值与和。</title>
+</head>
+<body>
+  <script>
+    // 求一个数组中的数据的平均值与和。
+    var t = [90, 8, 34,  2,  39, 87, 22, 10];
+
+    var sum = 0, average = 0;
+
+    for(var i = 0; i < t.length; i++) {
+      sum += t[i];
+    }
+
+    console.log('和是：' + sum);
+    console.log('平均值是：' + sum / t.length);
+
+  </script>
+</body>
+</html>

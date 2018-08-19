@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>检测合法值案例</title>
+</head>
+<body>
+  <script>
+    // 案例:一个数组，合法值为1,2或3，其余为不合法，统计合法及不合法的个数。
+    var t = [1, 4, 9, 'sss', 3, '2', 2, 3, 2, 1];
+    var rigthfulNum = 0,  // 合法的个数
+        illNum   = 0;     // 非法的个数
+
+    //第一种： 遍历数组中的每个元素，判断是否是合法，如果合法给rigthfulNum += 1
+    // for(var i = 0; i < t.length; i++) {
+    //   if(t[i] === 1 || t[i] === 2 || t[i] === 3) {
+    //     rigthfulNum += 1;
+    //   } else {    // else可以不用写。
+    //     illNum += 1;  
+    //   }
+    // }
+
+    // console.log('合法：' + rigthfulNum);
+    // console.log('非法：' + illNum);
+
+
+    // // 第二种写法： 只求rightfulNum, illNum通过length - rightfulNum
+    // for(var i = 0; i < t.length; i++) {
+    //   if(t[i] === 1 || t[i] === 2 || t[i] === 3) {
+    //     rigthfulNum += 1;
+    //   } 
+    // }
+    // illNum = t.length - rigthfulNum;  // 通过数组的总长度-合法的剩下的就非法的。
+    // console.log('合法：' + rigthfulNum);
+    // console.log('非法：' + illNum);
+
+    // 第三种：for in
+    // for(var k in t) {
+    //   // console
+    //   switch(t[k]) {
+    //     case 1:
+    //       rigthfulNum += 1;
+    //       break;
+    //     case 2:
+    //       rigthfulNum += 1;
+    //       break;
+    //     case 3: 
+    //       rigthfulNum += 1;
+    //       break;
+    //     default:
+    //       illNum +=1 ;
+    //   }
+    // }
+    // console.log('合法：' + rigthfulNum);
+    // console.log('非法：' + illNum);
+
+    // switch优化版本
+    for(var k in t) {
+      // console
+      switch(t[k]) {
+        case 1:
+        case 2:
+        case 3: 
+          rigthfulNum += 1;
+          break;
+        default:
+          illNum +=1 ;
+      }
+    }
+    console.log('合法：' + rigthfulNum);
+    console.log('非法：' + illNum);
+  </script>
+</body>
+</html>

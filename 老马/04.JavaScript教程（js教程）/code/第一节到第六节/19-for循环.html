@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>for循环</title>
+</head>
+<body>
+  <script>
+    //1. 求从1 到100的和
+    var result = 0; // 放我们最终的计算结果。
+    for(var i = 1; i <= 100; i++) {
+      result += i;
+    }
+
+    console.log(result);
+
+    // 2. 求10的阶乘
+    var result2 = 1, k;
+    for( k = 2; k <= 10; k++ ) {
+      result2 *= k;
+    }
+    console.log(result2);
+
+  </script>
+</body>
+</html>

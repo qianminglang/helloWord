@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>选择器综合练习3</title>
+  <style>
+  /* 要求：
+    1、菜单列表，鼠标悬停的时候，背景变为银灰色，字体颜色为白色（#fff）
+    2、所有的新闻，鼠标悬停，背景色改为金色，字体颜色为白色。
+    3、所有新闻的分组的标题（军事新闻、财经新闻）字体：18像素，字体加粗，字体颜色为绿色。
+  */
+
+  ul.menu li a:hover {
+    color: white;
+    background-color: silver;
+  }
+
+  .news-list a:hover {
+    color: white;
+    background-color: gold;
+  }
+
+  .news-list dt {
+    font-size: 18px;
+    color: green;
+    font-weight: bold;
+  }
+  </style>
+</head>
+<body>
+  <ul class="menu">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">军事</a></li>
+    <li><a href="#">财经</a></li>
+    <li><a href="#">体育</a></li>
+    <li><a href="#">关于</a></li>
+  </ul>
+
+  <dl class="news-list">
+    <dt>军事新闻</dt>
+    <dd><a href="#">美海军又给军舰碰撞事故找了个新理由：网络攻击</a></dd>
+    <dd><a href="#">美台进行秘密军事会晤都谈了什么：台或重金求购F35</a></dd>
+    <dd><a href="#">台“防长”过境美国遭批：小动作不断 挑动大陆神经</a></dd>
+    <dd><a href="#">金正恩参观导弹制造过程 展板疑现歼10战机图案(图)</a></dd>
+  </dl>  
+  
+  <dl class="news-list">
+    <dt>财经新闻</dt>
+    <dd><a href="#">股票 | 券商投入证金维稳资金现浮盈 投资收益由负转正</a></dd>
+    <dd><a href="#">多个城市上调首套房贷利率 房企中报：房企一哥出炉？</a></dd>
+    <dd><a href="#">科技 | 正直播世界机器人大会：奇异机器人一览</a></dd>
+    <dd><a href="#">共享单车二三梯队主动“逃离”一二线城市</a></dd>
+  </dl>  
+
+  <dl  class="news-list">
+    <dt>体育新闻</dt>
+    <dd><a href="#">CBA与李宁达续约协议 总额远超20亿 山东神射加盟山西</a></dd>
+    <dd><a href="#">专栏-为凯尔特人和欧文高兴 博客-恒大到底输在了哪?</a></dd>
+    <dd><a href="#">海口站战火重燃! 超体-实现1亿球迷竞技梦想</a></dd>
+    <dd><a href="#">为凯尔特人和欧文高兴 博客-恒大到底输在了哪?</a></dd>
+  </dl>  
+  
+</body>
+</html>

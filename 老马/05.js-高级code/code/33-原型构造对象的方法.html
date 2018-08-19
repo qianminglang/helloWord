@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原型构建对象的模式</title>
+</head>
+<body>
+  <script>
+    function Cat() {
+      this.age = 19;
+
+      // 如果需要共享的方法和属性咱们一般放到 原型中定义。
+      // this.run = function() {
+      //   console.log('run');
+      // }
+    }
+
+    // 原型中定义属性和方法
+    Cat.prototype.run = function() {
+      console.log(this.name, this.age);
+    };
+    // 问题： 私有的属性希望每个对象私自拥有。
+    Cat.prototype.name = 'black cat!'; // 所有的新对象都共享这个一个属性。
+
+    var c1 = new Cat(); // c1  有自己的run方法
+    var c2 = new Cat(); // c2  有自己的run方法
+
+    console.log(c1.name); // black cat!
+    console.log(c2.name); // black cat!
+    c1.run();  // black cat! 19
+
+    console.log( c1.run === c2.run); // true
+
+    c1.name = 'good cat！';  // 对象的属性分为：读取和设置两种模式。
+    // 如果读取：自己没有这个属性，那么去原型上找，直到找到位置。 如果找不到undefined
+    // 如果是写入：那么自己没有这个属性，那么直接添加一个自己属性。
+    console.log(c1.name , c2.name);
+    // c2 black cat
+  </script>
+</body>
+</html>

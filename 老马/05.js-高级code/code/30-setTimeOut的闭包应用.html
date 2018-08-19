@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>30-setTimeOut的闭包应用.html</title>
+</head>
+<body>
+  <script>
+    // 30-setTimeOut的闭包应用.html
+
+    // 经过多少毫秒后，执行回调函数。
+    // bom的一个方法。接受两个参数：第一个参数是回调函数。
+    // 第二个参数是经过的毫秒数。
+    // setTimeout(function(){
+    //   // 当1000毫秒后，执行当前的函数体。
+    //   console.log('sss');  
+    // }, 1000);
+
+
+    // for(var i = 0; i < 10; i++) {
+    //   setTimeout(function() {  // 注册1秒后的代码执行很快。
+    //     console.log(i); // 函数体是在1秒后才执行。
+    //   }, 1000);
+    // }
+
+    // 用匿名自执行函数解决
+    for(var i = 0; i < 10; i++) {
+      (function(a){
+        setTimeout(function() {  // 注册1秒后的代码执行很快。
+          console.log(a); // 函数体是在1秒后才执行。
+        }, 1000);
+      })(i);
+    }
+
+
+  </script>
+</body>
+</html>

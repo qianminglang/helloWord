@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>37-文本框弹出提示选择框案例</title>
+  <style>
+    body, div, ul, li, p, input {
+      padding: 0;
+      margin: 0;
+    }
+
+    .inputWrap {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 100px;
+      position: relative;
+    }
+    .inputWrap input {
+      width: 286px;
+      border-width: 2px;
+      line-height: 20px;
+      height: 20px;
+      padding: 0 5px;
+    }
+    ul {
+      list-style: none;
+    }
+    .inputWrap .selectBox {
+      border: 1px solid #ccc;
+      width: 298px;
+      display: none;
+      position: absolute;
+    }
+
+    .inputWrap .selectBox li {
+      line-height: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+    .inputWrap .selectBox li:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="inputWrap">
+    <input type="text" id="txt">
+    <ul class="selectBox" id="selectBox">
+      <li>老马1</li>
+      <li>老马2</li>
+      <li>老马3</li>
+      <li>老马4</li>
+    </ul>
+  </div>
+  
+
+  <script>
+    window.onload = function() {
+      var txt = document.getElementById('txt'),
+          selectBox = document.getElementById('selectBox'),
+          liList = selectBox.getElementsByTagName('li');
+      txt.onfocus = function() {
+        selectBox.style.display = "block";
+      };
+   
+      txt.onblur = function() {
+        selectBox.style.display = "none";
+      }
+      for(var i = 0; i < liList.length; i++) {
+        liList[i].onmousedown = tipLiClickHander;
+      }
+    };
+
+    function tipLiClickHander(e) {
+      var txt = document.getElementById('txt');
+      txt.value = this.innerHTML;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自增运算符</title>
+</head>
+<body>
+  <script>
+  var i = 9;  
+  i++;               // 自增运算符， 自己增加1
+  // i = i + 1;
+  console.log( i );  // =>10
+
+  // 自加运算符在前面的时候，先进行自加运算，再参与表达式的运算。
+  ++i;  // i = i + 1;
+  console.log( i ); // =>11
+
+  // var i2 = ++i + 3; // i = 11, ++i > 12   12+3=>15
+  // console.log(i2)
+  
+  var i2 = (i++) + 3; // i = 11, i + 3 > 14  ,最后在让 i= i+1;
+
+  console.log(i2); // => 14
+
+
+  var t = 11;
+  t--;
+  // t = t -1;      // 自减运算符  ，自己减1
+  console.log(t)
+
+
+  // 编码规范中，也强调函数开头定义函数内部的变量。
+  var a = 3,
+      b = 4,
+      c = 5,
+      d = 'sss',
+      f = [],
+      userName = '';
+
+  var a = 3;
+  var b = 'ss';
+  var c = 0;
+
+  ; a = 10,
+    function f() {},
+    f();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>阻止默认行为</title>
+</head>
+<body>
+  <a id="linkToLaoma" href="http://aicoder.com">老马</a>
+  <script>
+    var linkToLaoma = document.getElementById('linkToLaoma');
+    linkToLaoma.onclick = function(e) {
+      e = e || window.event; // 兼容处理事件对象。
+      // 标准浏览器
+      if(e.preventDefault) {
+        e.preventDefault();  // 阻止默认行为
+      } else {
+        e.returnValue = false;  // 兼容ie6-8
+      }
+
+      return false;  // 返回值给一个false，非常有用，也可以实现阻止默认行为的效果。
+    };
+  </script>
+</body>
+</html>

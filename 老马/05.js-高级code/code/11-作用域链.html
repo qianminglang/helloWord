@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>作用域链</title>
+</head>
+
+<body>
+  <script>
+    // 作用域链
+    var t = 0, 
+        m = 10; // 定义了两个全局变量。 VO
+
+    var res = fParent(t, m); // res也是全局变量。
+
+    console.log(res);
+
+    function fParent(a, b) {   // 全局的函数声明，fParent
+      var vParent = 'parent';
+
+      function fChild(c) {
+        var vChild = 'child';
+        return c + vChild;
+      }
+      return a + b + vParent + fChild(a);
+    }
+
+
+    function Dog() {
+      console.log(this);
+    }
+
+    Dog();
+    var d = new Dog();
+    Dog.call(null);
+    
+  </script> 
+</body>
+
+</html>

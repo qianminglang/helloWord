@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>解除事件绑定</title>
+</head>
+<body>
+  <input type="button" value="点击按钮" id="btnClick">
+  <input type="button" value="解除绑定按钮" id="btnRemove">
+
+  <input type="button" value="按钮3" id="btn3">
+  <script>
+    var btnClick = document.querySelector('#btnClick');
+    var btnRemvoe = document.querySelector('#btnRemove');
+    
+    // DOM0绑定事件
+    btnClick.onclick = function() {
+      alert('DOM0 级点击事件');
+    };
+
+    // DOM2 级绑定事件
+    btnRemvoe.addEventListener('click', function(){
+      // 给btnClick按钮的DOM0级事件解绑。
+      btnClick.onclick = null;
+
+      // 给btnclick按钮解绑DOM2级别的事件
+      btnClick.removeEventListener('click', btnClickHander);
+    });
+
+    // DOM2级事件绑定和解绑
+    btnClick.addEventListener('click', btnClickHander);
+
+    // 事件处理程序
+    function btnClickHander() {
+      alert('DOM2级的绑定事件。');
+    }
+
+
+    // 以下解绑方式不行
+    // var btn3 = document.querySelector('#btn3');
+    // btn3.addEventListener('click', function(){
+    //   alert('3');
+    // });
+    // btn3.removeEventListener('click', function(){
+    //   alert('3');
+    // });
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js正则表达式</title>
+</head>
+<body>
+  <script>
+    // 创建一个正则表达式对象    \d+
+    var exp1 = new RegExp('\\d+','g');
+
+    // 创建表达式对象可以用 //g 创建
+    var exp2 = /\d+/g;
+    // console.dir(exp2);
+    // console.dir(exp1);
+
+    // 正则对象的test方法，接受一个字符串，然后进行匹配，如果匹配上了返回true，否则false
+    console.log(exp1.test('6677aads'));
+    console.log(exp1.test('aads'));
+
+  </script>
+</body>
+</html>

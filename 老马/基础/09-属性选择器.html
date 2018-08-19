@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>属性选择器</title>
+  <style>
+    span[class] {
+      color: green;
+    }
+
+    /* 拥有id属性的标签都被选择出来 */
+    [id] {
+      font-size: 50px;
+    }
+
+    span[id="4"] {
+      color: yellow;
+    }   
+    
+    span[class~="demo"] {
+      font-size: 100px;
+    }
+    a:link {
+      color: red;
+    }
+    a:visited {
+      color: blue;
+    }
+
+    a:hover {
+      color: green;
+      background-color: tan;
+    }
+
+    a:active {
+      color: tomato;
+    }
+    input:focus {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <span class="cur demo">1</span>
+    <span>2</span>
+    <span id="3">3</span>
+    <span id="4">4</span>
+    <span>5</span>
+  </p>
+
+</body>
+</html>

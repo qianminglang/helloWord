@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,
+    body,
+    div,
+    input,
+    p,
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wall {
+      height: 100%;
+      height: 627px;
+      width: 960px;
+      background: red url(../img/content_bg.jpg) no-repeat;
+      margin: 0 auto;
+      position: relative;
+      cursor: move;
+    }
+
+    body {
+      background: red url(../img/bg.gif) repeat;
+      font: 12px/20px Arial, 'simsun', 'Tahoma', sans-serif;
+    }
+
+    .tip {
+      width: 227px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .tip .tip_h {
+      background: url('../img/tip1_h.gif') no-repeat;
+      height: 68px;
+    }
+
+    .tip .tip_c {
+      background: url('../img/tip1_c.gif') repeat-y;
+      height: 60px;
+      padding: 10px;
+    }
+
+    .tip .tip_f {
+      height: 53px;
+      background: url('../img/tip1_f.gif') no-repeat;
+      font-size: 14px;
+      line-height: 35px;
+      color: #C0F;
+      text-align: right;
+      padding:10px;
+    }
+
+    .tip .tip_h .msg {
+      padding-top: 40px;
+      padding-left: 10px;
+    }
+
+    .tip .tip_h .btn {
+      position: absolute;
+      right: 10px;
+      top: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wall" class="wall">
+    <div class="tip">
+      <div class="tip_h">
+        <div class="msg">
+        第[]条2017年11月11日12:16:23
+        </div>
+        <i class="btn">X</i>
+      </div>
+      <div class="tip_c">
+        你好的啊！小鸟喜欢你的翅膀颜色！
+        你好的啊！小鸟喜欢你的翅膀颜色！
+        你好的啊！小鸟喜欢你的翅膀颜色！
+      </div>
+      <div class="tip_f">
+          抽刀断水给的留言
+      </div>
+    </div>
+  </div>
+  <script>
+     //模拟数据库，获取信息
+    var data = [{
+        "id": 1,
+        "name": "mahu",
+        "content": "今天你拿苹果支付了么",
+        "time": "2016-02-17 00:00:00"
+      },
+      {
+        "id": 2,
+        "name": "haha",
+        "content": "今天天气不错，风和日丽的",
+        "time": "2016-02-18 12:40:00"
+      },
+      {
+        "id": 3,
+        "name": "jjjj",
+        "content": "常要说的事儿是乐生于苦",
+        "time": "2016-03-18 12:40:00"
+      },
+      {
+        "id": 4,
+        "name": "9.8的妹纸",
+        "content": "把朋友家厕所拉堵了 不敢出去 掏了半小时了都",
+        "time": "2016-03-18 12:40:00"
+      },
+      {
+        "id": 5,
+        "name": "雷锋ii.",
+        "content": "元宵节快乐",
+        "time": "2016-02-22 12:40:00"
+      },
+      {
+        "id": 6,
+        "name": "哎呦哥哥.",
+        "content": "据说今晚央视的元宵晚会导演和春晚导演是同一个人，真是躲得过初一，躲不过十五。",
+        "time": "2016-02-22 01:30:00"
+      },
+      {
+        "id": 7,
+        "name": "没猴哥，不春晚",
+        "content": "班主任:“小明，你都十二岁了，还是三年级，不觉得羞愧吗”？。小明:“一点也不觉得，老师你都四十多岁了，不也是年年在三年级混日子吗？羞愧的应该是你”。老师:……",
+        "time": "2016-02-22 01:30:00"
+      },
+      {
+        "id": 8,
+        "name": "哎呦杰杰.",
+        "content": "真搞不懂你们地球人，月亮有什么好看的，全是坑，还是对面那哥们好看，",
+        "time": "2016-02-22 01:30:00"
+      },
+      {
+        "id": 9,
+        "name": "哎呦哎呦",
+        "content": "今天哪里的烟花最好看！！？答：朋友圈。。。",
+        "time": "2016-02-22 02:30:00"
+      }
+    ];
+    var zIndexMax = 1,
+        isMove = false
+        moveNode= null;
+    window.onload = function() {
+      initWall();
+      // 绑定事件
+      // var tipList = document.querySelectorAll('.tip');
+      var mouseX,
+          mouseY,
+          tipList = [],
+          wall = document.getElementById('wall');
+      for(var k = 0; k < wall.childNodes.length; k++) {
+        if(wall.childNodes[k].nodeType == 1) {
+          tipList.push(wall.childNodes[k]);
+        }
+      }
+      for(var i = 0; i < tipList.length; i++) {
+
+        tipList[i].onmousedown = function(e) {
+          this.style.zIndex = zIndexMax + 1;
+          zIndexMax += 1;
+
+          isMove = true;
+          moveNode = this;
+
+          e = e || window.event;
+          mouseX = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+          mouseY = e.clientY + (document.documentElement.srollTop || document.body.scrollTop);
+        };
+
+        tipList[i].onmouseup = function(e) {
+          isMove = false;
+        };
+        tipList[i].onmouseleave = function(e) {
+          isMove = false;
+        }
+
+        tipList[i].onmousemove = function(e) {
+          e = e || window.event;
+          if(isMove && moveNode == this) {
+            var pageX = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+            var pageY = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+            this.style.left = parseFloat(this.style.left) + (pageX - mouseX) + 'px';
+            this.style.top = parseFloat(this.style.top) + (pageY-mouseY)+ 'px';          }
+            mouseX = pageX;
+            mouseY = pageY;
+        };
+      }
+
+      var closeBtns = document.getElementsByTagName('i');
+      for(var j = 0; j < closeBtns.length; j++) {
+        closeBtns[j].onclick = function() {
+          this.parentNode.parentNode.style.display = "none";
+        };
+      }
+    }
+
+    function initWall() {
+      var htmlStrArray = [];
+      for(var i = 0; i < data.length; i++) {
+        var str ="";
+        str += '<div class="tip">';
+        str +=  '<div class="tip_h">';
+        str +=    '<div class="msg">第[4555' + data[i].id +']条'+ data[i].time +'</div>';
+        str +=    '<i class="btn">x</i>';
+        str +=  '</div>';
+        str +=  '<div class="tip_c">';
+        str +=    data[i].content;
+        str +=  '</div>';
+        str +=  '<div class="tip_f">';
+        str +=    data[i].name
+        str +=  '</div>';
+        str += "</div>"
+        htmlStrArray.push(str);
+      }
+       htmlStrArray.join('');
+       var wall = document.getElementById('wall');
+       wall.innerHTML += htmlStrArray.join('');
+       
+       for(var i = 0; i <wall.childNodes.length; i++) {
+         if(wall.childNodes[i].nodeType == 1) {
+           wall.childNodes[i].style.left = Math.random() * (960-10-227) + 'px';
+           wall.childNodes[i].style.top = Math.random() * (600-221) + 'px';
+         }
+       }
+    }
+  </script>
+</body>
+
+</html>

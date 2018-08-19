@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>41-蝴蝶跟着鼠标飞案例</title>
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+    img {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <img id="imgB" src="a.gif" width="50" height="50" alt="">
+  <script>
+    (function(){
+      window.onload = function() {
+        // 给整个文档添加一个onmousemove事件
+        document.onmousemove = function(e) { // e:MouseEvent,鼠标的事件对象
+          e = e || window.event;
+          // 获取鼠标移动的位置所在整个页面的坐标。
+          // var pageX = e.pageX; // ie9+ chrome ff  
+          var pageX = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+          var pageY = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop)
+          
+          // 给固定定位的图片设置left和top值
+          var imgB = document.getElementById('imgB');
+          imgB.style.left = (pageX-25) + 'px';
+          imgB.style.top = (pageY-25) + 'px';
+        };
+      };
+    })();
+  </script>
+</body>
+</html>

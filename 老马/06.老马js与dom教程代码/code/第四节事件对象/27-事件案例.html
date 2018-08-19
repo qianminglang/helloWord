@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件案例</title>
+</head>
+<body>
+  <input type="text" id="txt">
+  <input type="number">
+  <script>
+    var txt = document.getElementById('txt');
+    
+    // onkeypress事件，当键盘上 键被按下的时候会触发。
+    txt.onkeypress = function(e) {
+      e = e || window.event;
+
+      // 事件对象中的keyCode属性就是你按下的键盘上的键的编码。
+      // console.log(e.keyCode);
+      // 0=> 48  9=>57
+      if(e.keyCode < 48 || e.keyCode > 57 ) {
+        console.log(e.keyCode);
+        return false;// 当键盘按下了非数字键
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>模块化演变</title>
+</head>
+<body>
+  
+  <script>
+
+    // 问题：
+    // function demo() {
+    //   var a = b = c = 9; // a 享受了var关键字， b、c不享受。
+    //   // 如果变量没有声明直接拿来用那么就相当于直接声明了全局变量。
+    // }
+    // demo();
+    // console.log(b); // b = 9
+
+    // // a.js
+    // var m = 0;
+    // console.log(m);
+    // // b.js
+    // var m = 'ssss';
+    // // ....
+
+    // 团队合作噩梦： 变量冲突
+
+    // 尝试解决 命名冲突的问题
+
+    // 第一个尝试；命名空间
+    // a.js  老马  
+    var Shop = {}; // 顶层命名空间
+    Shop.User = {}; // 电商的用户模块
+    Shop.User.UserList = {}; //用户列表页面模块。
+    Shop.User.UserList.length = 19; // 用户一共有19个。
+
+    // b.js 小米开发的。
+    Shop.User.UserDetial = {};
+    Shop.User.UserDetial.length = 20;
+    console.log(Shop.User.UserDetial.length)
+    console.log(Shop.User.UserList.length)
+
+
+    // => 给单个文件里面定义的局部变量都 变成 局部作用域里面的变量。
+    // 第二个尝试：
+    // a.js
+    (function(){
+      var a = 9;
+    })();
+
+
+    // b.js
+    (function(){
+      var a = "ssss";
+    })();
+
+    // 局部作用域和命名空间的用法减少了变量冲突的可能性。
+
+
+    // 第三种尝试： 希望能把自己基类的很多工具封装一个整体的框架
+    // btn \  form \ animate 
+
+    // laoma.js
+    (function(w){
+
+      // 判断laoma框架是否存在，不存在初始化一下。
+      if(!w.laoma) {
+        w.laoma = {};
+      }
+      w.laoma.Btn = {
+        getVal: function() {
+          console.log('val');
+        },
+        setVal: function(str) {
+          console.log('setvale');
+        }
+      };
+
+      // w.laoma = laoma; // 把老马对象传递给window全局变量。
+    })(window || {});
+
+    // laoma.animate.js 
+    // 动画组件
+    (function(w){
+      if(!w.laoma) {
+        w.laoma = {};
+      }
+      w.laoma.animate = {};
+    })(window || {});
+
+    // laoma.form.js 
+    // 动画组件
+    (function(){
+      if(!w.laoma) {
+        w.laoma = {};
+      }
+      w.laoma.form = {};
+    })(window || {});
+
+  </script>
+</body>
+</html>

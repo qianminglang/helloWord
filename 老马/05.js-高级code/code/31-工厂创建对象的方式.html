@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>31-工厂创建对象的方式.html</title>
+</head>
+<body>
+  <script>
+  // 31-工厂创建对象的方式.html
+  var a = {}; // 不能重复的利用  设置公共属性的代码。
+
+  // 工厂模式
+  // 我需要创建10个Cat对象，每个对象都有  年龄、姓名的属性，包括run方法。
+  function createCat(age, name) {  // 工厂模式就是标准化的生成默认对象的函数。
+    var o = new Object();
+    o.age = age;
+    o.name = name;
+    o.run = function() {
+      console.log(o.name + ' running....');
+    };
+    return o;
+  }
+
+  var c = createCat(19, 'dddgg');
+
+  // 优点：
+  // 可以进行批量的创建 都有公共默认值和属性的对象。
+  // 缺点：
+  // 1、对象的方法不能跟其他对象共享，多占用内存。
+  // 2、不能识别对象的原型及构造函数。
+  // c instanceOf  Cat;// false
+  </script>
+</body>
+</html>

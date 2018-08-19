@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>if练习</title>
+</head>
+<body>
+  <script>
+    // 第一、声明两个变量a，b,随机赋值 0-10之间的数，然后如果a > b  那么输出 a，如果a = b 输出=号，如果 a< b 输出  老马
+
+    var a, b;
+    // Math.random() 可以随机生成一个0-1之间的小数。
+    a = Math.random() * 10;   // *10后，生成就是0 -10之间的一个随机数。
+
+    b = Math.random() * 10;
+
+    if( a > b ) {
+      console.log(a);
+    } else if( a == b ) {
+      console.log('=');
+    } else {
+      console.log('老马');
+    }
+
+  </script>
+</body>
+</html>

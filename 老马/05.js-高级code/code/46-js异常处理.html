@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js异常处理</title>
+</head>
+<body>
+  <script>
+    // try {
+    //   console.log(1);
+    //   var t = new ljl(); // 报错， ljl 没有定义
+    //   console.log(2);
+    // } catch(e) {
+    //   // console.dir(e);
+    //   console.log(e.message);
+    // } finally {
+    //   console.log('finally')
+    // }
+
+    // alert('2333');
+
+
+
+    try{
+      add('33', 44);
+    } catch(e) {
+      console.dir(e);
+    }
+
+    alert('2333');
+
+    // console.log(t);
+
+    function add(a, b) {
+      if(typeof(a) != "number") {
+        // throw "穿入参数不是整数类型！";
+        // throw new Error('穿入参数不是整数类型');  // chrome ff浏览器
+        // ie浏览器： 第一个参数：错误的行号，二个参数是 错误消息。
+        // throw new Error(89, '穿入参数不是整数类型'); // ie edge
+        var e = new Error();
+        e.message = "穿入参数不是整数类型";
+        e.name = "parame type error";
+        throw e;
+
+         // 只要遇到了throw ，程序就停住。
+         // 代码跳转到catch 语句，如果没有 catch语句当前js程序就会结束。
+      }
+
+      return a + b;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>队列的数据结构</title>
+</head>
+<body>
+  <script>
+    // 用数组模拟队列数据结构
+    var t = [];
+    // 往队列里面放入 1， 2， 3三个元素。
+    t.push(1);
+    t.push(2);
+    t.push(3);
+    console.log(t);
+
+    // 出队一个元素。  1
+    console.log(t.shift());
+    console.log(t);
+
+    // 再出队一个元素。
+    console.log(t.shift()); //2
+    console.log(t);
+
+    // 队列的特点就是先进先出。
+  </script>
+</body>
+</html>

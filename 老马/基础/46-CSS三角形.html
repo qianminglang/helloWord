@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三角形</title>
+  <style>
+    body,
+    div {
+      padding: 0;
+      margin: 0;
+    }
+
+    .emp {
+      margin: 20px auto;
+      width: 800px;
+    }
+
+    .s1,
+    .s2,
+    .s3 {
+      position: relative;
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #a08;
+      border-radius: 3px;
+      text-align: center;
+      color: #fff;
+      background-color: #c09;
+    }
+
+    .s1:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: -18px;
+      border: 9px solid #c09;
+      border-style: dashed dashed solid;
+      border-color: transparent transparent #c09;
+      width: 0px;
+      height: 0px;
+    }
+
+    .s2:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: -18px;
+      border: 9px solid #c09;
+      border-style: solid dashed dashed;
+      border-color: #c09 transparent transparent;
+      width: 0px;
+      height: 0px;
+    }
+
+    .s3:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -12px;
+      bottom: 30%;
+      border: 6px solid #c09;
+      border-style: dashed solid dashed dashed;
+      border-color: transparent #c09 transparent transparent;
+      width: 0px;
+      height: 0px;
+    }
+
+    .bubble {
+      width: 150px;
+      height: 150px;
+      list-style: none;      
+    }
+    .bubble li {
+      float: left;
+      text-align: center;
+    }
+    .bubble li a {
+      float: left;
+      width: 148px;
+      height: 26px;
+      line-height: 26px;
+      border: 1px solid #ccc;
+      color: #3e3e3e;
+      text-decoration: none;
+    }
+
+    .box-bubble {
+      position: relative;
+    }
+    .box-bubble::before, .box-bubble::after {
+      border: 6px solid #ccc;
+      display: block;
+      content: "";
+      position: absolute;
+      left: 70%;
+      top: -12px;
+    }
+    .box-bubble::before {
+      border-style: dashed dashed solid;
+      border-color: transparent transparent #ccc;
+    }
+
+    .box-bubble::after {
+      border-style: dashed dashed solid;
+      border-color: transparent transparent #fff;
+      top: -10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="emp">
+    <div class="s1">
+      财大气粗
+    </div>
+    <hr>
+    <div class="s2">
+      财大气粗222
+    </div>
+    <hr>
+    <div class="s3">
+        财大气粗3
+    </div>
+    <hr>
+
+    <ul class="bubble box-bubble">
+      <li><a href="#">菜单</a></li>
+      <li><a href="#">菜单</a></li>
+      <li><a href="#">菜单</a></li>
+      <li><a href="#">菜单</a></li>
+      <li><a href="#">菜单</a></li>
+    </ul>
+  </div>  
+</body>
+
+</html>

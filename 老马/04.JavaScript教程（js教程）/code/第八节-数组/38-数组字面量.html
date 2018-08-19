@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组字面量</title>
+</head>
+<body>
+  <script>
+    var a1 = [];  //创建空数组
+
+    // 创建一共复杂数组
+    var a2 = [1, 2, 'sss', true, {age:19}, null, undefined];
+    console.log(a2.toString());
+    console.log(a2);
+
+    var a3 = [2, ,3];  // => [2, undefined, 3]
+    console.log(a3);
+
+    // 这种方式最多，推荐这么使用。
+
+    console.log(a3[0]); // 数组的索引是从0开始。所有开发语言数组都是从0开始。
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>sort高级应用-函数式编程</title>
+</head>
+<body>
+
+  <script>
+    // 此函数接收两个参数，要求返回值为：负数， 0， 正数。如果返回负数代表第一个参数小于第二个参数，0为相等，正数则大于
+    // 定义一个变量，变量的类型的是function
+    var compareFun = function (a, b) {
+      return a - b;  //  a ==b, a-b =0   a<b, a-b =负数
+    };
+
+    var m = [ 3, 20, 10 , 9, 11, 12];
+    console.log(m);
+    // 默认是转成字符串后比较大小。
+    // m.sort();
+    // console.log(m);
+
+    // 利用函数式编程，sort方法可以接受一个比较大小的函数，例如数值比较大小的方法进行排序。
+    // m.sort(compareFun);
+    // console.log(m);
+
+    // 进一步优化。由于匿名函数只用一次，没有必要创建一个变量。直接可以吧匿名函数的表达式传递到sort函数里去就行。
+    m.sort(function(a, b) {
+      return a-b;
+    });
+    console.log(m);
+  </script>
+</body>
+</html>

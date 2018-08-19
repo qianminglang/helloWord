@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>变量提升案例</title>
+</head>
+<body>
+  <script>
+  // 在浏览器中全局对象就是window
+  // 在全局作用域中声明的变量和函数声明都会作为window的属性存在。
+
+  // var a = 9;
+  // function b() {
+  //   console.log(a);
+  // }
+
+  // console.log('a' in window);
+  // console.log(window.a);
+  // console.log(window['a']);
+  // console.log(window.b());
+
+  // 案例2
+  // ("a" in window)  => true
+  // if (!!("a" in window)) { 
+  //   var a = 1;  // 定义了一个a变量，a =undefined，js没有块级作用域
+  // } 
+  // console.log(a);
+
+
+  // 案例3
+  // console.log(a);  // a =>  function a() {}
+  // var a = 20;      // 对a进行重新赋值
+  // console.log(a);  // a => 20
+  // function a() {   // 创建global EC的VO的时候，函数的声明优先级要高于变量的声明。
+  // }
+
+
+  // // 案例4：
+  // f();
+  // console.log('b =' + b);  // 9
+  // console.log('c =' + c);  // 9
+  // console.log(a);  // 出一个异常错误，使用未定义的变量a
+
+  // function f() {
+  //   var a = b = c = 9;  // a是局部变量，b\c是全局变量。
+  //   // var a = 9, b = 9, c = 9;  //定义三个局部变量
+  //   console.log(a); // 9
+  //   console.log(b); // 9
+  //   console.log(c); // 9
+  // }
+
+
+  // 案例5：
+  // f();
+  // function f() {
+  //   for(var k = 0; k < 10; k++) {
+  //     console.log(k);// 0-9
+  //   }
+  //   console.log(k);// 10，js没有块级作用域
+  // }
+
+  </script>
+</body>
+</html>

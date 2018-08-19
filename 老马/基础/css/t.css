@@ -1,0 +1,9 @@
+@charset "UTF8";
+p {
+  color: red;
+  background-color: lawngreen;
+}
+
+body {
+  font-family: "\5b8b\4f53";
+}

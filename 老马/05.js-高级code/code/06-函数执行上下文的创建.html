@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数上下文的创建</title>
+</head>
+<body>
+  <script>
+    // 做变量声明
+    var a1 = 19,
+        a2 = 20,
+        a3 = 'sss',
+        b1 = { name: 'laoma'};
+    
+    // 函数调用
+    a1 = f1(a1, a2); // 函数可以先调用后声明？
+    
+    // 函数声明
+    function f1(a, b) {
+      // f1函数的执行上下文：
+      // 第一步：扫描参数， a = 19, b = 20
+      // 第二步： 扫描函数声明   f2 = function(){}
+      // 第三步： 扫描变量声明   t=undefined, m = undefined, i= undefined
+      
+      var t = 0,
+          m = 10;
+      for(var i = 0; i < a; i++) {
+        console.log(i);
+      }
+      function f2() {
+        console.log(f2);
+      }
+      return a + b;
+    }
+  </script>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>18-函数的递归调用.html</title>
+</head>
+<body>
+  <script>
+    // 18-函数的递归调用.html
+    // 求1 到100的和
+
+    // 常规的写法
+    // var sum = 0,
+    //     n = 100;
+    // for(var i = 1; i <= n; i++) {
+    //   sum += i;
+    // }
+    // console.log(sum);
+
+    // 用递归实现。函数调用函数自己。
+    function sumNum(num) {
+      // 递归一定要有个结束自己调用自己的出口。
+      if(num <= 1) {
+        return num;  // 函数只要执行到return当前函数立即结束执行。
+      }
+
+      // 实现函数调用函数自己。
+      return sumNum(num -1) + num;
+      // arguments.callee在严格模式下回报错，所以不要这么用
+      // return arguments.callee(num -1) + num;
+    }
+
+    console.log( sumNum(100) );
+  </script>
+</body>
+</html>

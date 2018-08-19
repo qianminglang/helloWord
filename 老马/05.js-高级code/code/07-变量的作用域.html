@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>变量的作用域</title>
+</head>
+
+<body>
+  <script>
+    // alt + shift + f   快速格式化我们的代码
+
+    var t = 9; // 全局作用域，在js代码中的任何一个地方都可以访问
+
+    function f1() { // f1 函数全局作用域
+      var t2 = 10; // t2 是f1函数内部可访问
+
+      console.log(t);
+      
+      function f2() { // f2函数式 f1函数的作用域
+        var t3 = 200; // t3 只能在f2函数内部访问
+        console.log(t2);
+        return t2 * t2; // f2函数可以访问f1函数的作用域的变量及 f2自己内部的变量。
+      }
+      return f2();
+    }
+    var m = f1();
+    console.log(m);
+  </script>
+</body>
+
+</html>

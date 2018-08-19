@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body, div {
+      padding: 0;
+      margin: 0;
+    }
+    div.box {
+      width: 400px;
+      height: 400px;
+      padding: 100px;
+      border: 1px solid magenta;
+      background-color: lemonchiffon;
+    }
+    .child {
+      width: 398px;
+      border: 1px solid #090;
+      height: 398px;
+      background-color: magenta;
+    }
+  </style>
+</head>
+<body>
+  <div id="f" class="box">
+    <div class="child"></div>
+  </div>
+  <p id="msg"></p>
+  <script>
+    window.onload = function() {
+      var f = document.getElementById('f');
+      var msg = document.getElementById('msg');
+      f.onclick = function(e) {
+        e = e || window.event;
+        msg.innerHTML = "e.clientX:" +e.clientX ;
+        msg.innerHTML += ",e.clientY:" +e.clientY ;
+        msg.innerHTML += ",e.screenX:" +e.screenX ;
+        msg.innerHTML += ",e.screenY:" +e.screenY ;
+        msg.innerHTML += ",e.offsetX:" +e.offsetX ;
+        msg.innerHTML += ",e.offsetY:" +e.offsetY ;
+        msg.innerHTML += ",e.pageX:" +e.pageX ;
+        msg.innerHTML += ",e.pageY:" +e.pageY ;
+        console.log(msg.innerHTML);
+      };
+    };
+  </script>
+</body>
+</html>

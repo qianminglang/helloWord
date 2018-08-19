@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数四种调用模式案例</title>
+</head>
+<body>
+  <script>
+  // 1.定义按钮类，要求按钮类的构造函数可以接受参数初始化按钮的宽度、高度、坐标xy
+  /*
+  function Btn(width, height, x, y) {
+    // 构造函数内部初始化值。
+
+    this.width = width; //给this对象上的width属性赋值  width参数的参数值。 
+    this.height = height;
+    this.px = x;
+    this.py = y;
+  }
+
+  var b = new Btn(100, 100, 30, 30);
+  */
+
+  // 2、借用Math的min方法实现求数组[2,9,33]中的最小值
+  // var m = Math.min(10, 29, 3);
+  // console.log(m);
+
+  // var m = Math.min.apply(null, [2, 9, 33]);
+  // console.log(m);
+
+  // 3.把类数组转换成真正的数组。
+  // var t = {};  // 类数组，跟数组很相似，但不是数组。
+  // t[0] = 1; 
+  // t[1] = true;  
+  // t[2] = 'laoma';
+  // t.length = 3;
+  // t = [1, true, 'laoma'];
+
+  // var m = [1, 2, 3];
+  // m.slice();// 如果什么都不传，默认是从0索引开始截取到数组最后。
+  // 第一个参数是：截取开始的位置，startIndex
+  // 第二个参数是： 截取结束的位置+1。endeIndex
+
+  // 如果我借用 数组的slice方法，然后把this指向到t对象，那么slice方法就会返回t对象的
+  // 对应的数组。 
+  // var k = Array.prototype.slice.call(t,0);
+  // // 通过一个slice方法可以把类数组转成真正的数组。
+  // console.log(k);
+
+
+  </script>
+  
+</body>
+</html>

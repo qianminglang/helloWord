@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数调用模式</title>
+</head>
+<body>
+  <script>
+    // 函数调用模式
+    // function f(a, b) {
+    //   console.log(a +' ' + b);
+    //   this.a = 19;  // this === window//true
+    //   console.log('a' in window);
+    //   console.log(this);    // window,全局对象，严格模式：undefined
+    // }
+
+    // f(2, 3); // 直接调用函数： f（）；函数调用模式。
+
+
+    function Dog() {
+      this.age = 19;
+      console.log(this);
+    }
+
+    Dog(); // 函数执行模式  => window
+    var d = new Dog(); // 构造函数执行模式  => d对象
+
+  </script>
+</body>
+</html>

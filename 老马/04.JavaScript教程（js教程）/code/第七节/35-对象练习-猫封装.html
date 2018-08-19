@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>猫封装练习</title>
+</head>
+<body>
+  <script>
+    // 封装一个猫对象。猫拥有：颜色、重量、名字、ID等属性，还拥有跑、跳、叫等行为。并调用猫猫的跑方法。
+    // var cat = new Object();
+    var cat = {
+      color: 'red',
+      weight: 20,
+      name: 'kimi',
+      ID: 1234,
+      run: function() {
+        // this就相当于cat对象。在对象的方法中使用this代表当前的对象。
+        console.log(this.name + ' 奔跑方法');
+      },
+      jump: function() {
+
+      }
+    };
+
+    cat.run();
+
+    // 输出猫所有的自定义属性
+    for(var k in cat) {
+      console.log(k);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>map方法</title>
+</head>
+<body>
+
+  <script>
+    //map 方法
+    var t = [ 1, 3, 9, 10, 20 ];
+
+    // for(var i in t) {
+    //   console.log(t[i]);
+    // }
+
+    // 对数组中的每个元素都进行*2，打印结果数组。
+    // map方法，返回一个新数组，每个项处理完成后的结果组成的新数组。
+    //          对原数组没有影响。
+    var m = t.map(function(item, index, array){  
+      // item: 就是当前的选项。
+      // index: 当前选项的索引
+      // array：当前数组
+      // return：  返回每个项处理的结果。
+      return item * 2;
+    });
+
+    console.log(t);
+    console.log(m);
+  </script>
+</body>
+</html>

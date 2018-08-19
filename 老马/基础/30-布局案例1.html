@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>布局案例1</title>
+  <style>
+  body, div, p {
+    padding: 0; margin: 0;
+  }
+
+  div {
+    border: 1px solid lawngreen;
+  }
+
+  .top-nav {
+    height: 100px;
+    width: 960px;
+    margin: 0 auto;
+  }
+  .leftbar {
+    float: left;
+    width: 200px;
+    height: 300px;
+  }
+
+  .content {
+    float: left;
+    width: 756px;
+    height: 500px;
+  }
+
+  .main {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .foot {
+    margin: 0 auto;
+    width: 960px;
+  }
+  </style>
+</head>
+<body>
+  <div class="top-nav">
+    头部区域
+
+  </div>
+  <div class="main">
+    <div class="leftbar">left</div>
+    <div class="content">main</div>
+  </div>
+  <div class="foot">footer</div>
+</body>
+</html>

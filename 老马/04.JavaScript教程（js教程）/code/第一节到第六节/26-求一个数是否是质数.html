@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>求一个数是否是质数</title>
+</head>
+<body>
+  <script>
+    var num = 53;   // 判断num是否是质数
+    for(var i = 2; i < num; i++) {
+      if(num % i == 0) {
+        console.log('不是质数！');
+        break; // 已经判断出不是质数了，后续的循环就不需要执行了。
+      }
+    }
+
+    if( i == num ) {
+      console.log('是质数！');
+    }
+  </script>
+</body>
+</html>

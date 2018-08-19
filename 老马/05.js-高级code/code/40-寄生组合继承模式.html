@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>40-寄生组合继承模式</title>
+</head>
+<body>
+  <script>
+    // 寄生组合继承模式
+    // 组合了：寄生继承模式和借用构造函数继承模式。
+
+    // 父类
+    function Animal(age, name) {
+      this.age = age;
+      this.name = name;
+      this.foods = ['水果','ls'];
+    }
+
+    // 父类原型上的方法：通过寄生继承的方式进行继承.
+    Animal.prototype.run = function() {
+      console.log(this.name + '  runnging');
+    };
+
+    function Cat(age, name) {
+      // 使用借用构造函数继承模式来构建对象的实例属性。
+      Animal.call(this, age, name);
+    }
+    // Cat.prototype = new Animal(); // 多执行了一次父类的构造函数。
+
+    // 寄生继承的方法
+    Cat.prototype = inheritFrom(Animal.prototype);
+
+    var c1 = new Cat(19, 'laom');
+    var c2 = new Cat(19, 'laom2');
+
+    c1.run();
+    c2.run();
+    
+    // 寄生继承模式。
+    function inheritFrom(o) {
+      var t = object(o);
+      t.constructor = Cat; // 把Cat原型的构造函数指回Cat构造函数。
+      return t;
+    }
+
+    // 原型式继承的方法。
+    function object(o) {
+      function F() {}
+      F.prototype = o;
+      return new F();
+    }
+  </script>
+</body>
+</html>

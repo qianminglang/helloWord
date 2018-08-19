@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>斐波那契数列</title>
+</head>
+<body>
+  <script>
+    var fn1 = 1,    // 第一个数
+        fn2 = 1,    // 第二个数
+        n   = 20,   // 求f（20）的值，n=20
+        i,          // 循环索引
+        result;     // 最终的结果
+
+    for( i = 3; i <= n; i++) {
+      // f(n) = f(n-1) + f(n-2)
+      result = fn1 + fn2;   
+      // 2 = 1 + 1   第一次循环
+      // 3 = 2 + 1   第二次循环
+      // 5 = 3 + 2   第三次循环
+      // 8 = 5 + 3   第四次循环 ....
+
+      // 下一次循环的时候，fn1  fn2 怎么变？
+      //  1. fn1 变成 了当前的result
+      //  2. fn2 变成了 当前的fn1
+      fn2 = fn1;
+      fn1 = result;
+      console.log(result + ' ');
+    }
+
+    console.log(result);
+  </script> 
+</body>
+</html>

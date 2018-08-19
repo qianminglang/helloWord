@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>38-原型式继承</title>
+</head>
+<body>
+  <script>
+    // 38-原型式继承
+
+    // o就是要借用的对象。
+    function object(o) {
+      function F() {}
+      F.prototype = o;  // 让空函数的原型指向 o对象。
+      return new F();   // 创建一个f实例，f的内部原型指向o对象。
+    }
+
+    var m = {age = 19, name: 'laoma', friends: ["laoma2", "jimik" ]};
+
+    var m1 = object(m);
+
+    console.log(m1.friends);
+    m1.age = 20;
+    // 优点：
+    // 不需要使用new构造函数就可以直接  构造另外其他对象。
+    // 缺点：
+    // 所有构造出来的实例会共享 原型对象上的引用类型的属性。
+
+    // EC5
+    // Object.create();
+
+  </script>
+</body>
+</html>

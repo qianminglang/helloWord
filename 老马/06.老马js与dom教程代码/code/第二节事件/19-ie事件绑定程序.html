@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IE的事件绑定程序</title>
+</head>
+<body>
+  <input type="button" value="点击" id="btn">
+  <input type="button" value="解绑" id="btnDetach">
+
+  <script>
+    // 获取按钮btn
+    var btn = document.getElementById('btn'); // 兼容非常好。
+    var btnDetach = document.getElementById('btnDetach');
+
+    // 给ie浏览器绑定点击事件
+    btn.attachEvent('onclick', k);
+    btnDetach.attachEvent('onclick', function(){
+      // 对ie浏览器进行解绑事件。
+      btn.detachEvent('onclick', k);
+    });
+
+    // 事件处理程序
+    function k() {
+      alert('ok');
+    }
+  </script>
+</body>
+</html>

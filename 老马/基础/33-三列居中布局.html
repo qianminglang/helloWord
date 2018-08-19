@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三列居中布局</title>
+  <style>
+    body, div {
+      padding: 0;margin: 0;
+    }
+    div {
+      border: 1px solid saddlebrown;
+    }
+    .head, .foot, .center {
+      margin: 0 auto;
+      width: 960px;
+    }
+    .left, .right, .main {
+      float: left;
+    }
+
+    .center {
+      overflow: hidden;
+    }
+    .left, .right {
+      width: 100px;
+      height: 400px;
+    }
+    .main {
+      width: 750px;
+      margin: 0 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="head">顶部</div>
+
+  <div class="center">
+    <div class="left">左侧</div>
+    <div class="main">中间</div>
+    <div class="right">右侧</div>
+  </div>
+
+  <div class="foot">底部</div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/*倒三角*/
+.triangle-down{
+    border: 5px solid #666666;
+    width: 0;
+    height: 0;
+    border-color: #666666 transparent transparent;
+}
+
+/*清除浮动*/
+.clearfix:before, .clearfix:after{
+    content: " ";
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+/*对话框的三角形*/
+.triangle-up-s {
+    position: relative;
+}
+.triangle-up-s:before,.triangle-up-s:after{
+    content: " ";
+    border: 6px solid #f1f1f1;
+    border-style: dashed dashed solid;
+    border-color: transparent transparent #f1f1f1;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: -10px;
+}
+.triangle-up-s:after{
+    border-color: transparent transparent #fff;
+    top: -10px;
+}
+

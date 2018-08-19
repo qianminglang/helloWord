@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>枚举对象的属性</title>
+</head>
+<body>
+  <script>
+    var t = {};
+
+    t.name = '123';
+    t.age = 19;
+    t.run = function() {
+      console.log('ss');
+    }
+
+    for(var k in t) {
+      // k相当于属性的名字的变量
+      // 第一循环的时候，k等于t变量的第一个属性名
+      // 第二次循环的时候，k 等于 t变量的第二个属性的名
+      // .....
+      console.log(k);
+      // t.k// 不可以，k相当于一个变量，k相当于一个字符串。
+      if(typeof(t[k]) == 'number') {
+        console.log(t[k])
+      }
+    }
+  </script>
+</body>
+</html>

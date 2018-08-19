@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数学对象封装</title>
+</head>
+<body>
+  <script>
+    // 封装一个数学对象，对象中包括：Pi属性，获取1-n的和的方法，获取n的阶乘的方法。
+    var myMath = {
+      PI: 3.1415926,
+      sum: function(n) {
+        var result = 0;
+        // 实现1到n的和
+        for(var i = 1; i <= n; i++) {
+          result += i;
+        }
+        return result;
+      },
+      factorial: function(n) {
+        // 求1 到n的阶乘
+        var result = 1;
+        for(var i = 1; i<=n; i++) {
+          result *= i;
+        }
+        return result;
+      }
+    };
+
+    console.log(myMath.PI);
+    console.log(myMath.sum(100));
+    console.log(myMath.factorial(10));
+  </script>
+</body>
+</html>

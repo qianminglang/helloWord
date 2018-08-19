@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>代码的方式绑定事件</title>
+</head>
+<body>
+  <div id="tm">
+    老马的QQ学习群：519628536
+  </div>
+
+  <script>
+    // 第一步拿到 要绑定事件的div
+    var d = document.querySelector('#tm');  // id选择器
+    d.onclick = function() {
+      // 在事件的响应方法中 this 指向当前时间源对象。
+      alert(this.innerHTML);
+    };
+    // 事件的三个要素：  div对象， onclick， 行为：匿名函数
+
+    // d.onclick = function() {
+    //   console.log(1);
+    // };
+    // 这种绑定事件的方式，只能绑定一个方法。
+
+  </script>
+</body>
+</html>

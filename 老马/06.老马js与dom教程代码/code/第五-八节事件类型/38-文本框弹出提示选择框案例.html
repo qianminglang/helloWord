@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>38-文本框弹出提示选择框案例.html</title>
+  <style>
+    html, body, div, ul, li, input {
+      padding: 0;margin: 0;
+    }
+    ul {
+      list-style: none;
+    }
+
+    .search-box-wrap {
+      margin: 0 auto;
+      width: 300px;
+      height: 400px;
+      padding-top: 30px;
+      /* text-align: center; */
+      position: relative;
+    }
+
+    .search-box-wrap .list {
+      border: 1px solid #ddd;
+      width: 198px;
+      display: none;
+      position: absolute;
+    }
+
+    .search-box-wrap .list li {
+      height: 25px;
+      line-height: 25px;
+      padding-left: 5px;
+    }
+    .search-box-wrap .list li:hover {
+      background-color: #eee;
+      cursor: pointer;
+    }
+
+    .txt-search {
+      border-width: 2px;
+      width: 191px;
+      padding-left: 5px;
+      line-height: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-box-wrap">
+    <input type="text" id="txtSearch" class="txt-search">
+    <ul class="list" id="tipList">
+      <li>老马1</li>
+      <li>老马2</li>
+      <li>老马3</li>
+      <li>老马4</li>
+      <li>老马5</li>
+    </ul>
+  </div>
+
+  <script>
+  // 当文本框获得焦点，提示框显示。失去焦点，提示框关闭。
+  (function(){
+    // 模拟的块级作用域，不会影响全局的变量。
+    window.onload = function(){
+      var txtSearch = document.getElementById('txtSearch');
+      var tipList = document.getElementById('tipList');
+      var liList = tipList.getElementsByTagName('li');
+      txtSearch.onfocus = function() {
+        // 弹出提示框
+        tipList.style.display = "block";
+        // 弹出的提示框，不能影响原来的流式布局。
+      };
+
+      txtSearch.onblur = function() {
+        // 关闭提示框
+        tipList.style.display = "none";
+      };
+
+      // 给所有li绑定点击事件，实现li点击后，把li上的文本放到文本框上去。
+      for(var i = 0; i < liList.length; i++) {
+        liList[i].onmousedown = tipLiHandler;
+        // 点击事件和失去焦点事件执行顺序：
+        // 第一步：先执行mousedown事件。事件中：会让被点击的元素获得焦点。那么
+        // 原来获得焦点元素就会失去焦点。
+        // mousedown → 原来获得焦点元素blur事件→ 当前元素的mouseup事件
+        // → click事件执行。
+        // 如果mousedown事件中，阻止默认行为，那么此元素就不会获得焦点。
+      }
+
+      // 所有li标签点击事件的绑定的事件处理程序，减少内存的消耗。
+      function tipLiHandler() {
+        var txt = this.innerHTML; // this === liList[i]
+        txtSearch.value = txt; // 把li标签的文本设置到文本框上去。
+      }
+    };
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>循环-练习</title>
+</head>
+<body>
+  <script>
+    // 案例1：输出10个（0-100之间）随机数
+    var t;
+    // console.log(t);
+    var i = 0; // 循环的索引
+    while( i < 10 ) {
+      // console.log(i);
+      t = Math.random() * 100; // 0 -100
+      console.log(t);
+      i++;  // 必须要有， 如果没有的，那么进入了死循环了。
+    }
+
+
+    // 案例2：实现1到10的阶乘?
+    var m = 1; // 阶乘的索引
+    var result = 1; // 阶乘的结果
+    while(m <= 10) {
+      result *= m;  
+      m++;
+    }
+
+    console.log(result);
+  </script>
+</body>
+</html>

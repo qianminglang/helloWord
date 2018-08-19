@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>13-ul中li标签点击显示内容案例</title>
+</head>
+<body>
+  <ul id="cityList">
+    <li>北京1</li>
+    <li>北京2</li>
+    <li>北京3</li>
+    <li>北京4</li>
+    <li>北京5</li>
+  </ul>
+  <script>
+    // 13-ul中li标签点击显示内容案例
+    // 给所有的li标签绑定点击事件，并弹出li标签的内容
+    // 第一步：先到所有的li标签
+    var liNodeList = document.querySelectorAll('#cityList li');
+    // liNodeList.forEach(function(element, index){
+    //   // 绑定点击事件。
+    //   element.onclick = function() {
+    //     alert(this.innerHTML);
+    //   };
+    //   // 因为：li标签的事件响应方法都是一样的，没有必要没循环一次都创建一个
+    //   // 事件响应函数的对象。
+    // }); 
+
+    liNodeList.forEach(function(element, index){
+      // 直接将元素的事件响应方法指向一个声明的函数。
+      element.onclick = liOnClickHander;   // ***优化，减少了内存消耗。多个li     
+                                           //共用一个函数对象。
+    });
+
+    // li标签点击时触发执行的事件响应方法
+    function liOnClickHander() {
+      alert(this.innerHTML);
+    }
+  </script>
+  
+</body>
+</html>

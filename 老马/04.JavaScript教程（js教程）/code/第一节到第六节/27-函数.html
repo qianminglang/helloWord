@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数</title>
+</head>
+
+<body>
+  <script>
+    // 第一： 基础函数定义
+    // 函数定义可以放在函数调用之前和之后都可以。
+    // 函数的关键字：function
+    function add() {
+      // 函数体
+      console.log('my first function！');
+    }
+
+    // 函数的调用语句。
+    add();
+
+
+    // 第二：带参数的函数
+    // 定义一个函数，实现求两个数的乘积
+    function mult(a, b) {   // a \ b形参。
+      // a * b;
+      console.log(a * b);
+      return a * b;// 把a 和b的相乘=结果返回到函数调用者的地方。
+    }
+
+    // 函数返回的结果： 直接赋值给了变量t
+    // 2 \4 是实际传递的参数，实参。
+    var t = mult(2, 4);  // 执行mult函数。给函数体传递2和4两个参数。
+    console.log('t = ' + t);
+  </script>
+</body>
+
+</html>

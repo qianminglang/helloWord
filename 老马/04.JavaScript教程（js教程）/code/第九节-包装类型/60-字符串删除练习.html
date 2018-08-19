@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>字符串求差运算</title>
+</head>
+<body>
+  <script>
+    // 输入两个字符串，从第一个字符串中删除第二个字符串中的所有字符。不可以使用replace
+    // <!--例如：输入“They are students” 和“aeiou”-->
+    // <!--则删除之后的第一个字符串变成 “Thy r stdnts”-->
+    var str1 = 'They are students',
+        str2 = 'aeiou',
+        res  = '';
+
+    // 思路：
+    // 判断一个字符在另外一个字符串中，使用indexOf(), 返回索引或者-1
+    // 遍历str1中的所有字符，然后判断是否在str2中，如果在就舍弃，不在就加到res中
+
+    for(var k = 0; k < str1.length; k++ ) {  // 不要用for in 去循环字符串中的字符。
+      var c = str1[k];
+      if(str2.indexOf(c) < 0) {
+        res += c;
+      }
+    }
+
+    console.log(res);
+  </script>
+
+</body>
+</html>

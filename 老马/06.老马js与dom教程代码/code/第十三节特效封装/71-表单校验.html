@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>表单校验</title>
+</head>
+<body>
+  <form id="frm" action="#">
+    <table>
+      <!-- <tr>
+        <td>html5 </td>
+        <td>
+          <input type="email" name="txtName" id="txtName">
+          <input type="number" name="txtName" id="txtName">
+          <input type="date" name="txtName" id="txtName">
+        </td>
+      </tr> -->
+      <tr>
+        <td>姓名：</td>
+        <td>
+          <input type="text" name="txtName" placeholder="文本不少于6个字符" id="txtName">
+        
+        </td>
+      </tr>
+      <tr>
+        <td>邮箱</td>
+        <td><input type="text" name="txtEmail" id="txtEmail"></td>
+      </tr>
+      <tr>
+        <td>Tel</td>
+        <td><input type="text" name="txtTel" id="txtTel"></td>
+      </tr>
+     
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="提交">
+          <input type="reset" value="重置">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <script>
+    window.onload = function() {
+      // 拿到表单
+      var frm = document.getElementById('frm');
+      // var frm = document.forms[0];
+
+      // 用户名长度错误是提示的消息
+      var txtNameMsg = document.createElement('span');
+      txtNameMsg.innerHTML = "姓名的字符串长度必须在6-20之间";
+      txtNameMsg.style.color = "red";
+
+      // 表单提交的时候限制性此事件响应方法
+      frm.onsubmit = function(e) {
+        // console.log('frm submit')
+
+        // 校验用户名文本框的字符不少于6个字符,但不能多于20个字符
+        var txtName = document.getElementById('txtName');
+        // txtName.value;
+        var txtNameRegExp = /\w{6,20}/gi;
+        if(txtNameRegExp.test(txtName.value)) {
+          // 移除文本框错误消息
+          txtName.parentNode.removeChild(txtNameMsg);
+        } else {
+          // 校验失败，添加错误信息取消默认操作
+          txtName.parentNode.appendChild(txtNameMsg);
+          return false;
+        }
+
+        // e = e || window.event;
+        // // dom2级绑定事件的取消默认操作的用法
+        // if(e.preventDefault) {
+        //   e.preventDefault();
+        // } else {
+        //   e.returnValue = false;
+        // }
+
+        // // 只兼容dom0级绑定事件的方式
+        // return false;
+      };
+    }
+  </script> 
+</body>
+</html>

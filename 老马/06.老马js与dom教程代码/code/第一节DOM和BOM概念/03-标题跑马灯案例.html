@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>1234567</title>
+</head>
+<body>
+  <script>
+    // console.log(document.title);
+    // 每隔0.5秒，让title最后一个文字放到title最前面去。
+    // 1s = 1000ms
+
+    // 第一种方式
+    setInterval(function(){
+      // 让title最后一个文字放到title最前面去。
+      // 使用字符数组的办法
+      // 数组有： pop方法可以从数组的最后位置弹出一个元素。
+      //         unshift方法可以从数组的头部添加元素。
+
+      // 把字符串转字符数组。
+      var charArray = document.title.split("");
+
+      // 让字符数组的最后的一个元素出数组。
+      var lastChar = charArray.pop();
+
+      // 把最后的一个元素插入到数组的开头。
+      charArray.unshift(lastChar);
+
+      // 把字符数组转成字符串
+      var newTitle = charArray.join("");
+
+      document.title = newTitle;  // 把新的标题改到浏览器上去。
+    }, 800); 
+
+  </script>
+</body>
+</html>

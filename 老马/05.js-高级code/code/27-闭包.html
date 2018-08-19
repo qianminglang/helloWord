@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    // 定义了一个外层的函数
+    function foo(x) {
+      var tmp = 3;  // 定义了一个局部的变量 tmp
+
+      return function (y) {   // 把一个函数作为返回值返回。
+        console.log(x + y + (++tmp)); //  y,   tmp   x   bar
+      };
+    }
+
+    // 调用foo方法执行。并把返回的函数给了 bar变量。
+    var bar = foo(2);  // 此时bar指向了 匿名函数。bar是一个闭包：函数 + x tmp
+    bar(10);
+    bar(20);
+
+
+    function d() {
+      var a = 10;
+      console.log(a);
+    }
+
+    d();
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>39-寄生继承模式</title>
+
+</head>
+<body>
+  <script>
+    // 39-寄生继承模式
+
+    // 原型式继承的方法，传一个对象，
+    // 内部新构造一个对象，新对象的原型指向o对象
+    function object(o) {
+      function F() {}
+      F.prototype = o;
+      return new F();
+    }
+
+    // 寄生继承方式： 其实就是传一个对象到一个方法（工厂方法），方法内部
+    // 根据传来的对象构造一个新对象，并对新对象进行扩展增强，
+    // 返回新对象。
+
+    function createPersion(p) {
+      var o = object(p); // 同p对象构造一个新对象o
+      o.say = function() {  // 对我新构造出来的对象o进行扩展
+        console.log('hi');
+      }
+      return o;
+    }
+  </script>
+</body>
+</html>

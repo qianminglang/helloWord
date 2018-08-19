@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    html, body, div, ul, li { 
+      padding: 0;margin: 0;
+    }
+    ul, ol {
+      list-style: none;
+    }
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    .slideshow {
+      margin: 100px auto;
+      width: 500px;
+      height: 300px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .slideshow ul {
+      height: 300px;
+      width: 2000px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .slideshow ul li {
+      float: left;
+    }
+    .slideshow ul li img {
+      width: 500px;
+      height: 300px;
+    }
+
+    .slideshow .slide-btn {
+      width: 500px;
+      position: absolute;
+      z-index: 100;
+      font-weight: bolder;
+      color: #9c9c9c;
+      top: 50%;
+      margin-top: -20px;
+    }
+
+    .slideshow .slide-btn a {
+      line-height: 30px;
+      font-size: 28px;
+      background-color: rgba(9,9,9,.2);
+      width: 30px;
+      height: 30px;
+      margin: 10px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .slideshow .slide-btn a:hover {
+      background-color: rgba(99,99,99,.7);
+    }
+    .slideshow .slide-btn .prev {
+      float: left;
+    }
+    .slideshow .slide-btn .next {
+      float: right;
+    }
+
+    .slideshow .sel-btn-wrap {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      margin-left: -24px;
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: bolder;
+      color: #fff;
+      z-index: 100;
+    }
+    .slideshow .sel-btn-wrap a {
+      float: left;
+      width: 8px;
+      height: 8px;
+      border-radius: 5px;
+      background-color: #fff;
+      margin-right: 8px;
+    }
+
+    .slideshow .sel-btn-wrap a.on {
+      background-color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slideshow" id="slideshow">
+    <ul class="img-wrap">
+      <li index="0" class="on">
+        <a href="#">
+          <img src="../img/1.jpg" alt="" />
+        </a>
+      </li>
+      <li index="1">
+        <a href="#">
+          <img src="../img/2.jpg" alt="" />
+        </a>
+      </li>
+      <li index="2">
+        <a href="#">
+          <img src="../img/3.jpg" alt="" />
+        </a>
+      </li>
+      <li index="3">
+        <a href="#">
+          <img src="../img/4.jpg" alt="" />
+        </a>
+      </li>
+    </ul>
+    <div class="slide-btn">
+      <a class="prev" href="javascript:void(0)">&lt;</a>
+      <a class="next" href="javascript:void(0)">&gt;</a>
+    </div>
+    <div class="sel-btn-wrap">
+      <a index="0" href="javascript:void(0)" class="sel-btn on"></a>
+      <a index="1" href="javascript:void(0)" class="sel-btn"></a>
+      <a index="2" href="javascript:void(0)" class="sel-btn"></a>
+      <a index="3" href="javascript:void(0)" class="sel-btn"></a>
+    </div>
+  </div>
+
+  <script>
+    var slideTimer;
+    window.onload = function() {
+      // 绑定数据
+      autoSlide();
+      document.querySelector('.slide-btn .prev').onclick = function() {
+        slidePrev();
+        autoSlide();
+      }
+
+      document.querySelector('.slide-btn .next').onclick = function() {
+        slideNext();
+        autoSlide();
+      }
+
+      document.querySelector('.sel-btn-wrap').onclick = function(e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        if(target === this) {
+          return;
+        }
+
+        var nextIndex = parseInt(target.getAttribute('index'));
+        var curImgLi = document.querySelector('.img-wrap .on');
+        var curIndex = parseInt(curImgLi.getAttribute('index'));
+
+        slide(curIndex, nextIndex);
+        autoSlide();
+      }
+    }
+
+    function autoSlide() {
+      if(slideTimer) {
+        clearInterval(slideTimer);
+      }
+      slideTimer = setInterval(function(){
+        slideNext();
+      }, 2000);
+    }
+    
+    function slideNext() {
+
+      var liCur = document.querySelector('.img-wrap .on');
+      var curIndex = liCur.getAttribute('index');
+
+      curIndex = parseInt(curIndex)
+      var nextIndex = (curIndex + 1) % 4;
+      
+      slide(curIndex, nextIndex);
+    }
+
+    function slidePrev() {
+      var liCur = document.querySelector('.img-wrap .on');
+      var curIndex = liCur.getAttribute('index');
+      curIndex = parseInt(curIndex);
+      var nextIndex = (curIndex - 1 + 4) %4;
+      slide(curIndex, nextIndex);
+    }
+
+    function slide(curIndex, nextIndex) {
+      var selectBtnArray = document.querySelectorAll('.sel-btn');
+      var nextImgLiArray = document.querySelectorAll(".img-wrap li");
+      
+      var imgWrap = document.querySelector('.img-wrap');
+      // 让下一个li的显示。
+      // imgWrap.style.left = nextIndex * (-500) + 'px';
+      var endLeft = nextIndex * (-500);
+      slideAnimate(imgWrap, imgWrap.offsetLeft, endLeft, 500);
+
+      selectBtnArray[curIndex].className = 'sel-btn'
+      nextImgLiArray[curIndex].className = "";
+
+      selectBtnArray[nextIndex].className = 'sel-btn on'
+      nextImgLiArray[nextIndex].className = "on";
+    }
+
+    function slideAnimate(dom, startLeft, endLeft, duration) {
+      // console.log(startLeft);
+      dom.style.left = startLeft + 'px';
+      var w = endLeft - startLeft;
+      var wPerMs = w / duration;
+      console.log(wPerMs)
+      var startTime = Date.now();
+      var slideAnimateTimer = setInterval(function(){
+        var curTime = Date.now();
+        var deltaTime = curTime - startTime;
+
+        duration -= deltaTime;
+        if(duration <= 0) {
+          dom.style.left = endLeft + 'px';
+          clearInterval(slideAnimateTimer);
+          return;
+        }
+        var nowLeft = parseFloat(dom.style.left);
+        dom.style.left = (nowLeft + wPerMs * deltaTime) + 'px';
+        startTime = curTime;
+        // console.log(dom.style.left)
+      }, 1000/60);
+    }
+  </script>
+</body>
+
+</html>

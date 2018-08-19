@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件委托案例</title>
+  <script src="../js/documentReady.js"></script>
+  <script src="../js/EventUtil.js"></script>
+</head>
+<body>
+  <ul class="list" id="list">
+    <li>老马1</li>
+    <li>老马2</li>
+    <li>老马3</li>
+    <li>老马4</li>
+    <li>老马5</li>
+    <li>老马6</li>
+    <li>老马7</li>
+    <li>老马8</li>
+    <li>老马9</li>
+    <li>老马10</li>
+    <li>老马11</li>
+    <li>老马12</li>
+    <li>老马13</li>
+    <li>老马14</li>
+    <li>老马15</li>
+    <li>老马16</li>
+    <li>老马17</li>
+    <li>老马18</li>
+    <li>老马19</li>
+    <li>老马20</li>
+  </ul>
+  <script>
+    // list中的li标签个数是不确定的，是可能动态添加，也可能动态减少。
+    // li的标签非常多次。可能达到100个。
+    (function(){
+      document.myReady(function(){
+        //拿到所有的li标签。绑定点击事件。
+        var ulList = document.getElementById('list');
+        var liList = ulList.getElementsByTagName('li');
+        // 问题： 
+        // 1、动态添加的li标签，是没有绑定上事件处理程序。
+        // for(var i = 0; i < liList.length; i++) {
+        //   EventUtil.addEvent(liList[i], 'click', function(e){
+        //     alert(this.innerHTML);
+        //   });
+        // }
+        // 2、li标签非常多时候，产生很多绑定事件的信息。浪费大量的内存和cpu计算
+
+
+        // 解决上面的问题
+        // 1、事件是有冒泡的
+        // 2、弹出事件源对象的内容。e.target || e.srcElement
+        // 3、getElementsByTagName方法返回的伪数组 是一个动态，会自动更新。
+        // 解决的思路： 子元素的事件，委托父容器来进行注册和处理。
+        EventUtil.addEvent(ulList, 'click', function(e) {
+          // 子元素被点击的时候，也会冒泡到这来。
+          var target = EventUtil.getTarget(e);
+
+          // 如果是点击了父容器自己。那就什么都不干。
+          if(target == ulList) {
+            return;
+          }
+          // 如果点击的是子元素。
+          alert(target.innerHTML);
+        });
+      });// ready
+    })();
+  </script>
+</body>
+</html>

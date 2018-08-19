@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>匿名自执行函数</title>
+</head>
+<body>
+  <script>
+  // var t = function (a) {
+  //   console.log(a);
+  // };
+
+  // t(9);
+  // 尽量少的定义全局变量。尽量少污染全局变量。  jQuery：  jQuery,$
+
+  // 匿名自执行函数 
+  ;(function(a) {
+    var m = 9;
+    //
+    console.log(a);
+  })(8);
+
+  // ;(function(a) {
+  //   console.log(a);
+  // }(8));
+
+  (function(){
+    // 模拟块级作用域
+
+  })();
+
+  </script>
+</body>
+</html>

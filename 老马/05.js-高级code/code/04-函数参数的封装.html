@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数参数的封装</title>
+</head>
+<body>
+  <script>
+    // 函数参数的封装
+    // 一个函数：封装一个矩形。矩形：x y坐标， width、 height、背景色、文字信息、文字的坐标、文字字体颜色
+
+    // 全部用形参来处理矩形的参数
+    function rect(x, y, width, height, bgColor, text, text_color, text_x, text_y) {
+
+    }
+
+    // 如果函数的形参非常多问题：
+    // 1、开发人员很难记忆形参的具体情况
+    // 2、传递参数的时候，如果顺序不小心写错了，那么就会导致函数内部出现错误。
+    // 3、编写代码不方便。
+
+    // 解决办法：把这些形参封装成一个对象进行传递。
+    function rect2(rectObj) {
+      // 拿到矩形的x、y坐标
+      console.log(rectObj.x + ' ' + rectObj.y);
+    }
+
+    // rectObj
+    var rectObj = {
+      x: 19,
+      y: 20,
+      width: 200,
+      height: 300,
+      bgColor: '#ccc',
+      text: 'laoma'
+    };
+
+    rect2(rectObj);
+
+  </script>
+</body>
+</html>

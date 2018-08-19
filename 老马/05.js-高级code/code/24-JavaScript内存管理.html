@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>24-JavaScript内存管理</title>
+</head>
+<body>
+  <script>
+    // 24-JavaScript内存管理
+
+    var m = 0, n = 19;  // 把 m , n add() 标记为进入环境。
+
+    add(m, n);      //  把 a, b, c标记为进入环境。
+
+    console.log(n); // a,b,c标记为离开环境，等待垃圾回收。
+
+    function add(a, b) {
+      a++;
+
+      var c = a  + b;
+      return c;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自动添加li标签效果</title>
+</head>
+<body>
+  <input type="button" value="添加" id="btnAdd">
+  <ul class="list">
+  </ul>
+  <script>
+    // 实现动态添加li标签的效果，要求li的内部文本从1开始，按钮每点击一次，自动添加一个li。
+    // 第一步：拿到btn按钮
+    var btnAdd = document.querySelector('#btnAdd'); // IE8开始支持。
+    var index = 1;
+    btnAdd.addEventListener('click', function(){
+      // 拿到ul标签
+      var list = document.querySelector('.list');
+      list.innerHTML += "<li>" + index + "</li>";
+      index++;
+    });// ie8都不支持。
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>段落的单选和多选案例</title>
+  <style>
+    .pBox p {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pBox" id="pBox">
+    <p>我收段落1</p>
+    <p>我收段落2</p>
+    <p>我收段落3</p>
+    <p>我收段落4</p>
+    <p>我收段落5</p>
+  </div>
+
+  <script>
+    (function () {
+      window.onload = function () {
+        var pBox = document.getElementById('pBox');
+        // 拿到所有的p标签都绑定点击事件
+        // 获取所有p标签，pList是一个伪数组
+        var pList = pBox.getElementsByTagName('p');
+
+        for (var i = 0; i < pList.length; i++) {
+          pList[i].onclick = pClickHandler;
+        }
+      };
+
+      // 段落标签点击的事件处理程序
+      function pClickHandler(e) {
+        e = e || window.event;
+        // 判断是否按下了键盘的ctrl键。
+        if (e.ctrlKey) {
+          // 多选
+          this.style.backgroundColor = 'silver';
+        } else {
+          var pBox = document.getElementById('pBox');
+          // 拿到所有的p标签都绑定点击事件
+          // 获取所有p标签，pList是一个伪数组
+          var pList = pBox.getElementsByTagName('p');
+          // 单选
+          for (var i = 0; i < pList.length; i++) {
+            pList[i].style.backgroundColor = '#fff';
+          }
+          this.style.backgroundColor = 'silver';
+        }
+      }
+    })();
+  </script>
+</body>
+
+</html>

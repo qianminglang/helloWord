@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文字装饰</title>
+  <style>
+  /* 去掉下划线 */
+  ul > li > a {
+    text-decoration: none;
+  }
+
+  /* // 去掉删除线 */
+  s {
+    text-decoration: none;
+  }
+
+  /* 添加下划线和删除线 */
+  p {
+    text-decoration: underline line-through;
+    text-indent: 1em;
+  }
+
+  p.pre-demo {
+    white-space: pre;
+    text-decoration: none;
+  }
+
+  .p3 {
+    text-decoration: none;
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+    /* 不换行 */
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="#">官员搞权色交易落马 曾被公开赞是学习榜样</a></li>
+    <li><a href="#">头号女嫌犯归案详情披露:浙江历任书记多次关注</a></li>
+    <li><a href="#">海归男追女同学8年被拒 将其从19楼扔下(图)</a></li>
+  </ul>
+
+  <s>删除线</s>
+
+  <p>我是段落海归男追女 同学8年被拒 将其从19楼扔下(图海 归男追女同 学8年被拒  将其从19楼扔下(图海归男追女同学8年被拒 将其从19楼扔 下(图海归男追 女同学 8年被拒 将其从19楼扔下(图海归男追女同 学8年被拒  将其从19楼扔下(图海归男追女 同学8年被拒 将其从19楼扔下(图海归男追女同学8年 被拒 将其从19楼 扔下(图</p>
+
+  <p class="pre-demo">
+    var t = 19;
+    var m = t * 9;
+          console.log(m);
+  </p>
+
+  <p class="p3">我是段落海归男追女同学8年被拒 将其从19楼扔下(图海归男追女同学8年被拒 将其从19楼扔下(图海归男追女同学8年被拒 将其从19楼扔下(图海归男追女同学8年被拒 将其从19楼扔下(图海归男追女同学8年被拒 将其从19楼扔下(图海归男追女同学8年被拒 将其从19楼扔下(图海归男追女同学8年被拒 将其从19楼扔下(图</p>
+</body>
+</html>

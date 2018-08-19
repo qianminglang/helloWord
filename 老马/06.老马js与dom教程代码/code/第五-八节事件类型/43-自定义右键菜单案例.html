@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义右键菜单案例</title>
+  <style>
+    html, body, h1, ul, li {
+      padding: 0;
+      margin: 0;
+    }
+    ul {
+      list-style: none;
+    }
+
+    .menu {
+      position: absolute;
+      display: none;
+      background-color: #eee;
+      border: 1px solid saddlebrown;
+    }
+
+    .menu .menu-item {
+      border: 1px solid mediumpurple;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .menu .menu-item:hover {
+      background-color: mediumturquoise;
+    }
+
+  </style>
+</head>
+<body>
+  <h1 id="hTitlte">我是老马，请点击右键查看老马信息</h1>
+  <ul class="menu" id="menuList">
+    <li class="menu-item">老马1</li>
+    <li class="menu-item">老马2</li>
+    <li class="menu-item">老马3</li>
+    <li class="menu-item">老马4</li>
+    <li class="menu-item">老马5</li>
+  </ul>
+
+  <script>
+    (function(){
+      window.onload = function() {
+        // 给h1标签添加一个右键点击的事件。
+        var hTitlte = document.getElementById('hTitlte');
+        var menuList = document.getElementById('menuList');
+
+        // 给标题添加鼠按下的事件。
+        hTitlte.onmousedown = function(e) {
+          e = e || window.event;
+          // e.button // 获得你点击时哪个鼠标按钮
+          if(e.button == 2 || e.button == 6) {
+            // console.log('右键点击了！');
+            // 弹出我们自定义的右键菜单
+            menuList.style.display = "block";
+            
+            // 控制弹出来的菜单的位置为鼠标的位置。
+            // 获取鼠标指针的位置.
+            var pageX = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+            var pageY = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+
+            menuList.style.left = pageX + 'px';
+            menuList.style.top = pageY + 'px';
+          }
+        };
+
+        // 点击文档，关闭右键弹出来的菜单。
+        document.onclick = function(e) {
+          menuList.style.display = "none";
+        };
+
+        // 在整个文档中屏蔽浏览器默认的右键菜单
+        document.oncontextmenu = function(e) {
+          // 阻止默认行为就可以阻止浏览器弹出右键菜单。
+          e = e || window.event;
+          if(e.preventDefault) {
+            e.preventDefault();
+          } else {
+            e.returnValue = false;
+          }
+
+          return false;
+        };
+      };
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>方法调用模式</title>
+</head>
+<body>
+  <script>
+    // 定义构造函数
+    // 定义一个Dog类的构造函数。
+    function Dog(dogName) {
+      // 如果函数当做构造函数来用。
+      // 第一步：创建一个空对象（新对象），函数上下文===this
+      // 第二步：把空对象赋值给函数的上下文，this=新对象。
+
+      this.name = dogName;
+      this.age = 0;
+
+      this.run = function() {
+        console.log(this.name + ' is running..');
+      };
+
+      // 如果函数当做构造函数调用，并没有返回任何数据的时候。默认就会返回 新对象（this）
+    }
+
+    // 使用构造函数创建一个Dog类型的实例
+    var d = new Dog('lddd');// 构造函数的返回值就是默认的新对象this
+
+    d.run(); // 调用d对象实例的 run方法。 这就是对象的方法调用模式。
+    // 在方法调用模式中，方法内部的this指向当前调用者的对象=> d
+    //  this === d // true
+  </script>
+</body>
+</html>

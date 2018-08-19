@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>64-模态对话框.html</title>
+  <style>
+    html,
+    body,
+    div,
+    h3 {
+      padding: 0;
+      margin: 0;
+    }
+    .dialog-wrap {
+      display: none;
+    }
+
+    .dialog {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -151px;
+      margin-left: -151px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      width: 300px;
+      /* display: none; */
+      z-index: 1000;
+    }
+
+    .dialog .dialog-h {
+      border-bottom: 1px solid #ccc;
+      height: 30px;
+      position: relative;
+    }
+
+    .dialog-b {
+      height: 269px;
+    }
+
+    .dialog-h .btn-close {
+      position: absolute;
+      right: 15px;
+      top: 5px;
+      cursor: pointer;
+    }
+
+    .dialog-cover {
+      /* 如果一个div的父容器为body，而且是绝对定位，那么left和top、bottom、right都为0
+      的时候就会铺满正个屏幕 */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      z-index: 100;
+      /* 设置透明 */
+      filter: alpha(opacity=70);
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" value="弹出对话框" id="btn">
+  <div class="dialog-wrap" id="dialogBox">
+    <div class="dialog-cover"></div>
+    <div class="dialog" id="dialog">
+      <div class="dialog-h">
+        <h3>对话框的头部</h3>
+        <i class="btn-close" id="btnClose">X</i>
+      </div>
+      <div class="dialog-b">
+        对话框的内部
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      var btn = document.getElementById('btn');
+      btn.onclick = function () {
+        var divDialog = document.getElementById('dialogBox');
+        divDialog.style.display = "block";
+      }
+      var btnClose = document.getElementById('btnClose');
+      btnClose.onclick = function () {
+        this.parentNode.parentNode.parentNode.style.display = "none";
+      }
+    }
+  </script>
+  <h1>1</h1>
+  <h1>2</h1>
+  <h1>3</h1>
+  <h1>4</h1>
+  <h1>5</h1>
+  <h1>6</h1>
+  <h1>7</h1>
+  <h1>8</h1>
+  <h1>9</h1>
+  <h1>10</h1>
+  <h1>11</h1>
+  <h1>12</h1>
+  <h1>13</h1>
+  <h1>14</h1>
+  <h1>15</h1>
+  <h1>16</h1>
+  <h1>17</h1>
+  <h1>18</h1>
+  <h1>19</h1>
+  <h1>20</h1>
+  <h1>21</h1>
+  <h1>22</h1>
+  <h1>23</h1>
+  <h1>24</h1>
+  <h1>25</h1>
+  <h1>26</h1>
+  <h1>27</h1>
+  <h1>28</h1>
+  <h1>29</h1>
+  <h1>30</h1>
+
+</body>
+
+</html>

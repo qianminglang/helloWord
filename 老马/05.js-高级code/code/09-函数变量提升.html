@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数变量提升</title>
+</head>
+<body>
+  <script>
+    var a = 10;       // 全局变量，全局都可以访问。
+
+    // 先执行f1函数，然后再定义f1函数的内容。
+    f1();
+
+    function f1() {
+      // 函数的变量提升： 因为在函数执行之前，先创建了函数的EC，在创建
+      // EC的时候已经把函数里面声明的变量都已经初始化成了undefined
+
+      // 所以：hositing存在：很多人有这样的习惯。把函数内部所有的变量声明都放在函数的
+      // 头部
+      console.log(a); // a => undefined
+
+      var a = 19;     // 给局部变量a赋值19
+
+      console.log(a); // a=> 19
+
+      
+      // 特殊情况：变量声明和函数声明 同时拥有一个名字的时候，函数优先级高。
+      console.log(b); // b=> function
+
+      var b = 9;      // 因为js是动态语言，把b重新赋值9，把之前的function覆盖。
+      function b() {
+
+      }
+      console.log(b);  // b=>9
+    }
+    
+  
+    console.log(a); // a => 10
+
+    f();
+    function f() {
+      for(var k = 0; k <10; k++) {
+        console.log(k);
+      }
+      console.log(k);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>全选全不选</title>
+  <style>
+    html, body, div, table, tr, td, th, thead, tbody {
+      padding: 0;
+      margin: 0;
+    }
+    .tab {
+      border-collapse: collapse;
+      line-height: 25px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    .tab thead {
+      background-color: #aaa;
+    }
+    .tab tbody {
+      background-color: #eee;
+    }
+    .tab tbody tr:nth-child(even) {
+      background-color: #ddd;
+    }
+    .tab td, th {
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+    .tab tbody tr:hover {
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <table class="tab" id="tab">
+    <thead>
+      <tr>
+        <th>
+          <input id="ckAll" type="checkbox" name="ckAll" id="ckAll">
+        </th>
+        <th>用户名</th>
+        <th>性别</th>
+        <th>级别</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input type="checkbox">
+        </td>
+        <td>老马</td>
+        <td>男</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox">
+        </td>
+        <td>神兽</td>
+        <td>男</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox" id="u2">
+        </td>
+        <td>男神</td>
+        <td>女</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox" name="u3" id="u3">
+        </td>
+        <td>梅西</td>
+        <td>男</td>
+        <td>5</td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    window.onload = function() {
+      var ckAll = document.getElementById('ckAll')
+      ckAll.onclick = function() {
+        // var allInput = document.querySelectorAll(".tab tbody tr td:first-child input");
+        var allInput = document.querySelectorAll(".tab tbody tr td:first-child input");
+        for(var i = 0; i < allInput.length; i++) {
+          allInput[i].checked = this.checked;
+        }
+      };
+    }
+  </script>
+</body>
+
+</html>

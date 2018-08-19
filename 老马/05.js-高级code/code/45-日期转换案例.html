@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    // 将字符串“1392945632000,mss,Date(1392945632000)”，其中绿色部分的数字转成日期对象。
+    var str = '1392945632000,mss,Date(1392945632000)';
+
+    // console.log(str.replace(/.*(Date\(\d+\)).*/g,'new $1'));
+    var t = eval(str.replace(/.*(Date\(\d+\)).*/g,'new $1'));
+    console.log(t.toString())
+  </script>
+</body>
+</html>

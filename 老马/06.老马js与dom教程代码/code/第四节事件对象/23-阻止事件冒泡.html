@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>阻止事件冒泡</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #098;
+      text-align: center;
+      line-height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="box">
+    <input type="button" value="子元素" id="btn">
+  </div>
+  <script>
+    var box = document.getElementById('box'),
+        btn = document.getElementById('btn');
+
+    box.onclick = function(e) {
+      alert('div');
+    }
+
+    btn.onclick = function(e) {
+      alert('btn');
+      // 阻止子按钮的点击事件冒泡到父盒子。
+      e = e || window.event;
+      if(e.stopPropagation) {
+        e.stopPropagation(); // 标准浏览器 阻止事件冒泡。
+      } else {
+        // 如果是ie8以下（包括ie8）
+        e.cancelBubble = true;//
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>页面滚动固定定位案例</title>
+  <style>
+    body, div, h1 {
+      padding: 0;
+      margin: 0;
+    }
+    .top-wrap {
+      height: 150px;
+      background-color: #c0d;
+    }
+    .top-logo-wrap {
+      height: 40px;
+      background-color: cadetblue;
+    }
+    .top-search-wrap {
+      height: 110px;
+      background-color: maroon;
+      width: 100%;
+    }
+
+    .top-search-wrap-fixed {
+      position: fixed;
+      top: 0;
+      /* left: 0; */
+    }
+  </style>
+  <script src="../js/documentReady.js"></script>
+  <script>
+  document.myReady(function(){
+    // 当页面滚动到40像素的时候，让搜索div进行固定定位
+    var searchBox = document.getElementById('searchBox');
+    window.onscroll = function(){
+      // 拿到滚动的距离
+      var scrollH = document.documentElement.scrollTop || document.body.scrollTop;
+      if(scrollH >= 40 ) {
+        // 让搜索的div设置上样式类：top-search-wrap-fixed
+        searchBox.className = "top-search-wrap top-search-wrap-fixed";
+        // 标签的class属性在dom对象中className属性。
+      } else {
+        searchBox.className = "top-search-wrap";
+      }
+    };
+  });
+  </script>
+</head>
+<body>
+  <div class="top-wrap">
+    <div class="top-logo-wrap">
+      可以卷进去的顶部
+    </div>
+    <div id="searchBox" class="top-search-wrap">
+      固定定位的
+    </div>
+  </div>
+
+  <h1>1</h1>
+  <h1>2</h1>
+  <h1>3</h1>
+  <h1>4</h1>
+  <h1>5</h1>
+  <h1>6</h1>
+  <h1>7</h1>
+  <h1>8</h1>
+  <h1>9</h1>
+  <h1>10</h1>
+  <h1>11</h1>
+  <h1>12</h1>
+  <h1>13</h1>
+  <h1>14</h1>
+  <h1>15</h1>
+  <h1>16</h1>
+  <h1>17</h1>
+  <h1>18</h1>
+  <h1>19</h1>
+  <h1>20</h1>
+  <h1>21</h1>
+  <h1>22</h1>
+  <h1>23</h1>
+  <h1>24</h1>
+  <h1>25</h1>
+  <h1>26</h1>
+  <h1>27</h1>
+  <h1>28</h1>
+  <h1>29</h1>
+  <h1>30</h1>
+</body>
+</html>

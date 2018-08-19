@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>遍历数组</title>
+</head>
+<body>
+  <script>
+    // 如果是连续的数组，可以中使用lenth代表数组中的元素个数。
+    var a = [1,2,3,89, "slj", true]; // length = 6;
+
+    console.log('length = ' + a.length);
+
+    // 输出数组中的所有元素。
+    for(var i = 0; i < a.length; i++) {
+      console.log(a[i]);
+    }
+
+    // 另外我们还可以使用for in的方式遍历数据。 也可以把继承自原型的属性也进行遍历。
+    //  for in 遍历对象，拿到的是对象的属性名，而不是属性值。
+    for(var k in a) {  // for in 遍历数组，k值是数组的索引编号，不是数组的元素值。
+      // k 0 ,1 ,2
+      console.log(a[k]); // k是索引编号不是数组元素值
+    }
+  </script>
+</body>
+</html>

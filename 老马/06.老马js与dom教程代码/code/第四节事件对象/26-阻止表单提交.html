@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>阻止表单提交</title>
+</head>
+<body>
+  <form action="#">
+    用户名: <input type="text" name="txt" id="txtName">
+    <hr>
+    <input type="submit" value="提交" id="btnSub">
+  </form>
+  <script>
+    var btnSub = document.getElementById('btnSub');
+    btnSub.onclick = function(e) {
+      e = e || window.event;
+      return false;  // 可以直接阻止表单的提交
+    };
+  </script>
+</body>
+</html>

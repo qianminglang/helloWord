@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>54-动态创建下拉列表.html</title>
+
+  <script src="../js/documentReady.js"></script>
+  <script src="../js/EventUtil.js"></script>
+</head>
+<body>
+  <select name="sel" id="sel">
+
+  </select>
+
+  <script>
+  // 54-动态创建下拉列表.html
+  (function(){
+    // 模拟从后台来的数据
+    var data = [
+      {name: '北京', value: 1},
+      {name: '上海', value: 2},
+      {name: '天津', value: 3},
+      {name: '重庆', value: 4}
+    ];
+
+    document.myReady(function(){
+      // 初始化下拉列表的数据
+      initSel(data);
+
+      // 给下拉列表绑定change事件
+      var sel = document.getElementById('sel');
+      EventUtil.addEvent(sel, 'change', function(e) {
+        // 拿到 选中的选项的value 和 text
+        var selOpt = this.options[this.selectedIndex];
+        console.log(selOpt.value);
+        console.log(selOpt.text);
+
+        // 如果你只要value值。
+        // 直接通过select标签的value属性就可以拿到
+        console.log(this.value);
+      });
+    });
+
+    // 初始化下拉列表
+    function initSel(data) {
+      var sel = document.getElementById('sel');
+      // {name: '北京', value: 1},
+      // <option value="1">北京 </option>
+      for(var i = 0; i < data.length; i++) {
+        // data[i]
+        var opt = document.createElement('option');
+        opt.value = data[i].value;
+        // opt.setAttribute('value', data[i].value);
+        opt.text = data[i].name;
+        // if(opt.textContent) {
+        //   opt.textContent = data[i].name;
+        // } else {
+        //   opt.innerText = data[i].name;
+        // }
+        sel.add(opt, null);
+        // sel.appendChild(opt);  // Node接口上的方法
+      }
+    }
+
+  })();
+
+  </script>
+</body>
+</html>

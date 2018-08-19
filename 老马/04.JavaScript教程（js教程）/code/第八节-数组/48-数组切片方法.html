@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组切片方法</title>
+</head>
+<body>
+  <script>
+    var t = [0,1,2,3,4,5];
+    console.log( t );
+    // slice：复制数组的一部分。
+    // 传一个参数时候，是从参数的索引位置开始截取到数组的最后。
+    var a1 = t.slice(2); //从索引位置2开始截取到数组的最后。
+    // a1= [2, 3, 4, 5]
+    console.log( a1 );
+
+    // 传两个参数：从第一个参数作为索引位置开始，到第二个参数作为索引前面的那个元素结束，截取数组切片。对原数组没有任何影响。
+    var a2 = t.slice(2, 5); // a2=> [2,3,4]
+    console.log(a2);
+    console.log(t); // [0, 1, 2, 3, 4, 5] 对原数组没有影响
+
+    // 如果传递 的是负数，那么从数组结尾开始计算。 但是不要用。
+    // slice方法只能往后截取，如果往前截取返回[];
+    var a3 = t.slice(-3,  -1); // a3 => [3,4]
+    console.log(a3);
+
+  </script>    
+</body>
+</html>

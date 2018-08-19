@@ -1,0 +1,51 @@
+@charset "utf-8";
+/*
+* 一般情况下，所有页面的根样式都会写在这里面。Common.css
+*/
+
+/* 倒三角 */
+.triangle-down {
+  border: 5px solid #666;
+  border-style: solid dashed dashed;
+  border-color: #666 transparent transparent;
+  width: 0;
+  height: 0;
+}
+
+/* 单三角 */
+.triangle-up-s {
+  position: relative;
+}
+.triangle-up-s:before, .triangle-up-s:after {
+  content: " ";/*一定要给content，不然不显示*/
+  border: 6px solid #f1f1f1;
+  border-style: dashed dashed solid;
+  border-color: transparent transparent #f1f1f1;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: -12px;
+}
+
+.triangle-up-s:after {
+  border-color: transparent transparent #fff;
+  top: -10px;
+}
+
+.clearfix:befor, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+/* 弹出的层的基类 */
+.cover {
+  /* 设置弹出来的层的背景色为白色。 */
+  background-color: #fff;
+}

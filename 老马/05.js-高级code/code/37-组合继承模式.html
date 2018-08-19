@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组合继承模式</title>
+</head>
+<body>
+  <script>
+    // 组合继承模式
+    // 组合的原型继承和借用构造函数继承
+    
+    // 父类
+    function Animal(age, name) {
+      this.age = age;
+      this.name = name;
+      this.foods = ['水', '苹果'];
+    }
+
+    // 在父类的原型上创建一个run方法
+    Animal.prototype.run = function() {
+      console.log(this.name + '  running');
+    };
+
+    // 定义子类
+    function Cat(age, name) {
+      // Animal(age, name); // this === window;  函数执行模式，this === window
+      // this == c
+      // 第一次执行父类的构造函数。
+      Animal.call(this, age, name);   //借用父类的构造函数，给子类创建实例属性。
+    }
+
+    // 第二次执行父类的构造函数。
+    Cat.prototype = new Animal();     // 组合原型继承模式
+    Cat.prototype.constructor = Cat;
+
+    var c = new Cat(19, 'deail');
+
+
+    // 原型式继承模式
+    function object(o) {
+      function F() {}
+      F.prototype = o;
+      return new F();
+    }
+    var p = {age:19, name: 'ss', friends: ['li', 'p', 'div']};
+    var p1 = object(p);
+  </script>
+</body>
+</html>

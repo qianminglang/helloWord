@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组转成字符串方法</title>
+</head>
+<body>
+  <script>
+    var t = [1, 2, 3];
+    // toString方法会把数组转成字符，重写了原型的方法。
+    // 把数组中的元素都转成字符串然后用逗号分隔不同的元素。
+    console.log(t.toString());
+
+    // join方法也可以将数组转成字符串，默认跟toString一样。
+    console.log(t.join());
+
+    // join发方法可以传一个参数，用来分隔数组中的元素
+    console.log(t.join('-'));
+    console.log(t.join('|'));
+  </script>
+</body>
+</html>

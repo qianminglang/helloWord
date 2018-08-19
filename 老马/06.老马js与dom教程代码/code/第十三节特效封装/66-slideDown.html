@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>slideDown</title>
+  <style>
+    html, body, div {
+      padding: 0;margin: 0;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      width: 300px;
+      height: 300px;
+      background-color: #eee;
+    }
+
+    .wrap {
+      width: 960px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <input type="button" value="折叠" id="btnSlideUp">
+    <input type="button" value="展开" id="btnSlideDown">
+    <div class="box" id="box">
+      我是box
+    </div>
+  </div>
+  <script>
+    (function(){
+      window.onload = function(){
+        var btnSlideUp = document.getElementById('btnSlideUp'),
+            btnSlideDown = document.getElementById('btnSlideDown'),
+            box = document.getElementById('box');
+
+        btnSlideDown.onclick = function() {
+          slideDown(box, 100);
+
+          // var start = Date.now(); // 最开始的的事件。
+          // // 如果div的display为none那么 clientHeight 0
+          // box.style.display = "block";
+          // var originH = box.clientHeight;// 最开始的高度
+          // box.style.height = "0px";
+          // var timer = setInterval(function(){
+          //   var now = Date.now();
+          //   box.style.height = (now - start) / 500 * originH + 'px';
+          //   if(now - start >= 500) {
+          //     box.style.height = originH + 'px';
+          //     clearInterval(timer);
+          //   }
+          // }, 1000/60);
+        }
+
+        // 点击 折叠按钮后，让div一点一点进行向上折叠。
+        btnSlideUp.onclick = function(e) {
+          var start = Date.now(); // 返回当前时间的utc时间，1970 毫秒数
+          // 随着时间的推移，让div的高度一直减小。到最后为0. display：none
+          var originH = box.clientHeight;// 拿到显示的高度。div height
+          
+          // 1秒钟后，div消失。1000ms
+          var timer = setInterval(function(){
+            // var now = Date.now();
+            // console.log(now - start);// 两个事件相差的毫秒数。16
+            // start = now;
+            // 思路一： 当前事件和上一次执行的相隔事件执行div的减少高度操作。
+
+            // 思路二： 当前事件跟最一开始的时间进行计算。把相差总时间换算成
+            // 应该减少的高度，然后设置div的高度。
+            var now = Date.now();
+
+            // 要减少的高度
+            var nowH = (now - start) * originH / 1000;
+            // 当前div的高度 = 原来的高度 -  要减少的高度
+            box.style.height = (originH - nowH) + 'px';
+            if(originH <= nowH) {
+              // 停止折叠，并且把当前div 隐藏起来。并且把时钟去掉。
+              box.style.height = originH + "px"; // 隐藏之后还要把它恢复到原来的状态。
+              box.style.display = "none";
+              clearInterval(timer);
+            }
+
+          },1000/60);
+          //问题1：  1000/60 ，setInterval执行 的不是严格按照时间间隔去执行。
+        };
+      };
+    })();
+
+    /**
+     * @description 进行向下展开的函数
+     * @param {HTMLElement} element - 要进行动画的标签
+     * @param {number} duration - 动画持续的事件
+     * @return {undefined}  
+     **/
+    function slideDown(element, duration) {
+      var start = Date.now(); // 开始动画的时间。
+      element.style.display = "block";
+      var originH = element.clientHeight;
+      element.style.height = '0px';
+
+      var timer = setInterval(function(){
+        var now = Date.now();
+        element.style.height = (now-start)/duration * originH + 'px';
+        if(now-start >= duration) {
+          element.style.height = originH + 'px';
+          clearInterval(timer);
+        }
+      }, 1000/60);
+    }
+  </script>
+
+</body>
+</html>

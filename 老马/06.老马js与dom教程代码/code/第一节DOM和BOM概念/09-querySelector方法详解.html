@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>09-querySelector方法详解</title>
+</head>
+<body>
+  <div class="c1">第一个div</div>
+  <p class="tm">老马的QQ学习视频群：519628536</p>
+
+  <h3 id="tmd">这里有好水好山，好风景！</h3>
+
+  <script>
+    // querySelector可以接受一个css的选择器字符串作为参数，来搜索页面中的标签元素。
+    var elment1 = document.querySelector(".c1"); 
+    console.dir(elment1);
+    var p1 = document.querySelector(".tm");
+    var h = document.querySelector("#tmd");
+    var p2 = document.querySelector('p');
+  </script>
+</body>
+</html>

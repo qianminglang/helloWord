@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组的splice方法</title>
+</head>
+<body>
+  <script>
+    var t = [0, 1, 2, 3, 4, 5];
+    // splice方法如果只传入一个参数，那么就从这个参数开始删除到数组的结尾。
+    // 对原数组有影响
+    // var a1 = t.splice(3); // t=> [0, 1, 2]
+    // console.log(t);
+    // console.log(a1); // [3, 4, 5]
+
+
+    // 传递两个参数： 第一个参数是要删除的起始索引start,
+    // 第二个参数：要删除元素的个数。 
+    // var a2 = t.splice(3, 1);  // t=> [0,1, 2, 4, 5]
+    // console.log(t);
+    // console.log(a2); // a2 =>[3]
+
+    // 如果传递：两个以上的参数
+    // 第一个： start
+    // 第二个： 删除数据的个数
+    // 第三个及后面的参数都 要插入到start索引位置的元素。
+    // var a3 = t.splice(3, 2, 'ass', 'bsdd', 'cs');
+    // console.log(a3); // a3 => [3, 4]
+    // console.log(t); // [0, 1, 2, "ass", "bsdd", "cs", 5]
+
+
+    // splice的应用。给数组任意位置插入元素
+    // t.splice(3,0,'a');
+    // console.log(t);// t => [0, 1, 2, "a", 3, 4, 5]
+
+    // 替换数组中的3 为 'a'
+    t.splice(3,1,'a');
+    console.log(t);
+
+  </script>
+</body>
+</html>

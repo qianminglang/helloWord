@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>没有块级作用域</title>
+</head>
+<body>
+  <script>
+    // 没有块级作用域
+    function f1() {
+      var t1 = 9; // 只能在f1函数内部访问到。
+
+      for(var i = 0; i < 10; i++) { // i变量在for循环中定义的。
+        console.log(i);             // java/c#/c/c++
+      }
+
+      console.log(i);// 因为js没有块级作用域，所以可以直接访问i变量。
+    }
+
+    f1();
+
+    // console.log(t1); //全局是访问不到f1函数内部的变量的。
+  </script>
+</body>
+</html>

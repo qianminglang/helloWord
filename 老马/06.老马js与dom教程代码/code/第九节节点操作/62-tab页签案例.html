@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tab页签案例</title>
+  <style>
+    html, body, div, ul, li {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      padding: 100px;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    .tab {
+      width: 500px;
+    }
+
+    /* 设置tab的头部样式     */
+    .tab .tab-h {
+      height: 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tab .tab-h .tab-h-item {
+      float: left;
+      border: 1px solid #ccc;
+      background-color: #eee;
+    }
+    .tab .tab-h .tab-h-item a {
+      color: #333;
+      text-decoration: none;
+      width: 100px;
+      float: left;
+      line-height: 28px;
+      text-align: center;
+    }
+
+    .tab .tab-h li.active {
+      border-bottom-color: #fff;
+      background-color: #fff;
+    }
+
+    .tab .tab-b {
+      border: 1px solid #ccc;
+      position: relative;
+      z-index: 1;
+      top: -1px;
+    }
+
+    .tab .tab-b .tab-b-item {
+      display: none;
+      height: 300px;
+      padding: 10px;
+    }
+    .tab .tab-b div.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab">
+    <div class="tab-h">
+      <ul class="tab-h-list" id="tabHeadList">
+        <li class="tab-h-item " tabid="1"><a href="javascript:void(0)">产品</a></li>
+        <li class="tab-h-item active" tabid="2"><a href="javascript:void(0)">用户</a></li>
+        <li class="tab-h-item" tabid="3"><a href="javascript:void(0)">新闻</a></li>
+        <li class="tab-h-item" tabid="4"><a href="javascript:void(0)">体育</a></li>
+      </ul>
+    </div>
+    <div class="tab-b" id="tabBody">
+      <div tabid="1" class="tab-b-item">页签1</div>
+      <div tabid="2" class="tab-b-item active">页签2</div>
+      <div tabid="3" class="tab-b-item">页签3</div>
+      <div tabid="4" class="tab-b-item">页签4</div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      window.onload = function(e) {
+        var tabHeadList = document.getElementById('tabHeadList');
+        var liMenu = tabHeadList.getElementsByTagName('li');
+        for(var i = 0; i < liMenu.length; i++) {
+          liMenu[i].onclick = function(e) {
+            // 第一获得你点击的 tabid
+            var tabId = this.getAttribute('tabid');
+            // 第一：把自己的样式类设置 active，其他的tab页签的 li去掉active
+            for(var j = 0; j < liMenu.length; j++ ) {
+              liMenu[j].className = "tab-h-item";
+            }
+            this.className = "tab-h-item active";
+
+            // 第二：所有的tab-b中的div中 tabid 等于tabId的样式类加上 active
+            // 其他的div去掉active样式类
+            var tabBody = document.getElementById('tabBody');
+            for(var k = 0; k < tabBody.childNodes.length; k++) {
+              var item  = tabBody.childNodes[k]; 
+              if(item.nodeType == 1) {
+                // 判断当前div的 tabId属性是否等于上的tabId的值。
+                if(item.getAttribute('tabid') == tabId) {
+                  item.className = "tab-b-item active";
+                } else {
+                  item.className = "tab-b-item";
+                }
+              }
+            }
+          };
+        }
+      };
+    })();
+  </script>
+
+</body>
+</html>

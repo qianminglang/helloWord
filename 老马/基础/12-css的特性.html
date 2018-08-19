@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS的特性：层叠性、继承性</title>
+  <style>
+  p {
+    color: red;
+    font-size: 40px;
+  }    
+
+  p {
+    color: green;
+  }
+
+  a {
+    color: inherit;
+  }
+  /* 继承性：父容器设置的样式，子容器也可以享受同等待遇 */
+  </style>
+</head>
+<body>
+  <p>
+    乐山大佛，是还灵的大佛。
+    <span>我是span标签1</span>
+    <a href="#">我是超级链接</a>
+  </p>
+
+  <span>我是span标签2</span>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>36-原型继承模式.html</title>
+</head>
+<body>
+  <script>
+    // 36-原型继承模式.html
+
+    // 动物基类
+    function Animal(age, name) {
+      this.age = age;
+      this.name = name;
+      this.foods = ['鱼', '鸟', '水果'];
+    }
+
+    // 在动物基类的原型上添加方法run
+    Animal.prototype.run = function() {
+      console.log(this.name + ' running....');
+    }
+
+    function Cat(age, name) {
+      this.age = age;
+      this.name = name;
+    }
+    // 原型的继承方式。
+    // Cat.prototype.constructor === Cat
+    Cat.prototype = new Animal();   // 父类的构造函数：执行第一次。
+    Cat.prototype.constructor = Cat;  // 因为上面的代码把Cat的prototype指向了Animal
+
+    var c = new Cat(19, 'sss');  //希望：cat继承animal的属性和方法
+    c.run(); // 从Animal原型上继承的方法。
+    c.foods.push('栗子');
+
+    var c2 = new Cat(20, 'ssfdd');
+    // c2.foods;//  ['鱼', '鸟', '水果', '栗子'];
+    // 问题：
+    // 1、子类的构造函数的参数，没法传递给父类的构造函数。
+    // 2、子类的原型的constructor会被改变，需要自己改回来。
+    // 3、如果父类里有引用类型的属性，那么所有的子类会共享这个引用类型。
+  </script>
+</body>
+</html>

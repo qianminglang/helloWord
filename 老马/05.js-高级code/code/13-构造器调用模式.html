@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>构造器调用模式</title>
+</head>
+<body>
+  <script>
+    // 构造器调用模式 . 构造函数
+    // 关键字是： new
+
+    function Cat() {
+      // 第一步：创建一个空对象（新对象）
+      // 第二步：给函数上下文赋值 新对象  this = 新对象。
+      this.age = 19;
+      this.name = "cat"; // 在构造函数内部定义的this的属性。
+      this.run = function() {
+        console.log(this.name + ' run...');
+      }
+
+      // 如果构造函数没有返回值。那么就返回 this（新对象）;
+      // return 3; // 即使有返回值，如果返回值类型是简单类型，那么会被忽略。
+      // return null;
+      // 如果返回值是一个引用类型（去掉null)那么新对象就会被抛弃，把这个引用类型
+      // 返回。
+      return {
+        name: 999,
+        run: function() {
+          console.log('自己返回的{}');
+        }
+      };// return了一个对象的字面量，return了一个引用类型。
+    }
+
+    var cat = new Cat();//构造函数掉用模式
+    // 如果使用new关键字+构造函数执行的话触发了构造函数执行模式。
+
+    cat.age = 20;
+    cat.name = '2222';
+    cat.run();// 方法调用模式。
+
+  </script>
+</body>
+</html>

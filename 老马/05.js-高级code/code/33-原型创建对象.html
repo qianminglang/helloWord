@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>33-原型创建对象的</title>
+</head>
+<body>
+  <script>
+    // 33-原型创建对象的
+    function Cat() {
+    }
+
+    Cat.prototype.age = 19;
+    Cat.prototype.name = "laoma";
+    Cat.prototype.run = function() {
+      console.log('running...');
+    };
+    // c1.__proto__ === Cat.prototype  // true
+    var c1 = new Cat();
+    var c2 = new Cat();
+
+    c1.age = 30; // c2.age => 30
+
+    // 问题： 所有的对象都会共享 原型上的属性和方法。其中一个对象改了其中一个原型上的属性那么所有对象都受影响。
+    
+  </script>
+</body>
+</html>

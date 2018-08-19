@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>07-getElementsByTagName</title>
+</head>
+<body>
+  <p>1-2</p>
+  <p>2-2</p>
+  <p>3-3</p>
+  <p>4-4</p>
+  <h1>我是老马</h1>
+  <div class="tem">混淆</div>
+  <script>
+    // 把页面中所有的p标签选择出来。
+    // 获取当前文档中的所有的p标签
+    var array = document.getElementsByTagName('p');
+    // 此方法返回：HTMLCollection集合对象，是一个伪数组。
+    // array -> HTMLCollection → Object.prototype
+    console.dir(array);
+
+    // 要求把当前页面中所有的p标签的内部文字打印
+    for(var i = 0; i < array.length; i++) {
+      console.log(array[i].innerHTML);
+    }
+  </script>
+</body>
+</html>

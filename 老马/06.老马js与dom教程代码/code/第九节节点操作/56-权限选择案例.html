@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>权限选择案例</title>
+  <style>
+    .box {
+      vertical-align: middle;
+      float: left;
+      width: 100px;
+      height: 300px;
+      text-align: center;
+    }
+
+    .box input {
+      width: 51px;
+    }
+
+    select {
+      width: 200px;
+      height: 300px;
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <select name="l" id="l" multiple="multiple">
+    <option value="1">添加商品</option>
+    <option value="2">读取商品</option>
+    <option value="3">修改商品</option>
+    <option value="4">删除订单</option>
+    <option value="5">用户查看</option>
+  </select>
+  <div class="box">
+    <input type="button" value=">" dir="add">
+    <input type="button" value=">>" dir="addAll">
+    <input type="button" value="<" dir="del">
+    <input type="button" value="<<" dir="delAll">
+  </div>
+  <select name="r" id="r" multiple="multiple"></select>
+
+  <script>
+    var box = document.querySelector('.box');
+    box.onclick = function (e) {
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      if (this == target) {
+        return;
+      }
+      var lSel = document.getElementById('l'),
+          rSel = document.getElementById('r');
+      switch (target.getAttribute('dir')) {
+        case 'add':
+          add(false, lSel, rSel);
+          break;
+        case 'addAll':
+          add(true, lSel, rSel);
+          break;
+        case 'del':
+          add(false, rSel, lSel);
+          break;
+        case 'delAll':
+          add(true, rSel, lSel);
+          break;
+      }
+    };
+
+    function add(isAll, lSel, rSel) {
+      var tempArray = [];
+      for (var i = 0; i < lSel.options.length; i++) {
+        if(isAll || lSel.options[i].selected) {
+          tempArray.push(lSel.options[i]);
+        }
+      }
+      while(tempArray.length > 0) {
+        var item = tempArray.pop();// 兼容ie8的 bug （fuck)
+        lSel.remove(item.index);
+        rSel.add(item, null);
+      }
+    }
+  </script>
+
+</body>
+
+</html>

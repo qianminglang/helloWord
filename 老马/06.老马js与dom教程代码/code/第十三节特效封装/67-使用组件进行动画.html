@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>使用组进行动画演示</title>
+  <style>
+    .box {
+      height: 400px;
+      width: 300px;
+      border: 1px solid #ccc;
+      display: none;
+    }
+  </style>
+  <script src="../js/L.js"></script>
+</head>
+
+<body>
+  <input type="button" value="向下滚动" id="btn">
+  <div class="box" id="box">
+
+  </div>
+
+  <script>
+    window.onload = function() {
+      var btn = document.getElementById('btn');
+      var box = document.getElementById('box');
+      btn.onclick = function() {
+        L.slideDown(box, 400);
+      }
+    }
+  </script>
+</body>
+</html>
