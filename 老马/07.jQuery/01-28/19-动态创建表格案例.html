@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动态创建表格案例</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <table class="list">
+    <thead>
+      <th>用户名</th>
+      <th>邮箱</th>
+      <th>年龄</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>老马</td>
+        <td>malun666@126.com</td>
+        <td>18</td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    // html(),text() ,val()
+
+    var data = [{
+      name: 'laoma11',
+      mail: 'flydragonml@gmail.com',
+      age: 19
+    },{
+      name: 'laoma12',
+      mail: 'flydragonml@gmail.com',
+      age: 20
+    },{
+      name: 'laoma13',
+      mail: 'flydragonml@gmail.com',
+      age: 12
+    },{
+      name: 'laoma14',
+      mail: 'flydragonml@gmail.com',
+      age: 99
+    },{
+      name: 'laoma15',
+      mail: 'flydragonml@gmail.com',
+      age: 19
+    }];
+
+    // 思路 : 把上面的数组进行遍历，拼接字符串把html字符串放到tbody中去。
+    $(function() {
+      var tempStrArray = [];
+      for(var i = 0; i < data.length; i++) {
+        var tempStr = "";
+        tempStr += "<tr>";
+        tempStr += "<td>" + data[i].name +"</td>";
+        tempStr += "<td>" + data[i].mail +"</td>";
+        tempStr += "<td>" + data[i].age +"</td>";
+        tempStr += "</tr>";
+
+        // 把拼接的字符串放到数组中
+        tempStrArray.push(tempStr);
+      }
+
+      // 设置元素的内部的标签字符串， 第二种用法
+      $('.list tbody').html(tempStrArray.join(''));
+
+      // 读取标签内部的html字符串， 第一种用法
+      console.log($('.list tbody').html());
+
+      // 第三种用法
+      $('.list tbody').html(function(index, oldHtml) {
+
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义插件</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <script src="./lib/jQuery-lmtab.js"></script>
+  <link rel="stylesheet" href="./lib/jQuery-lmtab-style.css">
+</head>
+
+<body>
+  <div class="tab-wrap">
+    <div class="tab-hd">
+      <div class="tab-hd-item">商品1</div>
+      <div class="tab-hd-item">商品2</div>
+      <div class="tab-hd-item">商品3</div>
+    </div>
+
+    <div class="tab-bd">
+      <div class="tab-bd-item on">
+        1
+      </div>
+      <div class="tab-bd-item">
+        2
+      </div>
+      <div class="tab-bd-item">
+        3
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function() {
+      $('.tab-wrap').lmTab();
+    });
+  </script>
+</body>
+</html>

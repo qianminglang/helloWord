@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>隔行变色</title>
+  <style>
+    html, body, div, table, td {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #ccc;
+      width: 400px;
+    }
+
+    td {
+      border: 1px solid #ccc;
+    }
+  </style>
+
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>用户名</td>
+      <td>年龄</td>
+      <td>编号</td>
+    </tr>
+    <tr>
+      <td>老马1</td>
+      <td>20</td>
+      <td>3333</td>
+    </tr>
+    <tr>
+      <td>弗兰德</td>
+      <td>23</td>
+      <td>332</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </table>
+
+  <script>
+    $(function(){
+      // 获得奇数行的tr标签
+      var oddTrs = $('tr:odd');
+      // console.dir(oddTrs);
+      // // DOM原始的写法，很麻烦，需要进行遍历。
+      // for(var i = 0; i < oddTrs.length; i++) {
+      //   var domTr = oddTrs[i]; // 拿到dom的tr标签对象。
+      //   domTr.style.backgroundColor = "#eee";
+      // }
+
+      // jQuery提供隐式迭代的用法
+      // jQuery设置dom的元素样式，提供了方法css('styleName', 'value')
+      // 如果传一个参数，代表获取，传两个参数代表设置。
+      oddTrs.css('backgroundColor', '#aaa');
+      // jQuery：如果包装对象里面元素是多个时候，做设置操作会影响包装对象中的所有dom对象。
+      // 但是获取值，只会返回第一个元素的值。
+
+      // 拿到所有的偶数行
+      $('tr:even').css('backgroundColor', '#eee');
+
+    });
+  </script>
+</body>
+</html>

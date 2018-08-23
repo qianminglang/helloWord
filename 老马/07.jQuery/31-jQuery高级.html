@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery高级</title>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+</ul>
+
+<script src="./lib/jquery-1.12.4.js"></script>
+<script>
+  // 数组的方法forEach， ie9+ 
+  var arr = ['a', 'b', 3, 4];
+  // value数组的元素， index数组元素的索引
+  arr.forEach(function(value, index) {
+    console.log('index:',index, 'value',value)
+  });
+
+  //jQuery原型上提供了each
+  $(function() {
+    // jQuery.fn上提供了each方法，类似for循环遍历。推荐使用each替代for
+    // 参数：第一个参数是：索引，第二个参数是dom元素。
+    $('li').each(function(index, elem) {
+      console.log(index, elem);
+    });
+
+    // jQuery原型：获取元素个数。
+    console.log('size:', $('li').size())
+    console.log('length:', $('li').length)
+    console.log($('li').get());
+  });
+</script>
+</body>
+</html>

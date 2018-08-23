@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery的动画系统</title>
+  <style>
+    html, body, div {
+      padding: 0;
+      margin: 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #000;
+      display: none;
+    }
+  </style>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <input type="button" value="显示" id="btnShow">
+  <input type="button" value="隐藏" id="btnHide">
+  <input type="button" value="滑上" id="btnSlideUp">
+  <input type="button" value="滑下" id="btnSlidedown">
+  <input type="button" value="切换滑动" id="btnToggleSlide">
+  <input type="button" value="淡入" id="btnFadeIn">
+  <input type="button" value="淡出" id="btnFadeOut">
+  <input type="button" value="设置透明度" id="btnFadeTo">
+  <div class="box">
+
+  </div>
+  <script>
+    $(function() {
+      $('#btnShow').on('click', function(e) {
+        // 给show 穿的参数： 字符串类型： slow 慢（600）  Normal(400) fast:200ms
+        // $('.box').show('slow');
+        // $('.box').show('fast');
+
+        // 给show方法设置一个时间间隔  单位ms
+        // $('.box').show(2000);
+        // $('.box').show(2000, "linear");
+        $('.box').show(1000, "swing", function(e) {
+          console.log('animate is over');
+        });
+
+      });
+
+      $('#btnHide').on('click', function(e) {
+        $('.box').hide(700);
+      });
+
+      $('#btnSlideUp').on('click', function(e) {
+        $('.box').slideUp('slow');
+      });
+
+      $('#btnSlidedown').on('click', function(e) {
+        $('.box').slideDown(300, 'linear', function() {
+          console.log('slide down is over');
+        })
+      });
+
+      $('#btnToggleSlide').on('click', function(e) {
+        $('.box').slideToggle(500);
+      });
+
+      $('#btnFadeIn').on('click', function(e) {
+        $('.box').fadeIn(2000);
+      });
+      $('#btnFadeOut').on('click', function(e) {
+        $('.box').fadeOut(2000);
+      });
+
+
+      $('#btnFadeTo').on('click', function(e) {
+        // 0 完全透明
+        // 1 完全不透明
+        // $('.box').fadeTo(1000, 0.1);
+
+        // $('.box').fadeTo(1000, 0.8);
+        // $('.box').fadeTo('slow' ,0.5);
+        $('.box').show(300).slideUp(300).slideDown(300).fadeTo(300, 0.5);
+      });
+
+      // show  hide
+      // slideUp  slideDown slideToggle
+      // fadeIn  fadeOut  fadeToggle
+      // 参数： [duration]: 动画持续的时间， slow   1000
+      //       [easing]: linear swing 动画的效果
+      //       fn 动画结束的时候执行的回调函数。
+      // 返回值： 都是调用动画的包装对象。
+
+      // fadeTo
+    });
+  </script>
+</body>
+</html>

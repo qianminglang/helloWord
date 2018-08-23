@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery事件对象</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <p>ldjlsjf </p>
+  <input type="text">
+
+  <script>
+    $(function() {
+      $('p').on('click',function(e) {
+        console.log(e);
+        console.log(e.which);
+      });
+      $('input:text').on('keydown', function(e) {
+        // which可以获得 键盘键，鼠标键。
+        console.log(e.which);
+      });
+
+      // 绑定一个自定义事件
+      $('input:text').on('myevent', function(e) {
+        console.log('我的自定义事件');
+        console.log(this.value);
+      });
+
+      // 触发自定义事件。
+      $('input:text').trigger('myevent');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery宽高和位置</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <style>
+    html, body, div {
+      padding: 0;
+      margin: 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 13px solid #ccc;
+      padding: 10px;
+      margin: 22px;
+      background-color: #c09;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+
+  </div>
+  <div class="box">
+
+  </div>
+  <div class="box">
+
+  </div>
+  <h1>1</h1>
+  <h1>2</h1>
+  <h1>3</h1>
+  <h1>4</h1>
+  <h1>5</h1>
+  <h1>6</h1>
+  <h1>7</h1>
+  <h1>8</h1>
+  <h1>9</h1>
+  <h1>10</h1>
+  
+  <input type="button" value="获取滚动高度" id="btnGetScrollTop">
+  <script>
+    $(function() {
+      // 内容区域 + 内边距
+      console.log('innertHeight:', $('.box').innerHeight());
+      console.log('innertHeight:', $('.box').innerWidth());
+
+      // 计算边框 + 内边距 + 内容
+      console.log('outerHeight:', $('.box').outerHeight());
+      console.log('outerHeight:', $('.box').outerWidth());
+
+      // 计算外边距 + 边框 + 内边距 + 内容
+      console.log('outerHeight true:', $('.box').outerWidth(true));
+      console.log('outerHeight true:', $('.box').outerWidth(true));
+
+      // 读取内容区域的宽高
+      console.log('width:', $('.box').width());
+      console.log('height:', $('.box').height());
+
+      // 设置内容区域的宽高。 传Number，单位默认是px
+      console.log('height:', $('.box').height(120));
+      // console.log('height:', $('.box').width(120));
+      // 也可以传字符串
+      // console.log('height:', $('.box').width('200px'));
+
+      // 用的非常少。
+      $('.box').width(function(index, width) {
+        return width + index * 20;
+      });
+
+      console.log('width:', $('.box').width());
+      console.log('height:', $('.box').height());
+
+
+      $('#btnGetScrollTop').on('click', function(e) {
+        // console.log($(window).scrollTop());
+        $(window).scrollTop(0);
+      });
+
+
+      // height  width  innerWidth   innerHeight  
+      // outerHeight outerWidth(true)
+      // scrollTop  scrollLeft 可读可写。
+
+      // position  => {left: 19, top:20 }; // 相对于定位的元素的dom中 offsetLeft  offsetTop
+      // offset() =>  {left: 19, top:20 } // 相对于视口的宽高。 clientLeft clientTop
+
+    });
+  </script>
+</body>
+</html>

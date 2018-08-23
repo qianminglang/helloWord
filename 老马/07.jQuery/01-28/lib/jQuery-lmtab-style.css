@@ -1,0 +1,49 @@
+html,
+body,
+div,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.tab-wrap {
+  border: 1px solid #ccc;
+  width: 606px;
+  height: 340px;
+  overflow: hidden;
+}
+
+.tab-wrap .tab-hd {
+  overflow: hidden;
+}
+
+.tab-wrap .tab-hd .tab-hd-item {
+  float: left;
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab-wrap .tab-hd .tab-hd-item:hover {
+  background-color: #fafafa;
+}
+
+
+.tab-wrap .tab-bd .tab-bd-item {
+  width: 600px;
+  display: none;
+}
+
+.tab-wrap .tab-bd .on {
+  display: block;
+}

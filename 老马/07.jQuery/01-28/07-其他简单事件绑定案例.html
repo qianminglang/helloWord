@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>其他jQuery简单绑定事件案例</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <div class="input-box">
+    <input type="text" value="1">
+    <input type="text" value="2">
+    <input type="text" value="3">
+    <input type="text" value="4">
+  </div>
+  <script>
+    $(function(){
+      var $inputArray = $('.input-box input');
+      // jQuery构造函数传入选择器，返回的是一个jQuery的包装对象
+      // 大部分的api都是在jQuery包装对象上
+      // console.dir($inputArray);
+      $inputArray.focus(function(e) {
+        console.log(this.value); // this 就是当前的input标签
+      });
+
+      // 简单绑定事件，接受两个参数的情况
+      $inputArray.change('12334', function(e) {
+        console.dir(e); // jQuery封装的事件对象。
+        console.log(e.data);
+      });
+
+      // 事件方法被调用，但没有传递参数
+      // 代码触发此事件，并模拟当前事件对应的操作。
+      $inputArray[3].focus(); // 触发focuse事件，模拟获取焦点的操作。
+    });
+  </script>
+</body>
+</html>

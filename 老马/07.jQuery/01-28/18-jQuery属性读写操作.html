@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery属性读写</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <input type="checkbox" name="ckb" id="ckb2">
+  <p class="txt" tmd="ss">搜索</p>
+  <p class="txt" tmd="ss">搜索</p>
+  <p class="txt" tmd="ss">搜索</p>
+  <script>
+    $(function() {
+      // 第一种：属性读取的用法，接受一个参数：属性名字，返回第一个匹配对象的   属性值。   
+      // 读取属性
+      console.log($('.txt').attr('tmd'));
+      
+      // 第二种： 设置属性，接受两个参数。第一个参数： 属性名字。
+      // 第二个参数是：要设置的属性值。
+      // 写入属性
+      // $('.txt').attr('tmd', '1234');
+      console.log($('.txt').attr('tmd'));
+
+      // 通过attr方法获取的单属性的值的时候就是属性名字或者undefined
+      console.log($('#ckb2').attr('checked'));
+      // 第三种用法：可以同时设置多个属性值，传入一个属性对象。
+      $('p').attr({
+        mk: '123',
+        md: '2334'
+      });
+
+      // 第四种用法：jQuery回调函数
+      $('p').attr('tmd', function(index, oldAttr) {
+        return oldAttr + index;  // 隐式迭代。
+      });
+      console.log($('p'));
+
+      // 设置单个属性值设置方法
+      // $('#ckb2').removeAttr('checked');
+      // $('#ckb2').attr('checked', 'checked');
+
+      // 单属性的处理一般都要用prop来处理。
+      // checked selected disabled         => Boolean
+      $('#ckb2').prop('checked', true);
+      $('#ckb2').prop('checked', false);
+    });
+  </script>
+</body>
+</html>

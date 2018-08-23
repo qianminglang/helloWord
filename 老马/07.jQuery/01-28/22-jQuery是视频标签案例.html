@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>视频标签案例</title>
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style>
+    html, body, div {
+      padding: 0;
+      margin: 0;
+    }
+
+    .label-wrap {
+      width: 300px;
+      /* height: 30px; */
+      line-height: 30px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      margin: 100px auto;
+    }
+
+    .label-wrap .txt-lb {
+      border: none;
+      outline: none;
+      height: 30px;
+      line-height: 30px;
+      width: 60px;
+      float: left;
+    }
+
+    .label-wrap .lb-span {
+      float: left;
+      border: 1px solid #ccc;
+      padding: 0 10px;
+      margin-right: 10px;
+    }
+  </style>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <div class="label-wrap">
+    <span class="lb-span">jQuery<i class="glyphicon glyphicon-remove"></i></span>
+    <input type="text" class="txt-lb">
+  </div>
+  <script>
+    $(function(){
+
+      // 当文本框按下按键时处理
+      $('.txt-lb').on('keydown', function(e) {
+        // 判断用户是否按下了回车： e.which == 13 回车键
+        if( e.which == 13 ) {
+          inputToLabel();
+        } else if( e.which == 8) {
+          // 按下了删除键
+          // 把最后一个lb-sapn标签删除，把里面文本放到文本上去。
+          if($(this).val().length <= 0) {
+            var txt = $('.label-wrap span:last').text();
+            $(this).val(txt);
+            $('.label-wrap span:last').remove();
+
+            // 取消默认行为，取消后退键删除字符的默认行为
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }
+      });
+
+      // 给整个div绑定一个点击事件，进行给文本获取焦点
+      $('.label-wrap').on('click', function(e) {
+        $('.txt-lb').focus();
+      })
+
+      // 当文本框失去焦点到时候，给div添加span标签。另外input清空
+      $('.txt-lb').on('blur', function(e) {
+        inputToLabel();
+      });
+
+      // 删除label按钮点击事件
+      $('.label-wrap').on('click', 'i', function(e) {
+        $(this).parent().remove();
+      });
+
+      //  将文本框中的文本生成 label样式的标签。
+      function inputToLabel() {
+        // 判断文本框不为空，则进行添加标签操作
+        if($(".txt-lb").val().length > 0 ) {
+          // 当前文本框的 文本生成一个span标签放到文本框之前
+          var $lb = $('<span class="lb-span">' + $(".txt-lb").val() +'<i class="glyphicon glyphicon-remove"></i></span>');
+          // 在文本框前面追加一个lb对象
+          $(".txt-lb").before($lb);
+          $(".txt-lb").val(''); // 设置value为空
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>手风琴效果</title>
+  <style>
+    html, body, div, ul, li {
+      margin: 0; padding: 0;
+    }
+    ul, ol {
+      list-style: none;
+    }
+
+    .ac {
+      width: 200px;
+      border: 1px solid #ccc;
+    }
+
+    .ac .ac-item {
+
+    }
+
+    .ac .ac-item .ac-item-hd {
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background-color: #cfcfcf;
+      border: 1px solid #aaa;
+      cursor: pointer;
+    }
+    .ac .ac-item .ac-item-hd:hover {
+      background-color: #afafaf;
+    }
+
+    .ac .ac-item .ac-item-bd {
+      height: 200px;
+      display: none;
+    }
+
+    .ac .on .ac-item-bd {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <ul class="ac">
+    <li class="ac-item on">
+      <div class="ac-item-hd">头部1</div>
+      <div class="ac-item-bd">内容1</div>
+    </li>
+    <li class="ac-item">
+      <div class="ac-item-hd">头部2</div>
+      <div class="ac-item-bd">内容2</div>
+    </li>
+    <li class="ac-item">
+      <div class="ac-item-hd">头部3</div>
+      <div class="ac-item-bd">内容3</div>
+    </li>
+    <li class="ac-item">
+      <div class="ac-item-hd">头部4</div>
+      <div class="ac-item-bd">内容4</div>
+    </li>
+  </ul>
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      $('.ac-item-hd').on('click', function(e) {
+        // addClass 添加样式类
+        $(this).parent().addClass('on');
+        // removeClass是移除样式类
+        $(this).parent().siblings('li').removeClass('on');// 隐式迭代。
+      });
+    });
+  </script>
+</body>
+</html>

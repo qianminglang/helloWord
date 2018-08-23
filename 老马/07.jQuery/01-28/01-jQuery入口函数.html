@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery入口函数</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+
+<body>
+  <script>
+    // DOM
+    // window.onload = function() {
+    //   var btn = document.getElementById('btn');
+    //   btn.onclick = function(e) {
+    //     alert(this.value);
+    //   }
+    // };
+    window.onload = function () {
+      console.log('load')
+    }
+
+    // **** 推荐使用这种。！！
+    // jQuery 占用了两个全局变量， $ === jQuery // true
+    $(function () {
+      // 页面加载完成后，自动执行
+      console.log('ready1')
+
+      var btn = document.getElementById('btn');
+      btn.onclick = function (e) {
+        alert(this.value);
+      }
+    }); // $是一个函数对象，jQuery构造函数。
+
+    jQuery(function () {
+
+    });
+
+    // 文档加载完成后自动执行回调函数。
+    $(document).ready(function () {
+      console.log('ready2')
+    });
+  </script>
+  <input type="button" id="btn" value="123">
+
+</body>
+
+</html>

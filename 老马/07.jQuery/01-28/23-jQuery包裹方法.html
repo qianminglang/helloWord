@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>23-jQuery包裹方法</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <p id="p1">1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+  <p>7</p>
+  <p>8</p>
+  <p>9</p>
+  <p>10</p>
+
+  <script>
+    $(function() {
+      // 让每个p标签都包裹一个div标签
+      // $('p').wrap('<div></div>');
+
+      // 把所有匹配的元素用一个标签进行包裹。
+      // $('p').wrapAll('<div></div>');
+
+      // 把标签内部的子元素用一个标签进行包裹。
+      // $('p').wrapInner('<span></span>');
+
+      // 把 A 替换掉 所有满足 seletor条件的B元素。
+      // $('<span>1234</span>').replaceAll('p:first');
+
+      // 把A 用 B来进行替换
+      // $('p:last').replaceWith('<div> --- </div>');
+
+      var t = $('#p1').clone(true);
+      console.log(t);
+      // jQuery clone方法不能使用 :first
+      $('#p1').clone(true).appendTo('body');
+    });
+
+    // 兄弟节点级别操作：after  before  insertBefore insertAfter
+    // 子节点的操作： append appendTo  prepend prependTo
+    // 包裹节点： wrap  wrapAll  wrapInner
+    // 删除子节点： empty()   删除自己：自杀，remove()
+    // 替换节点： replaceWith  replaceAll()
+    // 动态创建节点： $('<div></div>')
+  </script>
+</body>
+</html>

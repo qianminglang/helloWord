@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery ui</title>
+  <!-- 一定注意：用jQuery的插件首先引用jQuery脚本后引用插件的脚本 -->
+  <script src="./lib/jquery-1.12.4.min.js"></script>
+  <script src="./lib/jquery-ui-1.12.1.custom/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+  <link rel="stylesheet" href="./lib/jquery-ui-1.12.1.custom/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+  <link rel="stylesheet" href="./lib/jquery-ui-1.12.1.custom/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css">
+</head>
+
+<body>
+  <div class="tabs">
+    <ul>
+      <li>
+        <a href="#tabs-1">商品</a>
+      </li>
+      <li>
+        <a href="#tabs-2">用户</a>
+      </li>
+      <li>
+        <a href="#tabs-3">管理</a>
+      </li>
+    </ul>
+    <div id="tabs-1">
+      <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet
+        mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean
+        tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae
+        ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci
+        tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+    </div>
+    <div id="tabs-2">
+      用户的管理
+      <input type="button" id="btnOpenDialog" value="弹出对话框">
+      <div title="弹出来的对话框标题" class="dialog-box" style="display:none;">
+        对话框内容
+        <img src="./img/1.png" alt="">
+      </div>
+    </div>
+    <div id="tabs-3">
+      <img src="./img/3.png" alt="">
+    </div>
+  </div>
+
+  <script>
+    $(function () {
+      $('.tabs').tabs();
+      $('#btnOpenDialog').on('click', function () {
+        // 弹出对话框
+        $('.dialog-box').dialog({
+          modal: true,
+          width: 800,
+          height: 400,
+          draggable: false,
+          buttons: [{
+            text: "关闭对话框",
+            click: function () {
+              $(this).dialog("close");
+            }
+          }],
+          close: function(e) {
+            console.log('close dialog')
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

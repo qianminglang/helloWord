@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">
+    123
+  </div>
+
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <script>
+    // jQuery扩展插件： 
+    // 第一种： 扩展jQuery原型对象的方法。
+    (function($) {
+      // 给jQuery原型扩展方法，可以在jQuery的包装对象上使用。
+      $.fn.logText = function() {
+        console.log(this.text());
+      };
+    })(jQuery);
+
+    // 使用自己的扩展的方法。
+    $(function() {
+      // 自定义扩展的原型的方法。也就是jQuery的插件。
+      $('.box').logText();
+    });
+
+
+    // 第二种：扩展jQuery构造函数上的插件（方法）
+    // jQuery.logTime = function() {
+    //   console.log(Date.now().toString());
+    // }
+    
+    // jQuery的extend方法，不传入target时，可以直接对jQuery构造函数扩展属性或方法。
+    $.extend({
+      logTime: function() {
+        console.log(new Date());
+      }
+    });
+
+    $.logTime();
+  </script>
+</body>
+</html>

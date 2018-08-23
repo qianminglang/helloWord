@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery选择器</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <p>我是一个短路</p>
+  <div class="cd">
+    我是的一个div1
+  </div>
+  <div class="cd">
+      我是的一个div2
+  </div>
+  <div class="cd2">
+      我是的一个div2
+      laoma
+  </div>
+  <h3 tm="属性">标题标签</h3>
+  <ul class="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+
+  <script>
+    $(function(){
+      // 全部选择器，选择页面中所有的标签元素。
+      var $all = $('*');
+      console.dir($all);
+
+      // 类选择器
+      var $cd = $(".cd");
+      console.dir($cd);
+
+      var div1 = $cd[0];
+      console.log(div1.innerHTML);
+
+      // 标签选择器和并集选择器
+      console.dir($('div, h3'));
+
+      // 交集选择器
+      console.dir($('div.cd2'));
+
+      // 过滤选择器和后代选择器
+      console.dir($('.list li:first'));
+
+      // 包含选择器
+      var $div = $('div:contains("laoma")');
+      // 如果选择器返回的是多个元素的时候，那么返回第一个元素的内部文本
+      console.log($div.text());// jQuery获取选择元素的内部文本。
+      var domDiv = $div[0];
+      // var str = domDiv.textContent ? domDiv.textContent : domDiv.innerText;
+      console.log(domDiv.innerHTML);
+    });
+  </script>
+</body>
+</html>

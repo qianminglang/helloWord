@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>京东秒杀案例</title>
+  <style>
+    html, body, div {
+      padding: 0;
+      margin: 0;
+    }
+    .box {
+      width: 583px;
+      height: 299px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      position: relative;
+    }
+    .cv-box {
+      position: absolute;
+      top: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="bg-box">
+      <img src="./img/1.png" alt="">
+    </div>
+    <div class="cv-box">
+      <img src="./img/2.png" alt="">
+    </div>
+  </div>
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      $('.box').hover(function(e) {
+        // 鼠标移入：top减少到0
+        $('.cv-box').animate({top: 0}, 300);
+      }, function(e) {
+        // 鼠标移开
+        $('.cv-box').animate({top: '100%'}, 300);
+      })
+    });
+  </script>
+</body>
+</html>

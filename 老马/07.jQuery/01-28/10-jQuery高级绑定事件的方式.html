@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>10-jQuery高级绑定事件的方式</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <input type="button" value="按钮" id="btn">
+  <input type="button" value="按钮" id="btn2">
+  <script>
+    $(function() {
+      // jQuery 简单绑定事件
+      // $('#btn').click(function(e) {
+      // });
+
+      // 第一种：绑定事件的方式 ****
+      // jQuery高级绑定事件的方式
+      $('#btn').bind('click', function(e) {
+        console.log(this.value, e);
+      });
+
+      // 第一个参数： 事件类型，String
+      // 第二个参数： 给事件处理程序的参数的data属性传递数据
+      // 第三个参数： 事件处理程序的回调函数。
+      // jQuery 的bind方法，传递三个参数
+      $('#btn').bind('focus', '2222', function(e) {
+        console.log(e.data);
+      });
+
+      // bind方法可以对同一个事件绑定多个事件处理程序。执行顺序就是绑定事件的顺序。
+      $('#btn').bind('focus', '3333', function(e) {
+        console.log(e.data);
+      });
+
+      // 第二种； 同时绑定多个事件
+      // $('#btn2').bind('click focus', function(e) {
+      //   console.log(e.type);
+      // });
+
+      // 第三种： 绑定一个事件对象， 最好不要用。
+      $('#btn2').bind({
+        click: function(e) {
+          console.log('click');
+        },
+        mousedown: function(e) {
+          console.log(e.type);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

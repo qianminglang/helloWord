@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery合成事件案例</title>
+  <style>
+    .box {
+      position: absolute;
+      overflow: hidden; 
+      border: 1px solid #ccc;
+    }
+    .left {
+      height: 200px;
+      width: 100px;
+      float: left;
+    }
+    .box .aside {
+      display: none;
+      width: 100px;
+      height: 200px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="left"></div>
+    <div class="aside"></div>
+  </div>
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      $('.box').hover(function(e) {
+        // 鼠标移入， 让asiide标签显示
+        $('.aside').css('display', 'block');
+      }, function(e) {
+        // 鼠标移出
+        $('.aside').css('display', 'none');
+      });
+    });
+  </script>
+</body>
+</html>

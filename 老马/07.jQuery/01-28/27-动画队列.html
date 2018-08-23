@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动画队列</title>
+  <style>
+    .box {
+      height: 100px;
+      width: 100px;
+      border: 1px solid #ccc;
+      background-color: magenta;
+    }
+  </style>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <input type="button" value="动画" id="btn">
+  <input type="button" value="立即结束动画" id="btnFinish">
+  <input type="button" value="停止动画" id="btnStop">
+  <div class="box">
+  </div>
+  <script>
+    $(function() {
+      $('#btn').on('click', function(e) {
+        $('.box').hide(1000)
+        .show(1000)
+        .slideUp(1000)
+        .slideDown(1000)
+        .fadeTo(1000, 0.5)
+        .animate({width: 200}, 1000);
+      });
+
+      $('#btnFinish').on('click', function(e) {
+        // 立即结束动画,让dom元素变化到最终动画队列都结束效果状态。
+        $('.box').finish();
+      });
+
+      $('#btnStop').on('click', function(e) {
+        // stop方法传入一个参数：false或者不传参数，表示结束当前的动画。后续的动画不受影响
+        // $('.box').stop(false);
+        // 如果传入第一个参数为true，后续的动画也都受影响。不执行了。
+        // $('.box').stop(true);
+
+        // 让dom元素动画结束，然后让dom元素到当前动画结果的状态。
+        $('.box').stop(true, true);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>on绑定事件的方式</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <input type="button" value="按钮" id="btn">
+  <ul class="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+  </ul>
+  <script>
+    $(function() {
+      // on 替代 bind绑定事件的方式。
+      $('#btn').on('click', function(e) {
+        console.log(123);
+      });
+
+      // on 替代 live 动态创建元素绑定事件的方法
+      // dom动态创建
+      // var domP = document.createElement('p');
+      // domP.innerHTML = "1234";
+      // $(domP).on('click', function(e) {
+      //   console.log($(this).text());
+      // })
+      // document.body.appendChild(domP);
+      // jQuery 动态创建dom标签,
+      var $p = $('<p>123445667</p>');
+
+      // 给动态标签绑定事件
+      $p.on('click', function(e) {
+        console.log($(this).text());
+      });
+
+      // 给页面中的body添加$p标签
+      $("body").append($p);
+
+      // jQuery构造函数的用法复习
+      // 1、接受一个回调函数，作为：document ready事件
+      // 2、可以接受一个字符串作为 选择器进行选择页面中元素，返回jQuery包装对象。
+      // 3、可以接受一个dom对象，将dom对象转换 jQuery包装对象
+      // 4、可以接受一个html标签字符串，创建成jQuery包装对象
+
+
+      // On 替代delegate方法
+      $('.list').on('click', 'li', function(e) {
+        console.log( $(this).html() );
+      });
+    });
+  </script>
+</body>
+</html>

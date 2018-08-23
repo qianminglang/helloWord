@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>评分控件</title>
+  <style>
+  html, body, div, ul, li {
+    padding: 0; margin: 0;
+  }
+  ul, ol {
+    list-style: none;
+  }
+  
+  .list li {
+    float: left;
+    width: 20px;
+    font-size: 20px;
+  }
+  </style>
+</head>
+<body>
+<ul class="list">
+  <li>☆</li>
+  <li>☆</li>
+  <li>☆</li>
+  <li>☆</li>
+  <li>☆</li>
+</ul>
+<script src="./lib/jquery-1.12.4.js"></script>
+<script>
+  $(function() {
+    // 第一个效果： 当鼠标移入 五角星时候。之前的五角星和自己都变成实心的五角星
+    $('.list li').hover(function(e) {
+      // 鼠标移入：当鼠标移入 五角星时候。之前的五角星和自己都变成实心的五角星
+      $(this).text('★').prevAll().text('★'); // 隐式迭代。
+    }, function(e) {
+      // 鼠标移出： 把自己变成空心五角星，而且后面的也都变成空心五角星
+      $(this).text('☆').nextAll().text('☆');
+    }).on('click', function(e) {
+      // 点击之后，记录当前点击的是谁
+      $(this).addClass('cur').siblings().removeClass('cur');
+    });
+
+    // 给整个ul标签绑定一个mouseleave事件。
+    $('.list').on('mouseleave', function(e) {
+      // 拿到当前 cur 类的li标签。
+      $('.list li.cur').text('★')
+          .prevAll().text('★').   // 前面的节点都设置成实心
+        end().nextAll().text('☆');// 点击元素后面的节点设置成空心
+    });
+  });
+</script>
+</body>
+</html>

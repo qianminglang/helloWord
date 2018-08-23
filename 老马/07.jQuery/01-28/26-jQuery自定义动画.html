@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>26-jQuery自定义动画</title>
+  <style>
+    html, body, div {
+      padding: 0;
+      margin: 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #098;
+      border: 1px solid #ccc;
+      position: absolute;
+    }
+  </style>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <input type="button" value="动画" id="btnAnimate">
+  <div class="box">
+    
+  </div>
+
+  <h1>1</h1>
+  <h1>2</h1>
+  <h1>3</h1>
+  <h1>4</h1>
+  <h1>5</h1>
+  <h1>6</h1>
+  <h1>7</h1>
+  <h1>8</h1>
+  <h1>9</h1>
+  <h1>10</h1>
+  <h1>11</h1>
+  <h1>12</h1>
+  <h1>13</h1>
+  <h1>14</h1>
+  <h1>15</h1>
+  <h1>16</h1>
+  <h1>17</h1>
+  <h1>18</h1>
+  <h1>19</h1>
+  <h1>20</h1>
+  <input type="button" value="滚动到顶部" id="btnScrollTop">
+  <script>
+    $(function() {
+      $('#btnAnimate').on('click', function(e) {
+        $('.box').animate({
+          height: 200,
+          width: '300px',
+          left: '+=30px',  // 每次都执行增加30像素的动画
+          top: '-=10px',
+          paddingLeft: '+=20px'
+        }, 500, 'swing');
+      });
+
+      $('#btnScrollTop').on('click', function(e) {
+        $('html,body').animate({
+          scrollTop: 0
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>

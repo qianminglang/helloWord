@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery解绑事件</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <input type="button" value="解绑事件" id="btn">
+  <input type="button" value="解绑命名空间事件" id="btnOffNameSpace">
+  <ul class="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <script>
+    $(function() {
+      $('.list li').on('click', function(e) {
+        console.log(this.innerHTML);
+      });
+
+      // 事件类型后面加 .demo 表示当前事件所属 demo命名空间
+      $('.list li').on('click.demo', function(e) {
+        console.log("==",this.innerHTML, "==");
+      });
+
+      $('.list li').on('click.demo', function(e) {
+        console.log("===",this.innerHTML, "===");
+      });
+
+
+      $('#btn').on('click', function(e) {
+        // 解绑on的click事件
+        // $('.list li').off('click');
+
+        // 解绑所有的事件
+        // $('.list li').off();
+      });
+
+      // 解绑命名空间事件
+      $("#btnOffNameSpace").on('click', function(e) {
+        // 解绑了命名空间的事件，其他命名空间的事件或者没有命名空间的事件不受影响。
+        $('.list li').off('click.demo');
+      });
+    });
+  </script>
+</body>
+</html>

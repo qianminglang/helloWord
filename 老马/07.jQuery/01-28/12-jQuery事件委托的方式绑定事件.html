@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件委托</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <ul class="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <script>
+    $(function() {
+      // 事件委托绑定的方式，第一个参数，是过滤子元素。
+      // 第二个参数：事件类型
+      // 第三个参数： 事件处理程序
+      $('.list').delegate('li', 'click', function(e) {
+        // dom
+        // console.log(this.innerHTML); // innerText(ie), textContent(ff)
+        //jq
+        console.log($(this).text());
+      });
+
+      // jQuery:  click(简单绑定事件) 
+      // bind 
+      // one : 事件只执行一次。
+      // live ： 对 动态创建的dom元素绑定事件。
+      // delegate : 事件委托绑定事件。
+    });
+  </script>
+</body>
+</html>

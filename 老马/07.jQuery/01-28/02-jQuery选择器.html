@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery选择器</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <input type="button" value="按钮" id="btn">
+  <script>
+  // dom
+  // window.onload = function() {
+  //   document.getElementById('btn');
+  // }
+
+  // jQuery
+  $(function(){
+    // 页面的文档加载完成后
+    var $btn = $('#btn'); // #代表id选择器。
+    // jQuery的构造函数：
+    // 第一种用法：可以接受一个回调函数，回调就是在页面加载完成后执行。
+    // 第二种用法：还可以接受一个css的选择器（string），返回选择器对应dom节点的jQuery包装对象。
+
+    // 我们一般给jQuery的对象加一个$.
+
+    console.dir($btn);
+    // jQuery包装对象（所有的选择器选择返回的对象都是jQuery的包装对象。也就是一个伪数组）
+    // jQuery包装对象 和dom对象相互转换。
+    var btn = $btn[0]; // jQuery → DOM
+
+    // dom 对象转换  jQuery
+    var $btn2 = $(btn); // jQuery构造函数的第三种用法： 接受一个dom对象，转成jQuery的包装对象。
+    console.dir($btn2)
+
+    // 转成jQuery的包装对象之后 ，就拥有了jQuery.fn上的方法api
+  });
+  </script>
+</body>
+</html>

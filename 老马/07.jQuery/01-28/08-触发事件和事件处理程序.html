@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>08-触发事件和事件处理程序.html</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <div>
+    <input type="button" value="按钮" id="btn">
+  </div>
+  <script>
+    $(function(){
+      // 绑定事件
+      $('#btn').click(function(e, a, b) {
+        console.log(e, a, b);
+      });
+
+      $('div').click(function(e) {
+        console.log('div is cliced');
+      });
+
+      // 触发事件。
+      // $('#btn').click(); // 第一种触发点击事件的方式
+      // 第二种触发点击事件,下面这种触发事件，可以触发任何事件，包括自定义事件。
+      // $("#btn").trigger('click', ['1234', '3333']);
+
+      // 触发事件处理程序执行，不触发事件本身
+      $('#btn').triggerHandler('click', [2, 5]);
+    });
+  </script>
+</body>
+</html>

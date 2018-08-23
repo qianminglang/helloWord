@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery绑定事件</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+  <input type="button" value="按钮" id="btn">
+  <!-- dom绑定事件的方式 -->
+  <script>
+    window.onload = function() {
+      var btn = document.getElementById('btn');
+      // dom 0 级绑定事件的方式
+      // 事件处理程序只能绑定一个，绑定多个事件处理程序后面的会覆盖前面的。
+      btn.onclick = function() {
+        console.log('1234');
+        // this === 绑定事件的dom对象
+      };
+
+      // dom2级绑定事件的方式
+      // 可以绑定多个事件处理程序，多个事件处理程序的执行顺序不能保证。
+      if(btn.addEventListener) {
+        btn.addEventListener('click', function(e) {
+          console.log('1234');
+        }, false);
+      } else {
+        // 兼容ie8及以下浏览器。
+        btn.attachEvent('onclick', function() {
+          var e = window.event;
+        });
+      }
+    };
+  </script>
+
+  <!-- jQuery绑定事件的方法 -->
+  <script>
+    $(function(){
+      // 页面加载完成（dom树已经初始化好了，可以进行交互访问)
+      $('#btn').click(function(e){ // e =jQuery.fn.event
+        console.log('1234');
+        console.log(this.value); // jQuery的事件处理程序中，this也执行绑定当前事件处理程序的dom对象
+      });
+      $('#btn').click(function(e){ // e =jQuery.fn.event
+        console.log('12345');
+      });
+      $('#btn').click(function(e){ // e =jQuery.fn.event
+        console.log('123456');
+      });
+      // jQuery绑定事件的事件方式：类似于我们的DOM2级绑定事件的方式
+      // 可以绑定多个事件处理程序。而且执行顺序是按照注册顺序执行。
+      // jQuery的事件处理程序中，this也执行绑定当前事件处理程序的dom对象
+    });
+  </script>
+</body>
+</html>

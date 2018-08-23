@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>32-jQuery构造函数属性和方法</title>
+</head>
+
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <script>
+    //jQuery的构造函数方法
+    // jQuery构造函数的几个应用：
+    // 1.选择元素： $('li') $('.box')
+    // 2.dom对象转换jQuery包装对象  $(dob) => jQuery
+    // 3.动态创建dom标签的jQuery包装对象  $('<div></div>')
+
+    // each方法
+    // jQuery.each([1, 'abc', 2, 3], function(index, value) {
+    //   console.log(index, value);
+    // });
+
+    $(function () {
+      // 页面加载完后才执行。
+      // jQuery.each($('li'), function(index, value) {
+      //   console.log(index, value);
+      // })
+
+      // jQuery构造函数的map方法
+      // var newArrJQuery = jQuery.map(['a', 'b', 'c', 'd'], function (value, index) {
+      //   console.log(value, index);
+      //   return value + index;
+      // });
+      // console.log(newArrJQuery);
+
+      // var n2 = $.grep([0, 1, 2], function (n, i) {
+      //   return n > 0;
+      // });
+      // console.log(n2)
+    });
+
+    // js ec5中提供的map方法，对数组中的元素进行处理并返回新数组。
+    // var arr = ['a', 'b', 'c', 'd'];
+    // var newArr = arr.map(function(value, index) {
+    //   return value + index; // 'a' + 0
+    // });
+
+    // console.log(newArr);
+
+    // jQuery 构造函数的extend方法
+
+    // 浅拷贝， 子对象只复制 子对象的地址。具体内部不进行复制。
+    // var target = {name: 'laoma'};
+    // var obj1 = {age: 18, cellphone: '18911865673', mail: 'malun666@126.com'};
+    // var p1 = {k: 123, m: 'abc'};
+    // var obj2 = {run: function() { console.log(1); }, p: p1};
+
+    // var =1 jQuery.extend(target, obj1, obj2);
+    // console.log(newObj, target);
+    // console.log(newObj === target)
+
+    // // console.log(newObj.p === p1);
+    // console.log(newObj.p.k); //123
+    // p1.k = 444; //newObj.p.k
+    // console.log(newObj.p.k); //444
+
+
+    // 深拷贝
+    var target = {name: 'laoma'};
+    var obj1 = {age: 18, cellphone: '18911865673', mail: 'malun666@126.com'};
+    var p1 = {k: 123, m: 'abc'};
+    var obj2 = {run: function() { console.log(1); }, p: p1};
+
+    var newObj = jQuery.extend(true, target, obj1, obj2);
+    console.log(newObj, target);
+    console.log(newObj === target)
+
+    // console.log(newObj.p === p1);
+    console.log(newObj.p.k); //123
+    p1.k = 444; //newObj.p.k
+    console.log(newObj.p.k); //123
+    console.log('p1.k', p1.k); //444
+  </script>
+</body>
+
+</html>

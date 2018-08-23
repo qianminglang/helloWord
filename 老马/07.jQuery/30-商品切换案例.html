@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>列表切换案例</title>
+  <style>
+    html, body, div, ul, li {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    .tab-wrap {
+      border: 1px solid #ccc;
+      width: 606px;
+    }
+
+    .tab-wrap  .tab-hd {
+      overflow: hidden;
+    }
+    .tab-wrap .tab-hd .tab-hd-item {
+      float: left;
+      width: 200px;
+      height: 30px;
+      line-height: 30px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      text-align: center;
+      cursor: pointer;
+    }
+    .tab-wrap .tab-hd .tab-hd-item:hover {
+      background-color: #fafafa;
+    }
+
+
+    .tab-wrap .tab-bd .tab-bd-item {
+      width: 600px;
+      display: none;
+    }
+    .tab-wrap .tab-bd .on {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tab-wrap">
+    <ul class="tab-hd">
+      <li class="tab-hd-item">商品1</li>
+      <li class="tab-hd-item">商品2</li>
+      <li class="tab-hd-item">商品3</li>
+    </ul>
+
+    <ul class="tab-bd">
+      <li class="tab-bd-item on"><img src="./img/1.png" alt=""></li>
+      <li class="tab-bd-item"><img src="./img/2.png" alt=""></li>
+      <li class="tab-bd-item"><img src="./img/3.png" alt=""></li>
+    </ul>
+  </div>
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      // 给tab头部添加鼠标移入事件
+      $('.tab-hd-item').on('mouseenter', function(e) {
+        // 拿到当前鼠标移入的hd部分li的索引。
+        var index = $('.tab-hd-item').index(this); // 获取元素的索引。
+        var bdLiDom = $('.tab-bd-item').get(index); // 可以获得第index个元素的dom对象。
+        $(bdLiDom).addClass('on').siblings().removeClass('on');
+      });
+    });
+  </script>
+</body>
+
+</html>

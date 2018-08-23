@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery链式编程</title>
+</head>
+<body>
+  <div class="box">
+    sss
+  </div>
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      $(".box").text('33333').slideUp(1000).slideDown(1000);
+    });
+
+    //链式编程的原理：对象调用了方法后，方法返回当前对象。
+    var cat = {
+      run: function() {
+        console.log('runing');
+        return this; // 核心：方法内部又把当前对象返回了。
+      },
+      sayHi: function() {
+        console.log('hi');
+        return this;
+      },
+      jump: function() {
+        console.log('jump');
+        return this;
+      }
+    };
+
+    cat.run().sayHi().jump(); 
+  </script>
+</body>
+</html>

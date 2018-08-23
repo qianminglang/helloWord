@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>开关灯案例</title>
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <style>
+    .cls {
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="关灯" id="btnLight">
+  <script>
+    $(function() {
+      $('#btnLight').on('click', function(e) {
+        // 按钮点击关灯后：文字改成开灯，然后背景色变成黑色
+        // 再点击开灯，那么文字改为关灯，背景变白色
+        if($(this).val() == '关灯') {
+          $(this).val('开灯');
+          // $(document.body).addClass('cls');
+        } else {
+          // 开灯的效果
+          $(this).val('关灯');
+          // $(document.body).removeClass('cls');
+        }
+        // 切换样式类：如果有则去掉，如果没有则加上。
+        $(document.body).toggleClass('cls');
+      });
+    });
+
+    // attr() prop()  html() text() val() addClass() removeClass() toggleClass() 
+    // hasClass('cls')=> boolean
+  </script>
+</body>
+</html>
